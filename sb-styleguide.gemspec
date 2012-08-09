@@ -3,7 +3,7 @@ require File.expand_path('../lib/sb-styleguide/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Adam Taylor", "Vincent Siebert"]
-  gem.email         = ["ad@iamadtaylor.com", "vincent@siebert.im"]
+  gem.email         = ["ad@adtaylor.co.uk", "vincent@siebert.im"]
   gem.description   = %q{styleguide}
   gem.summary       = %q{styleguide} 
   gem.homepage      = "https://github.com/thebeansgroup/sb-styleguide"

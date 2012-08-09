@@ -14,4 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "sb-styleguide"
   gem.require_paths = ["lib"]
   gem.version       = Sb::Styleguide::VERSION
+
+  # development dependencies
+  gem.add_development_dependency 'rails', '>= 3.1'
 end

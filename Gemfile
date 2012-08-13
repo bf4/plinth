@@ -1,4 +1,6 @@
-source 'https://rubygems.org'
+source :rubygems
 
-# Specify your gem's dependencies in sb-styleguide.gemspec
-gemspec
+# Declare your gem's dependencies in sb-styleguide.gemspec.
+# Bundler will treat runtime dependencies like base dependencies, and
+# development dependencies will be added by default to the :development group.
+gemspec :development_group => :dev

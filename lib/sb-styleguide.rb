@@ -1,7 +1,9 @@
 require "sb-styleguide/version"
+require "rails"
 
 module Sb
   module Styleguide
-    # Your code goes here...
+    class Engine < ::Rails::Engine
+    end
   end
 end

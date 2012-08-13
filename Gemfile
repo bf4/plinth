@@ -1,4 +1,3 @@
-source 'https://rubygems.org'
+source :rubygems
 
-# Specify your gem's dependencies in sb-styleguide.gemspec
-gemspec
+gem "middleman", "~>3.0.0"

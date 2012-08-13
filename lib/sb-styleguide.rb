@@ -1,4 +1,5 @@
 require "sb-styleguide/version"
+require "sb-styleguide/engine"
 
 module Sb
   module Styleguide

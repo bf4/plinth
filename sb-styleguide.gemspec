@@ -2,11 +2,11 @@
 require File.expand_path('../lib/sb-styleguide/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["TODO: Write your name"]
-  gem.email         = ["TODO: Write your email address"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.authors       = ["Adam Taylor", "Vincent Siebert"]
+  gem.email         = ["ad@adtaylor.co.uk", "vincent@siebert.im"]
+  gem.description   = %q{styleguide}
+  gem.summary       = %q{styleguide} 
+  gem.homepage      = "https://github.com/thebeansgroup/sb-styleguide"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

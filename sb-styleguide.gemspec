@@ -15,5 +15,4 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Sb::Styleguide::VERSION
 
-  gem.add_development_dependency 'middleman', '~>3.0.0'
 end

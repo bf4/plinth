@@ -1,4 +1,5 @@
 require "sb-styleguide/version"
+require "rails"
 
 module Sb
   module Styleguide

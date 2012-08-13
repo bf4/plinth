@@ -47,7 +47,9 @@
 #   end
 # end
 
-set :source_dir, "#{File.dirname(__FILE__)}/vendor/assets"
+set :source, 'vendor/assets'
+
+set :source_dir, "#{File.dirname(__FILE__)}/#{source}"
 
 set :css_dir, 'stylesheets'
 

@@ -21,28 +21,31 @@ Or install it yourself as:
 ### Javascript
 All javascripts provided by this styleguide can be pulled into the asset pipeline
 with the normal require command:
-`//= require test`
+
+    //= require test
+
 ### Stylesheets
 All stylesheets provided by this styleguide can be pulled into the asset pipeline
 with the normal require command:
-`//= require test`
+
+    //= require test
+
 ### Views/Partials
 In order to include partials defined by the styleguide you will have to add the
 styleguid's view path to your apps view path. The quickest way is by creating
 a before filter in either the action where you want the views to be accessible
 or, if you will be using the views often, you can define the filter in the
 application controller.
-`
-before_filter :styleguide_view_path
 
-private
-def styleguide_view_path
-  gem = Gem.loaded_specs['sb-styleguide']
-  if gem
-    prepend_view_path "#{gem.full_gem_path}/vendor/assets/views"
-  end
-end
-`
+    before_filter :styleguide_view_path
+
+    private
+    def styleguide_view_path
+      gem = Gem.loaded_specs['sb-styleguide']
+      if gem
+        prepend_view_path "#{gem.full_gem_path}/vendor/assets/views"
+      end
+    end
 
 ## Contributing
 

@@ -3,7 +3,8 @@
   %head
     %meta{:charset => "utf-8"}
     %title= data.page.title || "The Middleman"
-    = stylesheet_link_tag "normalize", "all"
-    = javascript_include_tag  "all"
+    = stylesheet_link_tag "application", "all"
   %body.page_classes
     = yield
+    = javascript_include_tag  "all"
+

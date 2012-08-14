@@ -1,0 +1,100 @@
+//
+// Site wide settings
+// $author Ad Taylor
+//
+
+// ==========================================================================
+// Grids
+// ==========================================================================
+
+
+
+
+// ==========================================================================
+// Colour Functions
+// ==========================================================================
+
+// Can be extended to add more shades:
+//      $blue-shades: join($blue-shades, rgb(13, 89, 224) );
+
+$mono-shades: #33363b, #999999, #e3e3e0, #f0f0ed !default;
+@function mono($shade:1) {
+  @return nth($mono-shades, $shade);
+}
+
+
+$blue-shades: #2ba6cb, #137795, #b1e5f5 !default;
+@function blue($shade:1) {
+  @return nth($blue-shades, $shade);
+}
+
+$orange-shades: #ff6633, #a32900 !default;
+@function orange($shade:1) {
+  @return nth($orange-shades, $shade);
+}
+
+$green-shades: #6b9b20, #557821 !default;
+@function green($shade:1) {
+  @return nth($green-shades, $shade);
+}
+
+
+// ==========================================================================
+// Colours
+// ==========================================================================
+
+$mainColor: orange() !default;
+$secondaryColor: blue() !default;
+$alertColor: #c60f13 !default;
+$successColor: green() !default;
+$txtColor: mono() !default;
+$black: mono() !default;
+$white: #fff !default;
+$shinyEdge: rgba(#fff, .8) !default;
+$darkEdge: rgba(#000, .2) !default;
+
+
+// ==========================================================================
+// Fonts
+// ==========================================================================
+
+$base-font-family: helvetica, arial, sans-serif !default;
+$base-font-size: 14px;
+$base-line-height: 20px;
+
+/* Module scale */
+// $ratio: $golden;
+$baseFontSize: 14px !default;
+$importantModNum: 44px !default;
+$base-size: $baseFontSize $importantModNum;
+// Produced the following list of values: 14, 17, 23, 27, 37, 44, 59, 71, 95, 115;
+// http://www.modularscale.com by Tim Brown
+// https://github.com/scottkellum/modular-scale by scottkellum
+
+$headerFontFamily: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$headerFontWeight: bold !default;
+$headerFontColor: #222 !default;
+$bodyFontFamily: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$bodyFontWeight: normal !default;
+$bodyFontColor: #222 !default;
+
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+$btnRadius: 4px !default;
+$btnBase: 10px !default;
+
+$smallBtnBase: $btnBase - 2 !default;
+$largeBtnBase: $btnBase + 4 !default;
+
+
+
+
+// ==========================================================================
+// Media Queries
+// ==========================================================================
+
+$screenSmall: 768px !default;
+$screenMedium: 1279px !default;
+$screenXlarge: 1441px !default;

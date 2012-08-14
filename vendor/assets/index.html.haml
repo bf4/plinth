@@ -1,4 +1,11 @@
 .welcome
   %h1 Middleman is Watching
-  %p.doc
-    = link_to "Read Online Documentation", "http://middlemanapp.com/"
+  %div{:style=>"margin-bottom:10px;"}
+  - ['large','medium', 'small'].each do |type|
+    %a{:href=>"stuff", :class=>"btn #{type}"}= "#{type}  button"
+
+  %div
+    - ['orange','green', 'blue'].each do |color|
+      %div{:style=>"margin-bottom:10px;"}
+        - ['small','active small','disabled small'].each do |type|
+          %a{:href=>"stuff", :class=>"btn #{type} #{color}"}= "#{type} #{color} button"

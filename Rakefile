@@ -9,7 +9,7 @@ task :push_it do
   sh "git rm -rf ."
   sh "cp -r /tmp/build/* ."
   sh "git add ."
-  sh "git commit -am 'Pushing Style Guide on {Time.new.strftime("%d-%m-%Y")}'"
+  sh "git commit -am 'Pushing Style Guide on #{Time.new.strftime("%d-%m-%Y")}'"
   sh "rm -rf /tmp/build"
   sh "git push"
   sh "git checkout develop"

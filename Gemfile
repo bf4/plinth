@@ -6,3 +6,4 @@ source :rubygems
 gemspec :development_group => :dev
 
 gem "middleman", :git => "git://github.com/luxerama/middleman.git"
+gem "middleman-livereload", "~>3.0.0", :git => "git://github.com/middleman/middleman-livereload.git"

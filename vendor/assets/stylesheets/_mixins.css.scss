@@ -3,6 +3,66 @@
 // @author Ad Taylor
 //
 
+// ==========================================================================
+// Create column sizes
+// ==========================================================================
+
+@mixin create-column-sizes($grids) {
+  $query-pos: 4;
+  @each $grid in $grids {
+    // If there is a media query
+    @if(length($grid) == $query-pos) {
+      // Add Rules wrapped in media query
+      @include media-query( nth($grid,$query-pos) ) {
+        @include build-column-size($grid);
+      }
+    }
+    @else {
+      @include build-column-size($grid);
+    }
+  }
+}
+
+@mixin build-column-size($grid) {
+  $padding-pos: 3;
+  $total-columns: nth($grid,2);
+  @if(length($grid) >= $padding-pos ) {
+    .column {
+      padding: 0 nth($grid,$padding-pos);
+      @if($total-columns == 1){
+        float: none;
+        width: auto;
+      }
+    }
+  }
+
+  @if($total-columns > 1) {
+    @for $i from 1 through $total-columns {
+      .#{nth($grid,1)}#{convert-number-to-word($i)} {
+        width: gridCalc($i, $total-columns);
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// Simple Media Query Generator
+// ==========================================================================
+
+@mixin media-query($size) {
+  @media ($size) {
+    @content;
+  }
+}
+
+// ==========================================================================
+// Micro Clearfix - Nicolas Gallagher
+// ==========================================================================
+
+@mixin clearfix() { *zoom:1;
+  &:before, &:after { content: ""; display: table; }
+  &:after { clear: both; }
+}
 
 // ==========================================================================
 // Internet Explorer Fixes

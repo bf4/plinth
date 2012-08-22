@@ -1,0 +1,28 @@
+//
+// SASS Functions
+// @author Ad Taylor
+//
+
+
+// ==========================================================================
+// Convert number to word - https://github.com/zurb/foundation/blob/master/scss/foundation/functions/_convert-number-to-word.scss
+// ==========================================================================
+
+@function convert-number-to-word($num) {
+  $count:1;
+  @each $word in one,two,three,four,five,six,seven,eight,nine,ten,eleven,
+  twelve,thirteen,fourteen,fifteen,sixteen,seventeen,eighteen,nineteen,
+  twenty,twentyone,twentytwo,twentythree,twentyfour{
+    @if ($count == $num) { @return $word; }
+    $count: $count + 1;
+  }
+  @return "invalid";
+}
+
+// ========================================================================
+// Grid Calculation for Percentages - https://github.com/zurb/foundation/blob/master/scss/foundation/functions/_grid-calc.scss
+// ========================================================================
+
+@function gridCalc($colNumber, $totalColumns) {
+  @return percentage(($colNumber / $totalColumns));
+}

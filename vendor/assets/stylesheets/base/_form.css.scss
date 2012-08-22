@@ -1,0 +1,95 @@
+//
+// Forms
+// $author Ad Taylor
+//
+@import "compass/css3";
+
+// ==========================================================================
+// Standard Forms
+// ==========================================================================
+
+$formSpacing: 10px;
+
+form {
+  // @todo set the margin
+  margin: 0;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+label {
+  color: $black;
+  cursor: pointer;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 3px;
+
+  &.right { float: none; text-align: right; }
+}
+
+label, input, button,
+select, textarea {
+  font-size: ms(0);
+  line-height: 1.5;
+}
+
+input[type="text"], input[type="password"],
+input[type="date"], input[type="datetime"],
+input[type="email"], input[type="number"],
+input[type="search"], input[type="tel"],
+input[type="time"], input[type="url"],
+textarea {
+  display: block;
+  margin: 0;
+  padding: $formSpacing * 0.25;
+  height: (ms(0) + ($formSpacing * 1.5));
+  width: 100%;
+  border: 1px solid mono(3);
+  @include border-radius(4px);
+  color: rgba(0,0,0,0.75);
+  font-size: ms(0);
+  @include transition(all 0.15s linear);
+
+  &.large {
+    font-size: ms(1);
+    padding: $formSpacing * 0.75;
+  }
+
+  &:focus {
+    background: darken($white, 2%);
+    outline: none !important;
+    border-color: darken($white, 30%);
+  }
+
+  &[disabled] {
+    background-color: #ddd;
+  }
+}
+
+textarea {
+  height: auto;
+}
+
+select {
+  width: 100%;
+}
+
+/* Fieldsets */
+fieldset {
+  border: solid 1px #ddd;
+  border-radius: 3px;
+  @include border-radius(3px);
+  padding: 12px 12px 0;
+  margin: 18px 0;
+
+  legend {
+    font-weight: bold;
+    background: $white;
+    padding: 0 3px;
+    margin: 0 0 0 -3px;
+  }
+}

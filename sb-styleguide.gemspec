@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{styleguide} 
   gem.homepage      = "https://github.com/thebeansgroup/sb-styleguide"
 
-  gem.files         = `git ls-files`.split($\)
+  gem.files         = `git ls-files`.split($\).grep(/^(?!config)/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "sb-styleguide"

@@ -3,17 +3,21 @@ require "bundler/gem_tasks"
 
 desc "Push Style Guide"
 task :push_it do
-  sh "bundle exec middleman build"
-  sh "mv build /tmp/"
-  sh "git checkout gh-pages"
-  sh "git rm -rf ."
-  sh "cp -r /tmp/build/* ."
-  sh "git add ."
-  sh "git commit -am 'Pushing Style Guide on #{Time.new.strftime("%d-%m-%Y")}'"
-  sh "rm -rf /tmp/build"
-  sh "git push"
-  sh "git checkout develop"
+  abort "This feature has been disbaled for now."
 end
+
+#
+# Start server
+#
+
+desc "Start Styleguide Server \[port 3001\]"
+task :start do
+  puts '=============================='
+  puts '   STARTING THE STYLEGUIDE'
+  puts '=============================='
+  system 'bundle exec rails s -p 3001'
+end
+
 
 begin
   require 'jasmine'

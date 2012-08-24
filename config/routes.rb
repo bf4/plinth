@@ -1,5 +1,7 @@
 SbStyleguide::Application.routes.draw do
   
+  get "base/grids"
+
   #
   # Temp root to start project
   #

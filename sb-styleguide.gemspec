@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{styleguide} 
   gem.homepage      = "https://github.com/thebeansgroup/sb-styleguide"
 
-  gem.files         = `git ls-files`.split($\)
+  gem.files         = `git ls-files`.split($\).grep(/^(?!config)/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "sb-styleguide"
@@ -25,6 +25,6 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency "rails",   "~> 3.1"
   gem.add_development_dependency "bundler", "~> 1.1.0"
-  # gem.add_development_dependency "middleman", "~> 3.0.0"
+  gem.add_development_dependency "sqlite3"
 
 end

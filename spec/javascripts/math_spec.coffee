@@ -12,3 +12,13 @@ describe 'Math:', ->
       expect(Math.uuid()).toMatch /[A-Z0-9]{8}-[A-Z0-9]{4}-4[A-Z0-9]{3}-[A-Z0-9]{4}-[A-Z0-9]{13}/
       expect(Math.uuid()).toMatch /[A-Z0-9]{8}-[A-Z0-9]{4}-4[A-Z0-9]{3}-[A-Z0-9]{4}-[A-Z0-9]{13}/
       expect(Math.uuid()).toMatch /[A-Z0-9]{8}-[A-Z0-9]{4}-4[A-Z0-9]{3}-[A-Z0-9]{4}-[A-Z0-9]{13}/
+
+    it 'should generate a unique uuid for 1000 generated uuids at least', ->
+      uuids = []
+      counter = 0
+
+      while counter < 1000
+        uuids.push Math.uuid()
+        counter++
+
+        expect(uuids.length).toEqual _.uniq(uuids).length

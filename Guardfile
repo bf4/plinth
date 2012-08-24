@@ -1,10 +1,8 @@
-group :jasmine do
-  guard :jasmine, :jasmine_url => 'http://localhost:8888/' do
-    watch(%r{spec/javascripts/.+_spec.js})
-  end
+
+
+guard 'jasmine' do
+  watch(%r{spec/javascripts/spec\.(js\.coffee|js|coffee)$})         { "spec/javascripts" }
+  watch(%r{spec/javascripts/.+_spec\.(js\.coffee|js|coffee)$})
+  watch(%r{vender/assets/javascripts/(.+?)\.(js\.coffee|js|coffee)$})  { |m| "spec/javascripts/#{m[1]}_spec.#{m[2]}" }
 end
 
-group :coffeescripts do
-  guard 'coffeescript', :input => 'vendor/assets/javascripts',  :output => 'spec/compiled_js'
-  guard 'coffeescript', :input => 'spec/javascripts/coffeescripts',  :output => 'spec/javascripts'
-end

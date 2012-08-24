@@ -1,4 +1,11 @@
 SbStyleguide::Application.routes.draw do
+  
+  #
+  # Temp root to start project
+  #
+
+  root :to => "home/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

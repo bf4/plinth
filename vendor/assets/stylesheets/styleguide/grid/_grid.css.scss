@@ -5,22 +5,6 @@
 @import "compass/css3";
 
 
-// .container
-// .full
-
-
-
-// .rows
-//  .column
-//  .push/pull*
-//  .mobile*
-//  .*
-
-
-// .blocks
-//  .up*
-//  .mobile-up*
-
 // ==========================================================================
 // Container
 // ==========================================================================
@@ -41,7 +25,7 @@
 // ==========================================================================
 
 .row {
-
+  @include clearfix;
 }
 
 // ==========================================================================
@@ -62,14 +46,29 @@
   }
 }
 
-$tab: 't-', 3, 20px, 'max-width: 600px';
-$grids: $desk, $tab, $mob;
-@include create-column-sizes($grids);
 
 // ==========================================================================
-// Blocks
+// Image Blocks
 // ==========================================================================
 
-* {
-  box-sizing: border-box;
+.img-block {
+  .img {
+    float:left;
+    margin:0 $column-gutter*2 0 0;
+  }
+
+  .img-medium {
+    margin-right: $column-gutter*4;
+  }
+
+  .img img {
+    display:block;
+  }
+
+  .content {
+    display:table-cell;
+    width:10000px;
+    *width:auto;
+    *zoom:1;
+  }
 }

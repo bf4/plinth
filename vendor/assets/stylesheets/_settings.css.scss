@@ -58,6 +58,7 @@ $secondaryColor: blue() !default;
 $alertColor: #c60f13 !default;
 $successColor: green() !default;
 $txtColor: mono() !default;
+$bgCover: mono(3) !default;
 $black: mono() !default;
 $white: #fff !default;
 $shinyEdge: rgba(#fff, .8) !default;
@@ -68,17 +69,16 @@ $darkEdge: rgba(#000, .2) !default;
 // Fonts
 // ==========================================================================
 
-$base-font-family: "Helvetica Neue", helvetica, arial, sans-serif !default;
-$base-line-height: 1.57;
 
-/* Module scale */
-// $ratio: $golden;
+// Module scale
 $baseFontSize: 14px !default;
 $importantModNum: 300px !default;
 $base-size: $baseFontSize $importantModNum;
-// Produced the following list of values: 14, 17, 23, 27, 37, 44, 59, 71, 95, 115;
-// http://www.modularscale.com by Tim Brown
-// https://github.com/scottkellum/modular-scale by scottkellum
+
+$base-font-family: "Helvetica Neue", helvetica, arial, sans-serif !default;
+$base-line-height: 1.57;
+$base-line-height-px: 22px;
+
 
 $headerFontFamily: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
 $headerFontWeight: bold !default;

@@ -9,5 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
+
+@import "styleguide";
+@import "styleguide/base/_all";
+@import "styleguide/modules/_all";
+@import "styleguide/grid/_grid";

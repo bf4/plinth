@@ -1,5 +1,7 @@
 SbStyleguide::Application.routes.draw do
   
+  get "modules/panel"
+
   get "base/grids"
 
   #

@@ -1,0 +1,115 @@
+.row
+  .mother-three.mother-push-one.column
+    %nav
+      %ul
+        %li
+          type
+        %li
+          lists
+
+
+
+  .mother-seven.mother-pull-one.column
+
+    %h2 Basic Typography
+
+    %hr
+
+    %h3.h5 Headings
+
+    = example do
+      .h1 Heading 1
+      .h2 Heading 2
+      .h3 Heading 3
+      .h4 Heading 4
+      .h5 Heading 5
+      :coderay
+        #!haml
+      
+        %h1 Heading 1
+        %h2 Heading 2
+        %h3 Heading 3
+        %h4 Heading 4
+        %h5 Heading 5
+
+        // All heading styles can also be reproduced using .h{n}
+    %hr
+
+    %h3.h5 Body text
+
+    = example do
+      %p Normal Paragraph - Lebowski ipsum I didn't blame anyone for the loss of my legs, some chinaman in Korea took them from me but I went out and achieved anyway. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo. Pellentesque ac lectus quis elit blandit fringilla a ut turpis. I've seen a lot of spinals, Dude, and this guy is a fake. A fucking goldbricker. Praesent felis ligula, malesuada suscipit malesuada non, ultrices non urna. Fortunately I've been adhering to a pretty strict drug regimen to keep my mind, you know, limber.
+      %p.support Support text - Lebowski ipsum I didn't blame anyone for the loss of my legs, some chinaman in Korea took them from me but I went out and achieved anyway. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo. Pellentesque ac lectus quis elit blandit fringilla a ut turpis. I've seen a lot of spinals, Dude, and this guy is a fake. A fucking goldbricker. Praesent felis ligula, malesuada suscipit malesuada non, ultrices non urna. Fortunately I've been adhering to a pretty strict drug regimen to keep my mind, you know, limber.
+      %p.secondary Secondary text - Lebowski ipsum I didn't blame anyone for the loss of my legs, some chinaman in Korea took them from me but I went out and achieved anyway. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo. Pellentesque ac lectus quis elit blandit fringilla a ut turpis. I've seen a lot of spinals, Dude, and this guy is a fake. A fucking goldbricker. Praesent felis ligula, malesuada suscipit malesuada non, ultrices non urna. Fortunately I've been adhering to a pretty strict drug regimen to keep my mind, you know, limber.
+
+      :coderay
+        #!haml
+
+        %p Lebowski ipsum I didn't…
+        %p.support Lebowski ipsum I didn't…
+        %p.secondary Lebowski ipsum I didn't…
+      // end
+
+    %hr
+
+    %h3.h5 Links
+    
+    = example do
+      %a{:href=>"#my_link"} Text link
+      %br
+      %a.active{:href=>"#my_link"} Text link hover/active
+      %br
+      %a{:href=>"#my_link"} Prominent text link
+      %br
+      %a{:href=>"#my_link"} Prominent text link hover/active
+
+      :coderay
+        #!haml
+
+        %a{:href=>"#my_link"} Text link
+        %a.active{:href=>"#my_link"} Text link hover/active
+        %a{:href=>"#my_link"} Prominent text link
+        %a{:href=>"#my_link"} Prominent text link hover/active
+      // end
+
+    %hr
+
+    %h3.h5 Shouts
+
+    = example do
+      .shout Shout Text
+      .small.shout Small shout text
+      .medium.shout Medium shout text
+      .large.shout Large shout text
+      :coderay
+        #!haml
+
+        .shout Shout Text
+        .small.shout Small shout text
+        .medium.shout Medium shout text
+        .large.shout Large shout text
+      // end
+
+
+    %hr
+
+    %h2 Lists
+
+    %h3.h5 Action lists
+
+    = example do
+      %ul.action-list
+        %li
+          %a{:href=>"my_url"} Item 1
+        %li
+          %a{:href=>"my_url"} item 2
+      :coderay
+        #!haml
+
+        %ul.action-list
+          %li
+            %a{:href=>"my_url"} Item 1
+          %li
+            %a{:href=>"my_url"} Item 2
+      // end
+

@@ -58,7 +58,7 @@ $container-width: 980px;
 
 .CodeRay {
   background-color: #F8F8F7;
-  border-bottom: 10px solid mono(3);
+  border-bottom: 3px solid $main-color;
 
   .line-numbers {
     margin-right: $column-gutter*2;

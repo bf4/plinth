@@ -53,16 +53,16 @@ $green-shades: #6b9b20, #557821 !default;
 // Colours
 // ==========================================================================
 
-$mainColor: orange() !default;
-$secondaryColor: blue() !default;
-$alertColor: #c60f13 !default;
-$successColor: green() !default;
-$txtColor: mono() !default;
-$bgCover: mono(3) !default;
+$main-color: orange() !default;
+$secondary-color: blue() !default;
+$alert-color: #c60f13 !default;
+$success-color: green() !default;
+$txt-color: mono() !default;
+$bg-cover: mono(3) !default;
 $black: mono() !default;
 $white: #fff !default;
-$shinyEdge: rgba(#fff, .8) !default;
-$darkEdge: rgba(#000, .2) !default;
+$shiny-edge: rgba(#fff, .8) !default;
+$dark-edge: rgba(#000, .2) !default;
 
 
 // ==========================================================================
@@ -80,22 +80,22 @@ $base-line-height: 1.57;
 $base-line-height-px: 22px;
 
 
-$headerFontFamily: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
-$headerFontWeight: bold !default;
-$headerFontColor: #222 !default;
-$bodyFontFamily: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
-$bodyFontWeight: normal !default;
-$bodyFontColor: #181818 !default;
+$header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$header-font-weight: bold !default;
+$header-font-color: #222 !default;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-weight: normal !default;
+$body-font-color: #181818 !default;
 
 // ==========================================================================
 // Buttons
 // ==========================================================================
 
-$btnRadius: 4px !default;
-$btnBase: 10px !default;
+$btn-radius: 4px !default;
+$btn-base: 10px !default;
 
-$smallBtnBase: $btnBase - 2 !default;
-$largeBtnBase: $btnBase + 4 !default;
+$small-btn-base: $btn-base - 2 !default;
+$large-btn-base: $btn-base + 4 !default;
 
 
 
@@ -104,6 +104,6 @@ $largeBtnBase: $btnBase + 4 !default;
 // Media Queries
 // ==========================================================================
 
-$screenSmall: 768px !default;
-$screenMedium: 1279px !default;
-$screenXlarge: 1441px !default;
+$screen-small: 768px !default;
+$screen-medium: 1279px !default;
+$screen-xlarge: 1441px !default;

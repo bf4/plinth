@@ -36,7 +36,7 @@ body {
   margin: 0;
   font-size: ms(0);
   line-height: $base-line-height;
-  color: $bodyFontColor;
+  color: $body-font-color;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -214,7 +214,7 @@ sub {
   font-weight: bold;
 
   &.small {
-    color: $mainColor;
+    color: $main-color;
   }
 
   &.medium {

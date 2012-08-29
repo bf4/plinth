@@ -27,13 +27,13 @@ $default-btn-hover-color: darken(mono(2),10);
 
   display: inline-block;
   @include ie7-inline-block;
-  padding: $btnBase ($btnBase * 2) ($btnBase + 1);
+  padding: $btn-base ($btn-base * 2) ($btn-base + 1);
   margin-bottom: 0; // For input.btn
   @include ie7-restore-left-whitespace;
 
   /* Sizes */
   &.large {
-    padding: ($largeBtnBase) ($largeBtnBase * 2) ($largeBtnBase + 1);
+    padding: ($large-btn-base) ($large-btn-base * 2) ($large-btn-base + 1);
     font-size: ms(1);
   }
   &.medium {
@@ -41,7 +41,7 @@ $default-btn-hover-color: darken(mono(2),10);
   }
   &.small {
     font-size: ms(-1);
-    padding: ($smallBtnBase) ($smallBtnBase * 2) ($smallBtnBase + 1);
+    padding: ($small-btn-base) ($small-btn-base * 2) ($small-btn-base + 1);
   }
   &.expand {
     width: 100%;
@@ -52,7 +52,7 @@ $default-btn-hover-color: darken(mono(2),10);
   border: 1px solid $default-btn-bg;
   *border: 0; // Remove the border to prevent IE7's black border on input:focus
   border-bottom-color: darken($default-btn-bg, 10%);
-  @include border-radius($btnRadius);
+  @include border-radius($btn-radius);
 
   @include background-image(linear-gradient(lighten($default-btn-bg, 30), lighten($default-btn-bg, 15) 30%, $default-btn-bg));
 
@@ -60,12 +60,12 @@ $default-btn-hover-color: darken(mono(2),10);
   font-size: ms(0);
   line-height: 1;
   text-decoration: none;
-  text-shadow: 0 1px 1px $shinyEdge;
+  text-shadow: 0 1px 1px $shiny-edge;
   text-align: center;
   vertical-align: middle;
 
   cursor: pointer;
-  @include box-shadow(0 1px 0 $shinyEdge inset, 0 1px 0px $shinyEdge);
+  @include box-shadow(0 1px 0 $shiny-edge inset, 0 1px 0px $shiny-edge);
   @include single-transition(background-color, .15s, ease-in-out);
 
   /* Button colors */

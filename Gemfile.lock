@@ -53,6 +53,7 @@ GEM
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
     chunky_png (1.2.6)
+    coderay (1.0.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -81,6 +82,9 @@ GEM
       multi_json
       thor
     haml (3.1.7)
+    haml-coderay (0.1.2)
+      coderay
+      haml
     haml-rails (0.3.4)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
@@ -169,6 +173,7 @@ DEPENDENCIES
   growl
   guard-jasmine
   haml
+  haml-coderay
   haml-rails
   jasminerice!
   jquery-rails

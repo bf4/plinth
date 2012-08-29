@@ -24,7 +24,7 @@ end
 
 gem "haml"
 gem "haml-rails"
-
+gem "haml-coderay"
 
 #
 # Jquery rails - @TODO Is this needed?

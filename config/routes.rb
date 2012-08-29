@@ -4,6 +4,8 @@ SbStyleguide::Application.routes.draw do
 
   get "base/grids"
 
+  get "base/typography"
+
   #
   # Temp root to start project
   #

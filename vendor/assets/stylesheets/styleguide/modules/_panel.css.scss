@@ -10,3 +10,17 @@
   padding: $base-line-height/2 + 0em;
   background-color: $bgCover;
 }
+
+// Text helper classes
+
+.panel-left {
+  text-align: left;
+}
+
+.panel-right {
+  text-align: right;
+}
+
+.panel-center {
+  text-align: center;
+}

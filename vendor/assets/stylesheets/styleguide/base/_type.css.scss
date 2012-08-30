@@ -66,32 +66,30 @@ a:hover {
 h1, .h1, h2, .h2, h3, .h3,
 h4, .h4, h5, .h5 {
   font-weight: bold;
+  margin-bottom: ms(0);
+  margin-top: ms(0);
 }
 
 h1, .h1 {
-  margin: 0.67em 0;
   font-size: ms(5);
   line-height: 1.34;
 }
 
 h2, .h2 {
-  margin: 0.83em 0;
   font-size: ms(4);
   line-height: 1.19;
 }
 
 h3, .h3 {
-  margin: 1em 0;
   font-size: ms(3);
 }
 
 h4, .h4{
-  margin: 1.33em 0;
   font-size: ms(2);
 }
 
 h5, .h5 {
-  @extend .standout;
+  font-size: ms(1);
 }
 
 
@@ -132,7 +130,8 @@ mark {
 
 p,
 pre {
-  margin: 1em 0;
+  margin-bottom: ms(0);
+  margin-top: 0;
 }
 
 
@@ -201,7 +200,6 @@ sub {
 // Standout copy like leading paragraphs
 
 .standout {
-  margin: 1.67em 0;
   font-size: ms(1);
 }
 

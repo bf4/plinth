@@ -4,6 +4,8 @@
 
     %h2 Basic Typography
 
+    = render :partial => "shared/placeholder_text"
+
     %hr
 
     %h3.h5 Headings
@@ -29,14 +31,34 @@
     %h3.h5 Body text
 
     = example do
-      %p Normal Paragraph - Lebowski ipsum I didn't blame anyone for the loss of my legs, some chinaman in Korea took them from me but I went out and achieved anyway. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo. Pellentesque ac lectus quis elit blandit fringilla a ut turpis. I've seen a lot of spinals, Dude, and this guy is a fake. A fucking goldbricker. Praesent felis ligula, malesuada suscipit malesuada non, ultrices non urna. Fortunately I've been adhering to a pretty strict drug regimen to keep my mind, you know, limber.
-      %p.support Support text - Lebowski ipsum I didn't blame anyone for the loss of my legs, some chinaman in Korea took them from me but I went out and achieved anyway. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo. Pellentesque ac lectus quis elit blandit fringilla a ut turpis. I've seen a lot of spinals, Dude, and this guy is a fake. A fucking goldbricker. Praesent felis ligula, malesuada suscipit malesuada non, ultrices non urna. Fortunately I've been adhering to a pretty strict drug regimen to keep my mind, you know, limber.
-      %p.secondary Secondary text - Lebowski ipsum I didn't blame anyone for the loss of my legs, some chinaman in Korea took them from me but I went out and achieved anyway. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo. Pellentesque ac lectus quis elit blandit fringilla a ut turpis. I've seen a lot of spinals, Dude, and this guy is a fake. A fucking goldbricker. Praesent felis ligula, malesuada suscipit malesuada non, ultrices non urna. Fortunately I've been adhering to a pretty strict drug regimen to keep my mind, you know, limber.
+      %p Normal Paragraph - Lebowski ipsum I didn't blame anyone for the loss of my legs, some chinaman in Korea took them from me but I went out and achieved anyway. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo. 
 
       :coderay
         #!haml
 
         %p Lebowski ipsum I didn't…
+      // end
+
+    %h3.h5 Standout
+
+    = example do
+      %p.standout Standout Paragraph - Lebowski ipsum I didn't blame anyone for the loss of my legs, some chinaman in Korea took them from me but I went out and achieved anyway. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo.
+
+      :coderay
+        #!haml
+
+        %p.standout Lebowski ipsum I didn't…
+      // end
+
+    %h3.h5 Body text helper classes
+
+    = example do
+      %p.support Support text - Lebowski ipsum I didn't blame anyone for the loss of my legs, some chinaman in Korea took them from me but I went out and achieved anyway. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo. 
+      %p.secondary Secondary text - Lebowski ipsum I didn't blame anyone for the loss of my legs, some chinaman in Korea took them from me but I went out and achieved anyway. Dolor sit amet, consectetur adipiscing elit praesent ac magna justo. Pellentesque ac lectus quis elit blandit fringilla a ut turpis. 
+
+      :coderay
+        #!haml
+
         %p.support Lebowski ipsum I didn't…
         %p.secondary Lebowski ipsum I didn't…
       // end

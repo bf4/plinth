@@ -94,10 +94,6 @@ h5, .h5 {
   @extend .standout;
 }
 
-.standout {
-  margin: 1.67em 0;
-  font-size: ms(1);
-}
 
 // Addresses styling not present in IE7/8/9, S5, Chrome.
 
@@ -202,10 +198,23 @@ sub {
 // Typographic Extensions
 // ==========================================================================
 
+// Standout copy like leading paragraphs
+
+.standout {
+  margin: 1.67em 0;
+  font-size: ms(1);
+}
+
 // Supporting text
 
 .support {
   @extend small;
+}
+
+// Secondary text
+
+.secondary {
+  color: mono(2);
 }
 
 // Shout

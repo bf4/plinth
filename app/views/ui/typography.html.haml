@@ -70,19 +70,19 @@
     = example do
       %a{:href=>"#my_link"} Text link
       %br
-      %a.active{:href=>"#my_link"} Text link hover/active
+      %a.is-active{:href=>"#my_link"} Text link hover/active
       %br
-      %a{:href=>"#my_link"} Prominent text link
+      %a.prominent{:href=>"#my_link"} Prominent text link
       %br
-      %a{:href=>"#my_link"} Prominent text link hover/active
+      %a.prominent.is-active{:href=>"#my_link"} Prominent text link hover/active
 
       :coderay
         #!haml
 
         %a{:href=>"#my_link"} Text link
-        %a.active{:href=>"#my_link"} Text link hover/active
-        %a{:href=>"#my_link"} Prominent text link
-        %a{:href=>"#my_link"} Prominent text link hover/active
+        %a.is-active{:href=>"#my_link"} Text link hover/active
+        %a.prominent{:href=>"#my_link"} Prominent text link
+        %a.prominent.is-active{:href=>"#my_link"} Prominent text link hover/active
       // end
 
     %hr

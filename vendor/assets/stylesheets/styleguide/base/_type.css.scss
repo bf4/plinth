@@ -44,6 +44,12 @@ body {
 // Links
 // ========================================================================== 
 
+a {
+  border-bottom: 1px dotted $txt-color;
+  text-decoration: none;
+  color: $txt-color;
+}
+
 // Addresses `outline` inconsistency between Chrome and other browsers.
 
 a:focus {
@@ -54,8 +60,23 @@ a:focus {
 // people.opera.com/patrickl/experiments/keyboard/test
 
 a:active,
+a.is-active,
 a:hover {
+  border-color: $main-color;
   outline: 0;
+  color: $main-color;
+}
+
+a.prominent {
+  color: $main-color;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:active,
+  &.is-active,
+  &:hover {
+    border-bottom: 1px dotted $main-color;
+  }
 }
 
 // ==========================================================================

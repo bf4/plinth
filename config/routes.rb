@@ -16,6 +16,7 @@ SbStyleguide::Application.routes.draw do
 
   get "ui/grids", :as => "grids"
   get "ui/typography", :as => "typography"
+  get "ui/buttons", :as => "buttons"
 
 
   #

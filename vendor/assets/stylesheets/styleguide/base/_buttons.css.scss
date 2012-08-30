@@ -85,21 +85,21 @@ $default-btn-hover-color: darken(mono(2),10);
 
   &.orange {
     @include btn-color(orange());
-    &:hover, &.active, &:active {
+    &:hover, &.is-active, &:active {
       @include btn-color(orange(2));
     }
   }
 
   &.blue {
     @include btn-color(blue());
-    &:hover, &.active, &:active {
+    &:hover, &.is-active, &:active {
       @include btn-color(blue(2));
     }
   }
 
   &.green {
     @include btn-color(green());
-    &:hover, &.active, &:active {
+    &:hover, &.is-active, &:active {
       @include btn-color(green(2));
     }
   }
@@ -121,7 +121,7 @@ $default-btn-hover-color: darken(mono(2),10);
 
 
   /* Active state */
-  &.active,
+  &.is-active,
   &:active {
     // background-color: darken($white, 10%);
     // background-color: darken($white, 15%) e("\9");

@@ -28,7 +28,7 @@
   $total-columns: nth($grid,2);
   @if(length($grid) >= $padding-pos ) {
     .column {
-      padding: 0 nth($grid,$padding-pos);
+      padding: 0 (0.5 * nth($grid,$padding-pos));
       @if($total-columns == 1){
         float: none;
         width: auto;

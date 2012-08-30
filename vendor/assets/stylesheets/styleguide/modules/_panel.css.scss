@@ -6,9 +6,10 @@
 // Default Panel
 // ==========================================================================
 
+
 .panel {
-  padding: $base-line-height/2 + 0em;
-  background-color: $bg-cover;
+  padding: ms(0) $column-gutter*2 ms(2) $column-gutter*2;
+  background-color: mono(4);
 }
 
 // Text helper classes

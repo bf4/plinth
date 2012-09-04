@@ -18,6 +18,9 @@ SbStyleguide::Application.routes.draw do
   get "ui/typography", :as => "typography"
   get "ui/buttons", :as => "buttons"
 
+  # Modules
+  get "ui/tabs", :as => "tabs"
+
 
   #
   # Javascript roots
@@ -30,5 +33,5 @@ SbStyleguide::Application.routes.draw do
   # External roots
   #
 
-  match "/github"  => redirect("http://github.com/thebeansgroup/sb-styleguide")
+  match "/github"  => redirect("http://github.com/thebeansgroup/sb-styleguide"), :as => "github"
 end

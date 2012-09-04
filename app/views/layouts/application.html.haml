@@ -5,6 +5,8 @@
     %title= @page_title || "SB Style Guide"
     = stylesheet_link_tag "application"
   %body.page_classes
-    = yield
+    = render :partial => "layouts/main_nav"
+    .container
+      = yield
     = javascript_include_tag  "application"
 

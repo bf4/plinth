@@ -28,10 +28,12 @@
   $total-columns: nth($grid,2);
   @if(length($grid) >= $padding-pos ) {
     .column {
-      padding: 0 nth($grid,$padding-pos);
+      padding: 0 (0.5 * nth($grid,$padding-pos));
       @if($total-columns == 1){
         float: none;
         width: auto;
+        right: auto;
+        left: auto;
       }
     }
   }
@@ -40,6 +42,12 @@
     @for $i from 1 through $total-columns {
       .#{nth($grid,1)}#{convert-number-to-word($i)} {
         width: gridCalc($i, $total-columns);
+      }
+      .#{nth($grid,1)}push-#{convert-number-to-word($i)} {
+        left: gridCalc($i, $total-columns);
+      }
+      .#{nth($grid,1)}pull-#{convert-number-to-word($i)} {
+        right: gridCalc($i, $total-columns);
       }
     }
   }

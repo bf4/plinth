@@ -1,0 +1,18 @@
+.row
+  .mother-three.mother-push-one.column= render "ui_nav"
+  .mother-seven.mother-pull-one.column
+
+    %h1 Base#grids
+    %p Find me in app/views/base/grids.html.haml
+
+    %h2 Grid Settings
+    %p Setting the breakpoints...
+
+
+    %pre
+      %code
+        $mob: 'mobile-', 1, 20px, "max-width: 780px" ;
+        $desk: '', $columns, $column-gutter;
+        \// Add breakpoints to grid
+        $grids : $desk, $mob !default;
+

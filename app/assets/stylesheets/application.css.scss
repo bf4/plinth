@@ -9,9 +9,68 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require 'coderay_githubish'
  */
+
 
 @import "styleguide";
 @import "styleguide/base/_all";
 @import "styleguide/modules/_all";
+
+
+// ======================================================
+// Settings grids
+// ======================================================
+
+$baby: 'baby-', 1, 10px, "max-width: 655px";
+$sister: 'sister-', 4, 15px, "max-width: 785px";
+$mother: 'mother-', 12, 20px;
+// Declare grid
+$grids : $mother, $sister, $baby;
+
+// Max container width
+$container-width: 980px;
+
+// ======================================================
+// Default grids
+// ======================================================
+
 @import "styleguide/grid/_grid";
+
+
+// ======================================================
+// Build grid sizes
+// ======================================================
+
+@include create-column-sizes($grids);
+
+// ======================================================
+// Styleguide only styles
+// ======================================================
+
+//
+// Preview display list
+//
+
+.sg-example, .CodeRay {
+  margin: $base-line-height-px 0;
+}
+
+.CodeRay {
+  background-color: #F8F8F7;
+  border-bottom: 3px solid $main-color;
+
+  .line-numbers {
+    margin-right: $column-gutter*2;
+  }
+}
+
+
+hr {
+  margin: $base-line-height-px*2 0 $base-line-height-px;
+  height: 1px;
+  border: none;
+  color: mono(4);
+  background-color: mono(4);
+}
+

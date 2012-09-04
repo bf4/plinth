@@ -1,0 +1,28 @@
+.row
+  .mother-three.mother-push-one.column= render "ui_nav"
+  .mother-seven.mother-pull-one.column
+    %h2 Buttons
+
+    .row
+      - ['','orange','green', 'blue'].each do |color|
+        .mother-six.column
+          = example do
+            - ['large','medium', 'small'].each do |type|
+              %a{:href=>"stuff", :class=>"btn #{type} #{color}"}= (color.length > 0) ? "#{color}  button" : "#{type} button"
+              %br
+              %br
+    :coderay
+      #!haml
+
+      %a{:href=>"#the link", :class=>"btn |size| |color|"} My Button
+      // OR
+      = link_to "Link Name", link_path, :class=>"btn |size| |color|"
+    // end
+
+    %h3 Button states
+    = example do
+      - ['','orange','green', 'blue'].each do |color|
+        - ['normal','is-active','disabled'].each do |type|
+          %a{:href=>"stuff", :class=>"small btn #{type} #{color}"}= "#{type}"
+        %br
+        %br

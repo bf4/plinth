@@ -24,7 +24,7 @@ end
 
 gem "haml"
 gem "haml-rails"
-
+gem "haml-coderay"
 
 #
 # Jquery rails - @TODO Is this needed?
@@ -41,4 +41,5 @@ group :development, :test do
   gem 'growl'
   gem 'jasminerice', :git => "https://github.com/bradphelan/jasminerice"
   gem "guard-jasmine"
+  gem 'jsPercolator'
 end

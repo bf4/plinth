@@ -50,6 +50,12 @@ audio:not([controls]) {
     display: none;
 }
 
+// Set default box model
+
+* {
+  box-sizing: border-box;
+}
+
 // ==========================================================================
 // Lists
 // ========================================================================== 
@@ -60,11 +66,11 @@ dl,
 menu,
 ol,
 ul {
-    margin: 1em 0;
+    margin: 0 0 ms(0);
 }
 
 dd {
-    margin: 0 0 0 40px;
+    margin: 0 0 0 ms(1);
 }
 
 // Addresses paddings set differently in IE6/7.
@@ -72,7 +78,7 @@ dd {
 menu,
 ol,
 ul {
-    padding: 0 0 0 40px;
+    padding: 0 0 0 $column-gutter*2;
 }
 
 // Corrects list images handled incorrectly in IE7.

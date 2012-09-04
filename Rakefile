@@ -12,10 +12,13 @@ end
 
 desc "Start Styleguide Server \[port 3001\]"
 task :start do
+  puts ''
+  puts ''
   puts '=============================='
   puts '   STARTING THE STYLEGUIDE'
   puts '=============================='
-  system 'bundle exec rails s -p 3001'
+  puts ''
+ system 'bundle exec rails s -p 3001'
 end
 
 

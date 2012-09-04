@@ -8,7 +8,7 @@
 // Standard Forms
 // ==========================================================================
 
-$formSpacing: 10px;
+$form-spacing: 10px;
 
 form {
   // @todo set the margin
@@ -45,8 +45,8 @@ input[type="time"], input[type="url"],
 textarea {
   display: block;
   margin: 0;
-  padding: $formSpacing * 0.25;
-  height: (ms(0) + ($formSpacing * 1.5));
+  padding: $form-spacing * 0.25;
+  height: (ms(0) + ($form-spacing * 1.5));
   width: 100%;
   border: 1px solid mono(3);
   @include border-radius(4px);
@@ -56,7 +56,7 @@ textarea {
 
   &.large {
     font-size: ms(1);
-    padding: $formSpacing * 0.75;
+    padding: $form-spacing * 0.75;
   }
 
   &:focus {

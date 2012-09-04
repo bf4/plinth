@@ -1,3 +1,11 @@
 %ul
-  %li= link_to "Drop down link", "#dd_target", :data => { :switch => true  }
-#dd_target switch content
+  - 3.times do |n|
+    %li= link_to "Drop down link", "#target#{n}", :data => { :switch => true  }, :id => "eg#{n}"
+- 3.times do |n|
+  %div{:id => "target#{n}"} switch content
+
+%ul
+  - 3.times do |n|
+    %li= link_to "Drop down link", "#target#{n}-2", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg#{n}-2"
+- 3.times do |n|
+  %div{:id => "target#{n}-2"} switch content

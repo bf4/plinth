@@ -24,23 +24,40 @@ plugin = ($)->
   # SWITCH CLASS DEFINITION
   # ========================= 
   class Switch 
-    constructor: ( element ) ->
-      $el = $(element)
-  
+    constructor: ( @el ) ->
+      @parent = @el.parent 'li'
+      @content = $(@el.attr 'href')
+      @toggle = if @el.attr('data-switch-toggle') then true else false
+      @group = if ( groupName = @el.attr('data-switch-group') ) then $("[data-switch-group='#{groupName}']")
+      @container = @el.closest 'ul:not(.dropdown-menu)'
+
+    activeClass: "is-active"
+
     _constructor:  Switch
-  
-    method : ->
-      alert "I am a method"
-  
+
+    click: ->
+      if @parent.hasClass(@activeClass)
+        if @toggle then return @changeStateTo false else return
+
+      @_closeGroup() if @group
+
+      @changeStateTo true
+
+    changeStateTo: (action) ->
+      el["#{if action then "add" else "remove"}Class"] @activeClass for el in [@content, @parent]
+
+    _closeGroup: ->
+      @container.find(".#{@activeClass}").removeClass @activeClass
+
   # SWITCH PLUGIN DEFINITION
   # ==========================
-  
+
   $.fn.switch = ( option ) ->
     this.each ->
       $this = $(@)
       data = $this.data 'switchPlugin'
-      if !data then $this.data 'switchPlugin', (data = new Switch @)
-      if typeof option is 'string' then data[option].call $this
+      if !data then $this.data 'switchPlugin', (data = new Switch $this)
+      if typeof option is 'string' then data[option]()
   
   $.fn.switch.Constructor = Switch
   
@@ -50,7 +67,8 @@ plugin = ($)->
   
   $ ->
     $('body').on 'click.switch.data-api', '[data-switch]', ( e ) ->
-      $(e.target).switch()
+      $(e.target).switch('click')
+      e.preventDefault()
 
 do ( plugin ) ->
   if typeof define is 'function' and define.amd

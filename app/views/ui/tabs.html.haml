@@ -6,18 +6,49 @@
     
     %p.standout Some blurb about tabs.
 
-    %h3.h5 simple tabs
+    %h3.h5 data-switch
+
+    %p options are:
+    %ul
+      %li data-switch-toggle
 
     = example do
       %ul
-        %li= link_to "Drop down link", "#dd_target", :data => { :toggle => true  }
-      #dd_target toggle content
+        - 3.times do |n|
+          %li= link_to "Drop down link", "#target#{n}", :data => { :switch => true  }, :id => "eg#{n}"
+      - 3.times do |n|
+        %div{:id => "target#{n}"} switch content
 
       :coderay
         #!haml
       
         // Example stuff
     %hr
+    
+    %h3.h5 Pills
 
+    %p To allow pills to toggle content.
 
+    = example do
+      %ul.pills
+        %li= link_to "Link 1", "#target1", :data => { :switch => true, :"switch-toggle" => true }
+        %li= link_to "Link 2", "#target2", :data => { :switch => true, :"switch-toggle" => true }
+        %li= link_to "Link 3", "#target3", :data => { :switch => true, :"switch-toggle" => true }
+      %div{:id => "target1"} switch content 1
+      %div{:id => "target2"} switch content 2
+      %div{:id => "target3"} switch content 3
 
+      :coderay
+        #!haml
+
+        %ul.pills
+          %li
+            = link_to "Link 1", "#target1", :data => { :switch => true, :"switch-toggle" => true }
+          %li
+            = link_to "Link 2", "#target2", :data => { :switch => true, :"switch-toggle" => true }
+          %li
+            = link_to "Link 3", "#target3", :data => { :switch => true, :"switch-toggle" => true }
+        %div{:id => "target1"} switch content 1
+        %div{:id => "target2"} switch content 2
+        %div{:id => "target3"} switch content 3
+      // end

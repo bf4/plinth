@@ -9,7 +9,10 @@
     %h3.h5 simple tabs
 
     = example do
-      .h5 example
+      %ul
+        %li= link_to "Drop down link", "#dd_target", :data => { :toggle => true  }
+      #dd_target toggle content
+
       :coderay
         #!haml
       

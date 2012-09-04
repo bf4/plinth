@@ -1,5 +1,5 @@
 # ============================================================
-# TBG toggle v0.0.1
+# TBG switch v0.0.1
 # http://URL
 # ============================================================
 # Copyright 2012 The Beans Group
@@ -21,36 +21,36 @@ plugin = ($)->
 
   "use strict"  
 
-  # TOGGLE CLASS DEFINITION
+  # SWITCH CLASS DEFINITION
   # ========================= 
-  class Toggle 
+  class Switch 
     constructor: ( element ) ->
       $el = $(element)
   
-    _constructor:  Toggle
+    _constructor:  Switch
   
     method : ->
       alert "I am a method"
   
-  # TOGGLE PLUGIN DEFINITION
+  # SWITCH PLUGIN DEFINITION
   # ==========================
   
-  $.fn.toggle = ( option ) ->
+  $.fn.switch = ( option ) ->
     this.each ->
       $this = $(@)
-      data = $this.data 'toggle'
-      if !data then $this.data 'toggle', (data = new Toggle @)
+      data = $this.data 'switchPlugin'
+      if !data then $this.data 'switchPlugin', (data = new Switch @)
       if typeof option is 'string' then data[option].call $this
   
-  $.fn.toggle.Constructor = Toggle
+  $.fn.switch.Constructor = Switch
   
   
   # DATA API
   # ===================================
   
   $ ->
-    $('body').on 'click.toggle.data-api', '[data-toggleAction^=Action]', ( e ) ->
-      $(e.target).toggle()
+    $('body').on 'click.switch.data-api', '[data-switch]', ( e ) ->
+      $(e.target).switch()
 
 do ( plugin ) ->
   if typeof define is 'function' and define.amd

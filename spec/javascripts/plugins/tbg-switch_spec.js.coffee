@@ -1,4 +1,4 @@
-#=require plugins//tbg-switch
+#=require styleguide/plugins/tbg-switch
 
 describe 'Switch:', ->
   activeClass = "is-active"

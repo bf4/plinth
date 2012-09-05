@@ -74,7 +74,7 @@ describe 'Switch:', ->
 
 
   describe 'Group state managment', ->
-    it "hides other elements in the group when clicked", ->
+    it "hides other link elements in the group when clicked", ->
       $('#eg1-2').click()
       $parent1 = $('#eg1-2').parent 'li'
       expect($parent1.hasClass(activeClass)).toBeTruthy()
@@ -84,3 +84,13 @@ describe 'Switch:', ->
       expect($parent2.hasClass(activeClass)).toBeTruthy()
 
       expect($parent1.hasClass(activeClass)).toBeFalsy()
+
+    it "hides other content elements in the group when clicked", ->
+      $('#eg1-2').click()
+      $content = $('#target1-2')
+      expect($content.hasClass(activeClass)).toBeTruthy()
+
+      $('#eg2-2').click()
+      $content2 = $('#target2-2')
+      expect($content2.hasClass(activeClass)).toBeTruthy()
+      expect($content.hasClass(activeClass)).toBeFalsy()

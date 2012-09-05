@@ -26,10 +26,10 @@ plugin = ($)->
   class Switch 
     constructor: ( @el ) ->
       @parent = @el.parent 'li'
-      @content = $(@el.attr 'href')
+      @content = @_getContent @el
       @toggle = if @el.attr('data-switch-toggle') then true else false
       @group = if ( groupName = @el.attr('data-switch-group') ) then $("[data-switch-group='#{groupName}']")
-      @container = @el.closest 'ul:not(.dropdown-menu)'
+      @container = @el.closest 'ul'
 
     activeClass: "is-active"
 
@@ -43,11 +43,18 @@ plugin = ($)->
 
       @changeStateTo true
 
-    changeStateTo: (action) ->
-      el["#{if action then "add" else "remove"}Class"] @activeClass for el in [@content, @parent]
+    changeStateTo: (action, elements =  [@content, @parent]) ->
+      el["#{if action then "add" else "remove"}Class"] @activeClass for el in elements
 
     _closeGroup: ->
-      @container.find(".#{@activeClass}").removeClass @activeClass
+      if (activeEl = @container.find(".#{@activeClass}")).length
+        activeContent = @_getContent activeEl.children('a')
+        @changeStateTo false, [activeContent, activeEl]
+
+    _getContent: ( el ) ->
+      $(el.attr 'href')
+
+
 
   # SWITCH PLUGIN DEFINITION
   # ==========================

@@ -8,7 +8,9 @@
 // ==========================================================================
 
 .action-list {
+  @include clearfix();
   padding: 0;
+
   li {
     display: inline-block;
     margin-right: $column-gutter/4;

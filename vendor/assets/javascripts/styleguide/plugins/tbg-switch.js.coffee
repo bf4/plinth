@@ -27,7 +27,7 @@ plugin = ($)->
     constructor: ( @el ) ->
       @parent = @el.parent 'li'
       @content = @_getContent @el
-      @toggle = if @el.attr('data-switch-toggle') then true else false
+      @toggle = @el.attr('data-switch-toggle')?
       @group = if ( groupName = @el.attr('data-switch-group') ) then $("[data-switch-group='#{groupName}']")
       @container = @el.closest 'ul'
 

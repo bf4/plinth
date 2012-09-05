@@ -168,6 +168,10 @@ samp {
   font-size: 1em;
 }
 
+code {
+  background-color: transparentize( $main-color, 0.7);
+}
+
 // Improves readability of pre-formatted text in all browsers.
 
 pre {

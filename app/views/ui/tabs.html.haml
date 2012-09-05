@@ -5,53 +5,167 @@
     %h2 Tabs
     
     %p.standout
-      Tabs use on the 
+      Tabs use the 
       %code switch 
       plugin to manage active state.
 
-    %h3.h5 data-switch
+    %h3.h5 data-switch options
 
-    %p options are:
-    %ul
-      %li data-switch-toggle
+    %dl
+      %dt 
+        %code data-switch="true"
+      %dd An event listener will initalise the switch plugin when an element with this attribute is clicked.
+      %dt
+        %code data-switch-group="[group name]"
+      %dd By giving an element a group name then the plugin can change the state of other switches within the same group.
+      %dt 
+        %code data-switch-toggle
+      %dd This option enables a switch to toggle it's state upon click.
+
+    %p= link_to "Switch tests", "/jasmine?spec=Switch%3A"
+
+    %hr
+
+    %h3.h5 Minimal switch
+
+    %p Simplest form of the switch. In this version the switch is a simple reveal plugin with no off state.
 
     = example do
       %ul
-        - 3.times do |n|
-          %li= link_to "Drop down link", "#target#{n}", :data => { :switch => true  }, :id => "eg#{n}"
-      - 3.times do |n|
-        %div{:id => "target#{n}"} switch content
+        %li= link_to "Link 1", "#target1-1", :data => { :switch => true }
+        %li= link_to "Link 2", "#target2-1", :data => { :switch => true }
+        %li= link_to "Link 3", "#target3-1", :data => { :switch => true }
+      %div.switch-content{:id => "target1-1"} switch content 1
+      %div.switch-content{:id => "target2-1"} switch content 2
+      %div.switch-content{:id => "target3-1<D-s>"} switch content 3
 
       :coderay
         #!haml
-      
-        // Example stuff
-    %hr
-    
-    %h3.h5 Pills
 
-    %p To allow pills to toggle content.
+        %ul
+          %li
+            = link_to "Link 1", "#target1", :data => { :switch => true }
+          %li
+            = link_to "Link 2", "#target2", :data => { :switch => true }
+          %li
+            = link_to "Link 3", "#target3", :data => { :switch => true }
+        %div.switch-content{:id => "target1"} switch content 1
+        %div.switch-content{:id => "target2"} switch content 2
+        %div.switch-content{:id => "target3"} switch content 3
+      // end
+
+    %hr
+
+
+    %h3.h5 Toggle switch
+
+    %p Content can be toggled and it's state has no effect on other elements.
 
     = example do
-      %ul.pills
-        %li= link_to "Link 1", "#target1", :data => { :switch => true, :"switch-toggle" => true }
-        %li= link_to "Link 2", "#target2", :data => { :switch => true, :"switch-toggle" => true }
-        %li= link_to "Link 3", "#target3", :data => { :switch => true, :"switch-toggle" => true }
-      %div{:id => "target1"} switch content 1
-      %div{:id => "target2"} switch content 2
-      %div{:id => "target3"} switch content 3
+      %ul
+        %li= link_to "Link 1", "#target1-2", :data => { :switch => true, :"switch-toggle" => true }
+        %li= link_to "Link 2", "#target2-2", :data => { :switch => true, :"switch-toggle" => true }
+        %li= link_to "Link 3", "#target3-2", :data => { :switch => true, :"switch-toggle" => true }
+      %div.switch-content{:id => "target1-2"} switch content 1
+      %div.switch-content{:id => "target2-2"} switch content 2
+      %div.switch-content{:id => "target3-2"} switch content 3
 
       :coderay
         #!haml
 
-        %ul.pills
+        %ul
           %li
             = link_to "Link 1", "#target1", :data => { :switch => true, :"switch-toggle" => true }
           %li
             = link_to "Link 2", "#target2", :data => { :switch => true, :"switch-toggle" => true }
           %li
             = link_to "Link 3", "#target3", :data => { :switch => true, :"switch-toggle" => true }
-        %div{:id => "target1"} switch content 1
-        %div{:id => "target2"} switch content 2
-        %div{:id => "target3"} switch content 3
+        %div.switch-content{:id => "target1"} switch content 1
+        %div.switch-content{:id => "target2"} switch content 2
+        %div.switch-content{:id => "target3"} switch content 3
+      // end
+
+    %hr
+
+    %h3.h5 Simple Groups
+
+    %p
+      By adding the
+      %code switch-group
+      data element we can make groups of switches reactive to each others state.
+
+    = example  do 
+      %ul
+        %li.is-active= link_to "Drop down link 1", "#target1-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg1-2"
+        %li= link_to "Drop down link 2", "#target2-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg2-2"
+        %li= link_to "Drop down link 3", "#target3-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg3-2"
+      %div.switch-content.is-active{:id => "target1-3"}= "switch content 1"
+      %div.switch-content{:id => "target2-3"}= "switch content 2"
+      %div.switch-content{:id => "target3-3"}= "switch content 3"
+
+      :coderay
+        #!haml
+
+        %ul.tabs
+          %li.is-active= link_to "Drop down link 1", "#target1-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg1-2"
+          %li= link_to "Drop down link 2", "#target2-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg2-2"
+          %li= link_to "Drop down link 3", "#target3-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg3-2"
+        %div.switch-content.is-active{:id => "target1-3"}= "switch content 1"
+        %div.switch-content{:id => "target2-3"}= "switch content 2"
+        %div.switch-content{:id => "target3-3"}= "switch content 3"
+      // end
+
+
+
+    %hr
+
+    %h3.h5 Simple Groups with toggle
+
+    = example do
+      %ul
+        %li= link_to "Link 1", "#target1-5", :data => { :switch => true, :"switch-toggle" => true , :"switch-group" => "group-1" }
+        %li= link_to "Link 2", "#target2-5", :data => { :switch => true, :"switch-toggle" => true, :"switch-group" => "group-1"  }
+        %li= link_to "Link 3", "#target3-5", :data => { :switch => true, :"switch-toggle" => true, :"switch-group" => "group-1"  }
+      %div.switch-content{:id => "target1-5"} switch content 1
+      %div.switch-content{:id => "target2-5"} switch content 2
+      %div.switch-content{:id => "target3-5"} switch content 3
+
+      :coderay
+        #!haml
+
+        %ul.tabs
+          %li.is-active= link_to "Drop down link 1", "#target1-3", :data => { :switch => true, :"switch-group" => "group-1", :"switch-toggle" => true }, :id => "eg1-2"
+          %li= link_to "Drop down link 2", "#target2-3", :data => { :switch => true, :"switch-group" => "group-1", :"switch-toggle" => true  }, :id => "eg2-2"
+          %li= link_to "Drop down link 3", "#target3-3", :data => { :switch => true, :"switch-group" => "group-1", :"switch-toggle" => true  }, :id => "eg3-2"
+        %div.switch-content.is-active{:id => "target1-3"}= "switch content 1"
+        %div.switch-content{:id => "target2-3"}= "switch content 2"
+        %div.switch-content{:id => "target3-3"}= "switch content 3"
+      // end
+
+
+
+
+    %hr
+
+    %h3.h5 Groups (with tabs)
+
+    = example  do 
+      %ul.tabs
+        %li.is-active= link_to "Drop down link 1", "#target1-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg1-2"
+        %li= link_to "Drop down link 2", "#target2-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg2-2"
+        %li= link_to "Drop down link 3", "#target3-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg3-2"
+      %div.switch-content.is-active{:id => "target1-3"}= "switch content 1"
+      %div.switch-content{:id => "target2-3"}= "switch content 2"
+      %div.switch-content{:id => "target3-3"}= "switch content 3"
+
+      :coderay
+        #!haml
+
+        %ul.tabs
+          %li.is-active= link_to "Drop down link 1", "#target1-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg1-2"
+          %li= link_to "Drop down link 2", "#target2-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg2-2"
+          %li= link_to "Drop down link 3", "#target3-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg3-2"
+        %div.switch-content.is-active{:id => "target1-3"}= "switch content 1"
+        %div.switch-content{:id => "target2-3"}= "switch content 2"
+        %div.switch-content{:id => "target3-3"}= "switch content 3"
       // end

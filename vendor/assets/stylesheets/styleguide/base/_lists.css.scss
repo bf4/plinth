@@ -11,14 +11,21 @@
   @include clearfix();
   padding: 0;
 
-  li {
+  & > li {
     display: inline-block;
     margin-right: $column-gutter/4;
     *display: inline;
     *zoom: 1;
-  }
 
-  li:last-child {
-    margin-right: 0;
+    &:last-child {
+      margin-right: 0;
+    }
+
+  }
+  
+  .divider {
+    border-left: 1px solid mono(2);
+    height: $base-line-height-px/2;
   }
 }
+

@@ -18,11 +18,64 @@
       // OR
       = link_to "Link Name", link_path, :class=>"btn |size| |color|"
     // end
+    
+    %hr
 
-    %h3 Button states
+    %h3.h5 Button states
     = example do
       - ['','orange','green', 'blue'].each do |color|
         - ['normal','is-active','disabled'].each do |type|
           %a{:href=>"stuff", :class=>"small btn #{type} #{color}"}= "#{type}"
         %br
         %br
+
+    %hr
+
+    %h2 Web Icons
+
+    %h3.h5#social_icons social icons
+
+    = example do
+      %ul.action-list.h4
+        %li
+          =link_to "twitter", "http://twitter.com", :class => "ss-icon"
+        %li
+          %i.ss-icon.twitter twitter
+        %li
+          %i.ss-icon twitter
+        %li
+          =link_to "facebook", "http://facebook.com", :class => "ss-icon"
+        %li
+          %i.ss-icon.facebook facebook
+        %li
+          %i.ss-icon facebook
+        %li
+          =link_to "mail", "mailto:me@me.com", :class => "ss-icon"
+        %li
+          %i.ss-icon.email email
+        %li
+          %i.ss-icon email
+
+      :coderay
+        #!haml
+        
+        %ul.action-list.h4
+          %li
+            =link_to "twitter", "http://twitter.com", :class => "ss-icon"
+          %li
+            %i.ss-icon.twitter twitter
+          %li
+            %i.ss-icon twitter
+          %li
+            =link_to "facebook", "http://facebook.com", :class => "ss-icon"
+          %li
+            %i.ss-icon.facebook facebook
+          %li
+            %i.ss-icon facebook
+          %li
+            =link_to "mail", "mailto:me@me.com", :class => "ss-icon"
+          %li
+            %i.ss-icon.email email
+          %li
+            %i.ss-icon email
+      // end

@@ -61,6 +61,7 @@ a:focus {
 
 a:active,
 a.is-active,
+.is-active > a,
 a:hover {
   border-color: $main-color;
   outline: 0;

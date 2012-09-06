@@ -61,6 +61,7 @@ a:focus {
 
 a:active,
 a.is-active,
+.is-active > a,
 a:hover {
   border-color: $main-color;
   outline: 0;
@@ -168,6 +169,10 @@ samp {
   font-size: 1em;
 }
 
+code {
+  background-color: transparentize( $main-color, 0.7);
+}
+
 // Improves readability of pre-formatted text in all browsers.
 
 pre {
@@ -215,6 +220,45 @@ sub {
 
 
 // ==========================================================================
+// Web fonts
+// ==========================================================================
+@import "webfonts/all";
+
+
+// ==========================================================================
+// Icons
+// ==========================================================================
+
+a[href*='twitter.com'], .twitter {
+  color: $twitter-color;
+}
+a[href*='twitter.com'], a.twitter {
+  &:hover, &:focus {
+    color: darken($twitter-color, 10%);
+  }
+}
+
+a[href*='mailto:'], .email {
+  color: $email-color;
+}
+a[href*='mailto:'], a.email {
+  &:hover, &:focus {
+    color: darken($email-color, 10%);
+  }
+}
+
+
+a[href*='facebook.com'], .facebook {
+  color: $facebook-color;
+}
+a[href*='facebook.com'], a.facebook {
+  &:hover, &:focus {
+    color: darken($facebook-color, 10%);
+  }
+}
+
+
+// ==========================================================================
 // Typographic Extensions
 // ==========================================================================
 
@@ -228,6 +272,7 @@ sub {
 
 .support {
   @extend small;
+  margin-bottom: ms(0)/2;
 }
 
 // Secondary text

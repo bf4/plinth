@@ -25,7 +25,7 @@ plugin = ($)->
   # ========================= 
   class Switch 
     constructor: ( @el ) ->
-      @parent = @el.parent 'li'
+      @parent = if (parent = @el.parent('li')).length then parent else @el.parent()
       @content = @_getContent @el
       @toggle = @el.attr('data-switch-toggle')?
       @group = if ( groupName = @el.attr('data-switch-group') ) then $("[data-switch-group='#{groupName}']")

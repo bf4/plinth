@@ -1,0 +1,28 @@
+.row
+  .mother-three.mother-push-one.column= render "ui_nav"
+  .mother-seven.mother-pull-one.column
+
+    %h2 Alerts
+    
+    %hr
+
+    %p Simplest form of the switch. In this version the switch is a simple reveal plugin with no off state.
+
+    = example do
+      %section.alert
+        = link_to "close", "#close_id", :class => "ss-icon close"
+        %p some text
+      %section.alert.success
+        = link_to "close", "#close_id", :class => "ss-icon close"
+        %p some text
+      %section.alert.error
+        = link_to "close", "#close_id", :class => "ss-icon close"
+        %p some text
+
+      :coderay
+        #!haml
+
+        %nav.nav-global
+
+      // end
+

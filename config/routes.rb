@@ -20,6 +20,7 @@ SbStyleguide::Application.routes.draw do
 
   # Modules
   get "ui/tabs", :as => "tabs"
+  get "ui/nav", :as => "nav"
 
 
   #

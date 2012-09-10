@@ -1,7 +1,15 @@
-%nav
-  %ul.action-list
-    %li
-      %h1 SB UI TOOL KIT
-    %li= link_to "UI Elements", root_path
-    %li= link_to "Javascript", javascript_path
-    %li= link_to "Github", github_path
+%nav.nav-global
+  #nav-global.nav-collapse.baby-switch-content<
+    %ul.nav-items.collapse><
+      %li><
+        = link_to "UI Elements", root_path
+      %li><
+        = link_to "Javascript", javascript_path
+      %li><
+        = link_to "Github", github_path
+  .nav-mobile-switch.baby-only
+    %a{ :href => "#nav-global", :data => {:switch => true, :"switch-toggle" => true} }><
+      %span>< Show navigation
+    %i><
+    %i><
+    %i><

@@ -14,9 +14,6 @@
 
 
 @import "styleguide";
-@import "styleguide/base/_all";
-@import "styleguide/modules/_all";
-
 
 // ======================================================
 // Settings grids
@@ -30,6 +27,14 @@ $grids : $mother, $sister, $baby;
 
 // Max container width
 $container-width: 980px;
+
+// ======================================================
+// Stylguide
+// ======================================================
+
+@import "styleguide/base/_all";
+@import "styleguide/modules/_all";
+
 
 // ======================================================
 // Default grids

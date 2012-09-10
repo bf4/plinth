@@ -1,0 +1,48 @@
+.row
+  .mother-three.mother-push-one.column= render "ui_nav"
+  .mother-seven.mother-pull-one.column
+
+    %h2 Navigation
+    
+    %hr
+
+    %h3.h5 Global Nav
+
+    %p Simplest form of the switch. In this version the switch is a simple reveal plugin with no off state.
+
+    = example do
+      %nav.nav-global
+        #nav-global.nav-collapse.baby-switch-content<
+          %ul.nav-items.collapse><
+            %li.is-active><
+              = link_to "stuff", "stuff"
+            %li><
+              = link_to "things", "things"
+            %li><
+              = link_to "bits", "bits"
+        .nav-mobile-switch.baby-only
+          %a{ :href => "#nav-global", :data => {:switch => true, :"switch-toggle" => true} }><
+            %span>< Show navigation
+          %i><
+          %i><
+          %i><
+
+      :coderay
+        #!haml
+        %nav.nav-global
+          #nav-global.nav-collapse.baby-switch-content<
+            %ul.nav-items.collapse><
+              %li.is-active><
+                = link_to "stuff", "stuff"
+              %li><
+                = link_to "things", "things"
+              %li><
+                = link_to "bits", "bits"
+          .nav-mobile-switch.baby-only
+            %a{ :href => "#nav-global", :data => {:switch => true, :"switch-toggle" => true} }><
+              %span>< Show navigation
+            %i><
+            %i><
+            %i><
+      // end
+

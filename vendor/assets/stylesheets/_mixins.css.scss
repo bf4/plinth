@@ -12,9 +12,21 @@
   @each $grid in $grids {
     // If there is a media query
     @if(length($grid) == $query-pos) {
+
+      .#{nth($grid,1)}only {
+        display: none;
+      }
+
       // Add Rules wrapped in media query
       @include media-query( nth($grid,$query-pos) ) {
         @include build-column-size($grid);
+        .#{nth($grid,1)}only {
+          display: block;
+        }
+
+        .#{nth($grid,1)}hide {
+          display: none;
+        }
       }
     }
     @else {
@@ -51,6 +63,8 @@
       }
     }
   }
+
+
 }
 
 // ==========================================================================

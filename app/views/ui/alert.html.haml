@@ -22,7 +22,14 @@
       :coderay
         #!haml
 
-        %nav.nav-global
-
+        %section.alert#info_box
+          = link_to "close", "#info_box", :class => "ss-icon close", :data => {:close => true}
+          %p some text
+        %section.alert.success#success_box
+          = link_to "close", "#", :class => "ss-icon close", :data => {:close => "#success_box"}
+          %p some text
+        %section.alert.error#error_box
+          = link_to "close", "#", :class => "ss-icon close", :data => {:close => "#error_box"}
+          %p some text
       // end
 

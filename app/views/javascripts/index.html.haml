@@ -6,14 +6,14 @@
 
     %hr
 
-    %h3#close-plugin Close plugin
+    %h3#close-plugin= link_to "Close plugin", "/jasmine?spec=Close%3A"
 
     %p.standout Simple plugin to close (read: remove) anything on the page.
 
     %h4 Usage
 
     :markdown
-      The plugin is instantiated using the attribute `data-close`.
+      The plugin is instantiated using the attribute `data-close` on the element that is used as the close button. The target is set by either passing a jQuery selector to the `data-attribute` or the ID of the target to the `href`.
 
     %h5 data-close="selector"
 
@@ -34,6 +34,11 @@
     :coderay
       #!haml
       %a{:href => "#", :data => {:close => "[jquery selector]"} }
+
+    %h4 Events emitted
+
+    :markdown
+      * `close` - emitted from target just before removal.
 
     %hr
 

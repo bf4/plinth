@@ -1,5 +1,45 @@
 .row
   .mother-three.mother-push-one.column= render "js_nav"
   .mother-seven.mother-pull-one.column
-    %h1 JS
+
+    %h2 Javascript
+
+    %hr
+
+    %h3#close-plugin= link_to "Close plugin", "/jasmine?spec=Close%3A"
+
+    %p.standout Simple plugin to close (read: remove) anything on the page.
+
+    %h4 Usage
+
+    :markdown
+      The plugin is instantiated using the attribute `data-close` on the element that is used as the close button. The target is set by either passing a jQuery selector to the `data-attribute` or the ID of the target to the `href`.
+
+    %h5 data-close="selector"
+
+    :markdown
+      You can use the `data-close` attribute to set **any** jQuery selector to target the element you wish the button to close.
+
+    :coderay
+      #!haml
+      %a{:href => "#", :data => {:close => "[jquery selector]"} }
+      %a{:href => "#", :data => {:close => ".selector"} }
+      %a{:href => "#", :data => {:close => "#selector"} }
+
+    %h5 href="selector"
+
+    :markdown
+      You can use the `href` attribute to set a target element, by **ID only**, that you wish the button to close.
+
+    :coderay
+      #!haml
+
+      %a{:href => "#[target_id]", :data => {:close => true} }
+
+    %h4 Events emitted
+
+    :markdown
+      * `close` - emitted from target just before removal.
+
+    %hr
 

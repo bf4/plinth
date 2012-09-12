@@ -23,18 +23,6 @@
        asset-url('ss-social-circle.svg#SSSocialCircle', font) format('svg');
 }
 
-/* @font-face { */
-/*   font: { */
-/*        family: 'SSSocial'; */
-/*        weight: 'normal'; */
-/*        style: 'normal'; */
-/*   } */
-/*   src: asset-url('ss-social-regular.eot', font); */
-/*   src: asset-url('ss-social-regular.eot?#iefix', font) format('embedded-opentype'), */
-/*        asset-url('ss-social-regular.woff', font) format('woff'), */
-/*        asset-url('ss-social-regular.ttf', font) format('truetype'), */
-/*        asset-url('ss-social-regular.svg#SSSocialRegular', font) format('svg'); */
-/* } */
 
 .ss-icon, .ss-icon.ss-social, .ss-icon.ss-social-no-circle,
 [class^="ss-"]:before, [class*=" ss-"]:before, 

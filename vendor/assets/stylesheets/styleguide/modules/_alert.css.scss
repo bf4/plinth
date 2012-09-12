@@ -1,0 +1,71 @@
+//
+// Alert Module
+// $author Ad Taylor
+
+@import "compass/css3";
+
+// ==========================================================================
+// Default alert
+// ==========================================================================
+
+.alert {
+  padding: ms(0) ms(0)/2 ms(0);
+  border-bottom: 2px solid blue(2);
+  background-color: blue(3);
+  color: blue(1);
+  font-weight: bold;
+
+  p {
+    margin: 0;
+  }
+
+  .close {
+    float: right;
+    opacity: 0.8;
+
+    color: blue(2);
+
+    &:hover, &:active {
+      color: blue(1);
+    }
+  }
+}
+
+// ==========================================================================
+// Error alert
+// ==========================================================================
+
+.alert.error {
+  border-bottom-color: darken($alert-color, 10%);
+  background-color: $alert-color;
+  color: $white;
+
+  .close {
+    color: darken($alert-color, 20%);
+
+    &:hover, &:active {
+      color: darken($alert-color, 30%);
+    }
+  }
+
+}
+
+
+// ==========================================================================
+// Success alert
+// ==========================================================================
+
+.alert.success {
+  border-bottom-color: green(2);
+  background-color: $success-color;
+  color: $white;
+
+  .close {
+    color: darken(green(2), 10%);
+
+    &:hover, &:active {
+      color: darken(green(2), 20%);
+    }
+  }
+
+}

@@ -29,53 +29,81 @@
         %br
         %br
 
-    %hr
 
     %h2 Web Icons
+
+    %p
+      We are using the webfonts from Symbolset,
+      = link_to "click here ", "http://symbolset.com/"
+      for a full reference on avaliable icons.
+
+    %hr
 
     %h3.h5#social_icons social icons
 
     = example do
       %ul.action-list.h4
         %li
-          =link_to "twitter", "http://twitter.com", :class => "ss-icon"
+          =link_to "twitter", "http://twitter.com", :class => "ss-icon ss-social"
         %li
-          %i.ss-icon.twitter twitter
+          %i.ss-icon.ss-social.twitter twitter
         %li
-          %i.ss-icon twitter
+          %i.ss-icon.ss-social twitter
         %li
-          =link_to "facebook", "http://facebook.com", :class => "ss-icon"
+          =link_to "facebook", "http://facebook.com", :class => "ss-icon ss-social"
         %li
-          %i.ss-icon.facebook facebook
+          %i.ss-icon.ss-social.facebook facebook
         %li
-          %i.ss-icon facebook
+          %i.ss-icon.ss-social facebook
         %li
-          =link_to "mail", "mailto:me@me.com", :class => "ss-icon"
+          =link_to "mail", "mailto:me@me.com", :class => "ss-icon ss-social"
         %li
-          %i.ss-icon.email email
+          %i.ss-icon.ss-social.email email
         %li
-          %i.ss-icon email
+          %i.ss-icon.ss-social email
 
       :coderay
         #!haml
         
         %ul.action-list.h4
           %li
-            =link_to "twitter", "http://twitter.com", :class => "ss-icon"
+            =link_to "twitter", "http://twitter.com", :class => "ss-icon ss-social"
           %li
-            %i.ss-icon.twitter twitter
+            %i.ss-icon.ss-social.twitter twitter
           %li
-            %i.ss-icon twitter
+            %i.ss-icon.ss-social twitter
           %li
-            =link_to "facebook", "http://facebook.com", :class => "ss-icon"
+            =link_to "facebook", "http://facebook.com", :class => "ss-icon ss-social"
           %li
-            %i.ss-icon.facebook facebook
+            %i.ss-icon.ss-social.facebook facebook
           %li
-            %i.ss-icon facebook
+            %i.ss-icon.ss-social facebook
           %li
-            =link_to "mail", "mailto:me@me.com", :class => "ss-icon"
+            =link_to "mail", "mailto:me@me.com", :class => "ss-icon ss-social"
           %li
-            %i.ss-icon.email email
+            %i.ss-icon.ss-social.email email
           %li
-            %i.ss-icon email
+            %i.ss-icon.ss-social email
+      // end
+
+    %hr
+
+    %h3.h5#social_icons Standard icons
+
+    = example do
+      %ul.action-list
+        %li
+          =link_to "close", "close", :class => "ss-icon"
+        %li
+          %i.ss-icon close
+        %li.ss-delete close
+
+      :coderay
+        #!haml
+        
+        %ul.action-list
+          %li= link_to "close", "close", :class => "ss-icon"
+          %li
+            %i.ss-icon close
+          %li.ss-delete close
       // end

@@ -17,6 +17,7 @@ SbStyleguide::Application.routes.draw do
   get "ui/grids", :as => "grids"
   get "ui/typography", :as => "typography"
   get "ui/buttons", :as => "buttons"
+  get "ui/labels", :as => "labels"
 
   # Modules
   get "ui/tabs", :as => "tabs"

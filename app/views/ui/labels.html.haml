@@ -1,0 +1,15 @@
+.row
+  .mother-three.mother-push-one.column= render "ui_nav"
+  .mother-seven.mother-pull-one.column
+    %h2 Labels
+
+    %hr
+
+    = example do
+      - ['','orange','green', 'blue'].each do |color|
+        %span{:class=>"label #{color}"}= (color.length > 0) ? ".#{color}.label" : ".label"
+    :coderay
+      #!haml
+
+      %span{:class=>"label [color]"} .[color].label
+    // end

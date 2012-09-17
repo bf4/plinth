@@ -8,12 +8,15 @@
 // Global Nav
 // ==========================================================================
 
+$nav-color: $main-color !default;
+$nav-color-hover: $main-color-hover !default;
+$nav-align: right !default;
 
 .nav-global {
   @include clearfix();
 
-  background-color: $main-color;
-  text-align: right;
+  background-color: $nav-color;
+  text-align: $nav-align;
 
   .nav-items {
     @extend .action-list;
@@ -25,7 +28,7 @@
 
     & > li {
       margin: 0;
-      border-left: 1px solid $main-color-hover;
+      border-left: 1px solid $nav-color-hover;
 
       a {
         padding: ms(0)/2 ms(0);
@@ -33,7 +36,7 @@
       }
 
       &:hover, &:focus, &.is-active {
-        background-color: $main-color-hover;
+        background-color: $nav-color-hover;
       }
     }
   }

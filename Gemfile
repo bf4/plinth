@@ -42,5 +42,5 @@ group :development, :test do
   gem 'growl'
   gem 'jasminerice', :git => "https://github.com/bradphelan/jasminerice"
   gem "guard-jasmine"
-  gem 'jsPercolator'
+  gem 'jsPercolator', :git => "git@github.com:adtaylor/jsPercolator.git"
 end

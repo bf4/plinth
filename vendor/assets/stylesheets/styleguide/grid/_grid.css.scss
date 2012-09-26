@@ -32,6 +32,13 @@
   .row {
     margin: 0 0px-$column-gutter;
   }
+
+  &.collapse {
+    & > .column {
+      padding-left: 0;
+      padding: 0;
+    }
+  }
 }
 
 // ==========================================================================

@@ -1,0 +1,31 @@
+.row
+  .mother-three.mother-push-one.column= render "ui_nav"
+  .mother-seven.mother-pull-one.column
+
+    %h2 Forms
+    
+
+    = example do
+      %form
+        .row
+          .mother-eight.column
+            .row.collapse
+              .mother-eight.column
+                %input.prefix{:type=>"text"}
+              .mother-four.column
+                %input.orange.small.btn.suffix{:type=>"submit", :value => "Submit"}
+
+
+      :coderay
+        #!haml
+
+        %form
+          .row
+            .mother-eight.column
+              .row.collapse
+                .mother-eight.column
+                  %input.prefix{:type=>"text"}
+                .mother-four.column
+                  %input.btn.suffix{:type=>"submit", :value => "Submit"}
+      // end
+

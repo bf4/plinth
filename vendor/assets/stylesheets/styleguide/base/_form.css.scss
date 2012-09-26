@@ -35,6 +35,16 @@ label, input, button,
 select, textarea {
   font-size: ms(0);
   line-height: 1.5;
+  @include border-radius(4px);
+
+  &.suffix {
+    margin-left: -1px;
+  }
+
+  &.prefix {
+    margin-right: -1px;
+  }
+
 }
 
 input[type="text"], input[type="password"],
@@ -49,7 +59,6 @@ textarea {
   height: (ms(0) + ($form-spacing * 1.5));
   width: 100%;
   border: 1px solid mono(3);
-  @include border-radius(4px);
   color: rgba(0,0,0,0.75);
   font-size: ms(0);
   @include transition(all 0.15s linear);
@@ -68,6 +77,7 @@ textarea {
   &[disabled] {
     background-color: #ddd;
   }
+
 }
 
 textarea {
@@ -93,3 +103,5 @@ fieldset {
     margin: 0 0 0 -3px;
   }
 }
+
+

@@ -23,6 +23,7 @@ SbStyleguide::Application.routes.draw do
   get "ui/tabs", :as => "tabs"
   get "ui/nav", :as => "nav"
   get "ui/alert", :as => "alert"
+  get "ui/forms", :as => "forms"
 
 
   #

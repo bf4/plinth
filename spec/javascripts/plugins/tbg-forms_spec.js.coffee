@@ -45,8 +45,7 @@ describe "A Form Handler", ->
       spyOn(inst, 'sendRequest').andCallFake ->
         @showErrors "email": ["can't be blank","is invalid"]
       $form.submit()
-      $fg = $('.l-form-group')
-      $msg = $fg.find('.l-form-msg')
+      $msg = $form.find('.form-msg')
       expect( $msg.text() ).toEqual( "email can't be blank & is invalid" )
       expect( $form.find('.is-error').length ).toEqual(3)
 

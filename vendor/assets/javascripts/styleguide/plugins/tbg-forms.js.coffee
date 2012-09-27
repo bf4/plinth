@@ -47,16 +47,17 @@ plugin = ($)->
 
 
     showErrors :( errors )->
-      $('.l-form-msg.is-error').remove()
+      @form.find('.form-msg.is-error').remove()
 
       for field, error of errors
         $this = @form.find("[id$=#{field}]").addClass('is-error')
-        if not msg = ($this.siblings(".l-form-msg"))[0] then msg = $("<div class='l-form-msg'></div>").insertAfter($this)
+        if not msg = ($this.siblings(".form-msg"))[0] then msg = $("<small class='form-msg'></small>").insertAfter($this)
         msg.text( "#{field} " + error.join(' & ') ).addClass('is-error')
         $this.siblings('label').addClass('is-error')
 
 
     showSuccess :->
+      @showErrors {}
       @successArea = $(@form.data 'forms-success-replace')
       @successHTML = @form.data 'forms-success-content'
       @successArea.fadeOut().html(@successHTML).fadeIn()

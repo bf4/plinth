@@ -62,6 +62,12 @@
         right: gridCalc($i, $total-columns);
       }
     }
+    .#{nth($grid,1)}push-none {
+      left: 0;
+    }
+    .#{nth($grid,1)}pull-none {
+      right: 0;
+    }
   }
 
 

@@ -48,6 +48,7 @@ plugin = ($)->
 
     showErrors :( errors )->
       @form.find('.form-msg.is-error').remove()
+      @form.find('.is-error').removeClass('is-error')
 
       for field, error of errors
         $this = @form.find("[id$=#{field}]").addClass('is-error')

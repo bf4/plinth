@@ -51,9 +51,11 @@ audio:not([controls]) {
 }
 
 // Set default box model
-
-* {
-  box-sizing: border-box;
+@if $setBoxSizing {
+  * {
+    box-sizing: border-box;
+    *behavior: url(/boxsizing.htc);
+  }
 }
 
 // ==========================================================================

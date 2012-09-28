@@ -47,6 +47,7 @@ select, textarea {
 
 }
 
+
 input[type="text"], input[type="password"],
 input[type="date"], input[type="datetime"],
 input[type="email"], input[type="number"],
@@ -104,4 +105,23 @@ fieldset {
   }
 }
 
+// ==========================================================================
+// Form validations
+// ==========================================================================
+
+.form-msg {
+  &.is-error {
+    color: $alert-color;
+  }
+
+  &.is-info {
+    color: blue();
+  }
+}
+
+input, select, textarea {
+  &.is-error {
+    border-color: $alert-color;
+  }
+}
 

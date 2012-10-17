@@ -125,3 +125,30 @@
 @mixin set-focus {
   outline: 3px solid yellow;
 }
+
+
+// ==========================================================================
+// Uncle Dave's Ol' Padded Box
+// ==========================================================================
+
+@mixin ol-padded-box($ratioW, $ratioH) {
+  background-size: cover;
+  height: 0;
+  display: block;
+  padding-bottom: 0% + ($ratioH/$ratioW)*100;
+}
+
+
+// ==========================================================================
+// Smallest query
+// ==========================================================================
+
+@mixin smallest-query {
+  $query-position: 4;
+  $length: length($grids);
+  $mobile: nth($grids, $length);
+
+  @include media-query( nth($mobile,$query-pos) ) {
+    @content;
+  }
+}

@@ -24,6 +24,7 @@ SbStyleguide::Application.routes.draw do
   get "ui/nav", :as => "nav"
   get "ui/alert", :as => "alert"
   get "ui/forms", :as => "forms"
+  get "ui/footer", :as => "footer"
 
 
   #

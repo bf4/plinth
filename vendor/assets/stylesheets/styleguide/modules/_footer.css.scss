@@ -9,7 +9,7 @@
 // ==========================================================================
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -17,13 +17,13 @@
   background-color: $main-color;
   color: $white;
 
-  $tab-size: 30px;
+  $tab-size: 20px;
 
   .footer-tab {
     position: relative;
     display: block;
     top: 0 - $tab-size;
-    width: $tab-size;
+    width: $tab-size*1.25;
     height: $tab-size;
     padding-top: $tab-size*0.25;
     background-color: $main-color;

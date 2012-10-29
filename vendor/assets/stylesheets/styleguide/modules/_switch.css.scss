@@ -20,7 +20,7 @@ $query-pos: 4;
 @each $grid in $grids {
   // If there is a media query
   @if(length($grid) == $query-pos) {
-    @include media-query( nth($grid,$query-pos) ) {
+    @include media-query( nth($grid,$query-pos), nth($grid,1) ) {
       .#{nth($grid,1)}switch-content {
         display: none;
 

@@ -18,7 +18,7 @@
       }
 
       // Add Rules wrapped in media query
-      @include media-query( nth($grid,$query-pos) ) {
+      @include media-query( nth($grid,$query-pos), nth($grid,1) ) {
         @include build-column-size($grid);
         .#{nth($grid,1)}only {
           display: block;
@@ -30,6 +30,10 @@
       }
     }
     @else {
+      body:after {
+        content: nth($grid,1);
+        display: none;
+      }
       @include build-column-size($grid);
     }
   }
@@ -77,8 +81,13 @@
 // Simple Media Query Generator
 // ==========================================================================
 
-@mixin media-query($size) {
+@mixin media-query($size,$name) {
   @media ($size) {
+    body:after {
+        content: $name;
+        display: none;
+    }
+
     @content;
   }
 }
@@ -148,7 +157,7 @@
   $length: length($grids);
   $mobile: nth($grids, $length);
 
-  @include media-query( nth($mobile,$query-position) ) {
+  @include media-query( nth($mobile,$query-position), nth($mobile,1) ) {
     @content;
   }
 }

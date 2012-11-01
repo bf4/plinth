@@ -56,7 +56,7 @@ input[type="time"], input[type="url"],
 textarea, select {
   display: block;
   margin: 0;
-  padding: $form-spacing * 0.25;
+  padding: $form-spacing * 0.25 $form-spacing * 0.5;
   height: (ms(0) + ($form-spacing * 1.5));
   width: 100%;
   border: 1px solid mono(3);
@@ -102,6 +102,26 @@ fieldset {
     background: $white;
     padding: 0 3px;
     margin: 0 0 0 -3px;
+  }
+}
+
+
+
+.location-input {
+  position: relative;
+
+  .locate {
+    position: absolute;
+    top: 6px;
+    right: 1px;
+    width: 20px;
+    height: 20px;
+    color: mono(2);
+
+    &.is-active {
+      color: $main-color;
+      @include text-shadow( 0px 0px 5px rgb(252, 148, 113) );
+    }
   }
 }
 

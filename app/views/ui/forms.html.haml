@@ -3,7 +3,35 @@
   .mother-seven.mother-pull-one.column
 
     %h2 Forms
-    
+
+
+    %hr
+
+    %h3.h5 location input
+    = example do
+      %div.location-input
+        %input{:type=>"text", :placeholder=>"Location"}
+        %span.ss-icon.locate locate
+      %br
+      %div.location-input
+        %input{:type=>"text", :placeholder=>"Location"}
+        %span.ss-icon.locate.is-active locate
+
+      :coderay
+        #!haml
+
+        %div.location-input
+          %input{:type=>"text", :placeholder=>"Location"}
+          %span.ss-icon.locate locate
+
+        %div.location-input
+          %input{:type=>"text", :placeholder=>"Location"}
+          %span.ss-icon.locate.is-active locate
+      // end
+
+    %hr
+
+    %h3.h5 Prefixed input
 
     = example do
       %form

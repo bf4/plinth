@@ -111,6 +111,7 @@ fieldset {
   position: relative;
 
   .locate {
+    display: none;
     position: absolute;
     top: 6px;
     right: 1px;
@@ -124,6 +125,10 @@ fieldset {
       @include text-shadow( 0px 0px 5px rgb(252, 148, 113) );
     }
   }
+}
+
+.geolocation .location-input .locate {
+  display: block;
 }
 
 // ==========================================================================

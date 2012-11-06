@@ -46,7 +46,7 @@ plugin = ($)->
       el["#{if action then "add" else "remove"}Class"] @activeClass for el in elements
 
     _closeGroup: ->
-      if (activeEl = @container.find(".#{@activeClass}")).length
+      if (activeEl = @container.find("li.#{@activeClass}")).length
         activeContent = @_getContent activeEl.children('a')
         @changeStateTo false, [activeContent, activeEl]
 

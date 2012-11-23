@@ -1,0 +1,116 @@
+.row
+  .mother-three.mother-push-one.column= render "ui_nav"
+  .mother-seven.mother-pull-one.column
+    %h2 Buttons
+
+    .row
+      - ['','orange','green', 'blue'].each do |color|
+        .mother-six.column
+          = example do
+            - ['large','medium', 'small'].each do |type|
+              %a{:href=>"stuff", :class=>"btn #{type} #{color}"}= (color.length > 0) ? "#{color}  button" : "#{type} button"
+              %br
+              %br
+    :coderay
+      #!haml
+
+      %a{:href=>"#the link", :class=>"btn |size| |color|"} My Button
+      // OR
+      = link_to "Link Name", link_path, :class=>"btn |size| |color|"
+    // end
+    
+    %hr
+
+    %h3.h5 Button states
+    = example do
+      - ['','orange','green', 'blue'].each do |color|
+        - ['normal','is-active','disabled'].each do |type|
+          %a{:href=>"stuff", :class=>"small btn #{type} #{color}"}= "#{type}"
+        %br
+        %br
+
+    %h2 Button Groups
+
+    = example do
+      %a{:href=>"stuff", :class=>"btn prefix"}>< Button 1
+      %a{:href=>"stuff", :class=>"btn prefix suffix"}>< Button 2
+      %button{:class=>"btn suffix"}>< Button 3
+
+
+    %h2 Web Icons
+
+    %p
+      We are using the webfonts from Symbolset,
+      = link_to "click here ", "http://symbolset.com/"
+      for a full reference on avaliable icons.
+
+    %hr
+
+    %h3.h5#social_icons social icons
+
+    = example do
+      %ul.action-list.h4
+        %li
+          =link_to "twitter", "http://twitter.com", :class => "ss-icon ss-social"
+        %li
+          %i.ss-icon.ss-social.twitter twitter
+        %li
+          %i.ss-icon.ss-social twitter
+        %li
+          =link_to "facebook", "http://facebook.com", :class => "ss-icon ss-social"
+        %li
+          %i.ss-icon.ss-social.facebook facebook
+        %li
+          %i.ss-icon.ss-social facebook
+        %li
+          =link_to "mail", "mailto:me@me.com", :class => "ss-icon ss-social"
+        %li
+          %i.ss-icon.ss-social.email email
+        %li
+          %i.ss-icon.ss-social email
+
+      :coderay
+        #!haml
+        
+        %ul.action-list.h4
+          %li
+            =link_to "twitter", "http://twitter.com", :class => "ss-icon ss-social"
+          %li
+            %i.ss-icon.ss-social.twitter twitter
+          %li
+            %i.ss-icon.ss-social twitter
+          %li
+            =link_to "facebook", "http://facebook.com", :class => "ss-icon ss-social"
+          %li
+            %i.ss-icon.ss-social.facebook facebook
+          %li
+            %i.ss-icon.ss-social facebook
+          %li
+            =link_to "mail", "mailto:me@me.com", :class => "ss-icon ss-social"
+          %li
+            %i.ss-icon.ss-social.email email
+          %li
+            %i.ss-icon.ss-social email
+      // end
+
+    %hr
+
+    %h3.h5#social_icons Standard icons
+
+    = example do
+      %ul.action-list
+        %li
+          =link_to "close", "close", :class => "ss-icon"
+        %li
+          %i.ss-icon close
+        %li.ss-delete close
+
+      :coderay
+        #!haml
+        
+        %ul.action-list
+          %li= link_to "close", "close", :class => "ss-icon"
+          %li
+            %i.ss-icon close
+          %li.ss-delete close
+      // end

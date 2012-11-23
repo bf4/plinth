@@ -1,0 +1,106 @@
+//
+// Nav Module
+// $author Ad Taylor
+
+@import "compass/css3";
+
+// ==========================================================================
+// Global Nav
+// ==========================================================================
+
+$nav-color: $main-color !default;
+$nav-color-hover: $main-color-hover !default;
+$nav-align: right !default;
+
+.nav-global {
+  @include clearfix();
+
+  background-color: $nav-color;
+  text-align: $nav-align;
+
+  .nav-items {
+    @extend .action-list;
+    @extend .support;
+
+    margin-bottom: 0;
+
+    text-transform: uppercase;
+
+    & > li {
+      margin: 0;
+      border-left: 1px solid $nav-color-hover;
+
+      a {
+        padding: ms(0)/2 ms(0);
+        display: block;
+      }
+
+      &:hover, &:focus, &.is-active {
+        background-color: $nav-color-hover;
+      }
+    }
+  }
+
+  a {
+    color: $white;
+    border: none;
+  }
+}
+
+
+// ==========================================================================
+// Global Nav Mobile button
+// ==========================================================================
+
+$nav-switch-color: mono(1);
+$nav-width: 22px;
+$nav-height: $nav-width;
+$nav-line-height: 0px + ($nav-width * 0.1);
+$nav-spacing: 0.22;
+
+.nav-mobile-switch {
+  position: relative;
+  float: right;
+  margin: ms(0)/2;
+
+  @include transition-property(transform);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease-out);
+
+  &.is-active {
+    @include rotate(-90deg);
+  }
+
+  a {
+  position: relative;
+  display: block;
+  width: $nav-width;
+  height: $nav-height;
+  overflow: hidden;
+  z-index: 2;
+
+  border: $nav-line-height solid $nav-switch-color;
+
+  text-indent: 9999em;
+  }
+
+  $nav-line-top-offset:0;
+  i {
+    position: absolute;
+    display: block;
+    width: $nav-width * 0.8 - $nav-line-height;
+    height: $nav-line-height;
+    left: ($nav-width * 0.1) + $nav-line-height/2;
+    top: $nav-height * $nav-spacing - $nav-line-top-offset;
+    z-index: 1;
+    background-color: $nav-switch-color;
+  }
+
+  i + i {
+    top: $nav-height * ($nav-spacing * 2) - $nav-line-top-offset;
+  }
+
+  i + i + i {
+    top: $nav-height * ($nav-spacing * 3) - $nav-line-top-offset;
+  }
+}

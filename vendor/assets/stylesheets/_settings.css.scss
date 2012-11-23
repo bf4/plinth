@@ -1,0 +1,116 @@
+//
+// Site wide settings
+// $author Ad Taylor
+//
+
+// ==========================================================================
+// Grids
+// ==========================================================================
+
+$setBoxSizing: true !default;
+$container-width: 960px !default;
+$container-max-width: 100% !default;
+$container-min-width: 320px !default;
+
+$columns: 12 !default;
+$column-gutter: 10px !default;
+
+
+$mob: 'mobile-', 1, 20px, "max-width: 780px" ;
+$desk: '', $columns, $column-gutter;
+
+$grids : $desk, $mob !default;
+
+// ==========================================================================
+// Colour Functions
+// ==========================================================================
+
+// Can be extended to add more shades:
+//      $blue-shades: join($blue-shades, rgb(13, 89, 224) );
+
+$mono-shades: #32353a, #999999, #e3e3e0, #f0f0ed !default;
+@function mono($shade:1) {
+  @return nth($mono-shades, $shade);
+}
+
+
+$blue-shades: #137795, #2ba6cb, #b1e5f5 !default;
+@function blue($shade:1) {
+  @return nth($blue-shades, $shade);
+}
+
+$orange-shades: #ff6633, #a32900 !default;
+@function orange($shade:1) {
+  @return nth($orange-shades, $shade);
+}
+
+$green-shades: #6b9b20, #557821 !default;
+@function green($shade:1) {
+  @return nth($green-shades, $shade);
+}
+
+
+// ==========================================================================
+// Colours
+// ==========================================================================
+
+$main-color: orange() !default;
+$main-color-hover: orange(2) !default;
+$secondary-color: blue() !default;
+$alert-color: #c60f13 !default;
+$success-color: green() !default;
+$txt-color: mono() !default;
+$body-color: #fff !default;
+$bg-cover: mono(3) !default;
+$black: mono() !default;
+$white: #fff !default;
+$shiny-edge: rgba(#fff, .8) !default;
+$dark-edge: rgba(#000, .2) !default;
+
+// icons
+$facebook-color: #3c5994 !default;
+$twitter-color: #2ca7c8 !default;
+$email-color: #f70015 !default;
+
+// ==========================================================================
+// Fonts
+// ==========================================================================
+
+
+// Module scale
+$baseFontSize: 14px !default;
+$importantModNum: 300px !default;
+$base-size: $baseFontSize $importantModNum;
+
+$base-font-family: "Helvetica Neue", helvetica, arial, sans-serif !default;
+$base-line-height: 1.57;
+$base-line-height-px: 22px;
+
+
+$header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$header-font-weight: bold !default;
+$header-font-color: #222 !default;
+$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
+$body-font-weight: normal !default;
+$body-font-color: $txt-color !default;
+
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+$btn-radius: 4px !default;
+$btn-base: 10px !default;
+
+$small-btn-base: $btn-base - 2 !default;
+$large-btn-base: $btn-base + 4 !default;
+
+
+
+
+// ==========================================================================
+// Media Queries
+// ==========================================================================
+
+$screen-small: 768px !default;
+$screen-medium: 1279px !default;
+$screen-xlarge: 1441px !default;

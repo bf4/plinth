@@ -1,0 +1,42 @@
+//
+// Labels
+// $author Ad Taylor
+//
+@import "compass/css3";
+
+
+// ==========================================================================
+// Default alert
+// ==========================================================================
+.label {
+  display: inline-block;
+  @include ie7-inline-block;
+  padding: -1px+ms(0)/4 ms(0)/2 1px+ms(0)/4 ;
+  margin-bottom: 0; // For input.btn
+  @include ie7-restore-left-whitespace;
+
+  @include border-radius( ms(0)/4 );
+
+  background-color: mono(2);
+
+  color: $white;
+  @extend small;
+  line-height: 1;
+  text-align: center;
+  letter-spacing: 1px;
+  vertical-align: middle;
+
+  /* Label colors */
+  &.orange {
+    background-color: orange();
+  }
+
+  &.blue {
+    background-color: blue();
+ }
+
+  &.green {
+    background-color: green();
+ }
+
+}

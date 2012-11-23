@@ -1,0 +1,72 @@
+//
+// Switch Modules
+// $author Ad Taylor
+
+// ==========================================================================
+// Switch Defaults
+// ==========================================================================
+
+
+.switch-nav {
+  @include clearfix();
+  padding-left: 0;
+
+  & > li {
+    list-style: none;
+  }
+}
+
+$query-pos: 4;
+@each $grid in $grids {
+  // If there is a media query
+  @if(length($grid) == $query-pos) {
+    @include media-query( nth($grid,$query-pos), nth($grid,1) ) {
+      .#{nth($grid,1)}switch-content {
+        display: none;
+
+        &.is-active {
+          display: block;
+        }
+      }
+    }
+  }
+  @else {
+        .switch-content {
+        display: none;
+
+        &.is-active {
+          display: block;
+        }
+      }
+  }
+}
+
+// ==========================================================================
+// Tabs
+// ==========================================================================
+
+.tabs {
+  @extend .action-list;
+
+  border-bottom: 1px solid mono(3);
+
+  & > li {
+    float: left;
+    margin-bottom: -1px;
+    margin-left: $column-gutter;
+
+
+    & > a {
+      display: block;
+      padding: ms(0)/2  $column-gutter;
+      border-bottom: 1px solid transparent;
+      line-height: $base-line-height-px;
+    }
+
+    &.is-active {
+       background-color: #ffffff;
+       border: 1px solid #ddd;
+      border-bottom-color: transparent;
+    }
+  }
+}

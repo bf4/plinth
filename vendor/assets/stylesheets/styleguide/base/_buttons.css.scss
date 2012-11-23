@@ -1,0 +1,166 @@
+//
+// Buttons - both fake and real
+// $author Ad Taylor
+//
+@import "compass/css3";
+
+// ==========================================================================
+// Button Cokdlours
+// ==========================================================================
+$default-btn-bg: mono(3);
+$default-btn-color: mono(2);
+$default-btn-hover-color: darken(mono(2),10);
+
+
+// ==========================================================================
+// Button Color Mixin
+// ==========================================================================
+@mixin btn-color($color) {
+  border-color: $color;
+  background-color: $color;
+}
+
+// ==========================================================================
+// Default button
+// ==========================================================================
+.btn {
+
+  display: inline-block;
+  @include ie7-inline-block;
+  padding: $btn-base ($btn-base * 2) ($btn-base + 1);
+  margin-bottom: 0; // For input.btn
+  @include ie7-restore-left-whitespace;
+
+  /* Sizes */
+  &.large {
+    padding: ($large-btn-base) ($large-btn-base * 2) ($large-btn-base + 1);
+    font-size: ms(1);
+  }
+  &.medium {
+    font-size: ms(0);
+  }
+  &.small {
+    font-size: ms(0)*0.786;
+    padding: ($small-btn-base) ($small-btn-base * 2) $small-btn-base;
+  }
+  &.expand {
+    width: 100%;
+    text-align: center;
+  }
+
+
+  border: 1px solid $default-btn-bg;
+  *border: 0; // Remove the border to prevent IE7's black border on input:focus
+  border-bottom-color: darken($default-btn-bg, 10%);
+  @include border-radius($btn-radius);
+
+  @include background-image(linear-gradient(lighten($default-btn-bg, 30), lighten($default-btn-bg, 15) 30%, $default-btn-bg));
+
+  color: $default-btn-color;
+  font-size: ms(0);
+  line-height: 1;
+  text-decoration: none;
+  text-shadow: 0 1px 1px $shiny-edge;
+  text-align: center;
+  vertical-align: middle;
+
+  cursor: pointer;
+  @include box-shadow(0 1px 0 $shiny-edge inset, 0 1px 0px $shiny-edge);
+  @include single-transition(background-color, .15s, ease-in-out);
+
+  /* Button colors */
+
+  &.orange, &.green, &.blue {
+    @include box-shadow(none);
+    background-image: none;
+    color: $white;
+    text-decoration: none;
+    text-shadow: none;
+
+    &:hover {
+      background-image: none;
+      color: $white;
+    }
+  }
+
+  &.orange {
+    @include btn-color(orange());
+    &:hover, &.is-active, &:active {
+      @include btn-color(orange(2));
+    }
+  }
+
+  &.blue {
+    @include btn-color(blue());
+    &:hover, &.is-active, &:active {
+      @include btn-color(blue(2));
+    }
+  }
+
+  &.green {
+    @include btn-color(green());
+    &:hover, &.is-active, &:active {
+      @include btn-color(green(2));
+    }
+  }
+
+
+  /* Hover state */
+  &:hover {
+    color: $default-btn-hover-color;
+    border-color: $default-btn-hover-color;
+    text-decoration: none;
+    @include background-image(linear-gradient(lighten($default-btn-bg, 20), lighten($default-btn-bg, 5) 30%, $default-btn-bg));
+  }
+
+
+  /* Focus state */
+  &:focus {
+    @include set-focus;
+  }
+
+
+  /* Active state */
+  &.is-active,
+  &:active {
+    // background-color: darken($white, 10%);
+    // background-color: darken($white, 15%) e("\9");
+    // background-image: none;
+    // outline: 0;
+    // .box-shadow(~"inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)");
+  }
+
+
+  /* Disabled state */
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+    border-color: darken($white, 10%) !important;
+    background-color: darken($white, 10%) !important;
+    background-image: none !important;
+    color: $default-btn-color !important;
+    @include opacity(65);
+    @include box-shadow(none);
+
+    &:hover {
+      border: 1px solid $default-btn-bg;
+      color: $default-btn-color;
+    }
+  }
+
+}
+
+
+// ==========================================================================
+// Button Groups
+// ==========================================================================
+
+.suffix {
+  @include border-top-left-radius(0px);
+  @include border-bottom-left-radius(0px);
+}
+
+.prefix {
+  @include border-top-right-radius(0px);
+  @include border-bottom-right-radius(0px);
+}

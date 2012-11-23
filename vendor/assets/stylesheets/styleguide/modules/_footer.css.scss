@@ -1,0 +1,93 @@
+//
+// Footer Module
+// $author Ad Taylor
+
+@import "compass/css3";
+
+// ==========================================================================
+// Default Footer styles
+// ==========================================================================
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  background-color: $main-color;
+  color: $white;
+
+  $tab-size: 20px;
+
+  .footer-tab {
+    position: relative;
+    display: block;
+    top: 0 - $tab-size;
+    width: $tab-size*1.25;
+    height: $tab-size;
+    padding-top: $tab-size*0.25;
+    background-color: $main-color;
+    text-align: center;
+    @include border-radius(5px 5px 0px 0px);
+
+    display: none;
+  }
+
+  .footer-up {
+    display: block;
+  }
+  .is-active {
+    .footer-up {
+      display: none;
+    }
+    .footer-down {
+      display: block;
+    }
+  }
+
+  #footer-content {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+  a {
+     color: $white;
+     border-style: none;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+
+// ==========================================================================
+// Responsive Logo
+// ==========================================================================
+
+.footer-logo {
+  background: url('logos/sb-logo-white.png') no-repeat center center;
+  @include ol-padded-box(83,51);
+}
+
+.svg .footer-logo {
+  background-image: url('logos/sb-logo-white.svg') 
+}
+
+.footer .footer-logo-container {
+  margin-bottom: ms(0)/2;
+  & > a {
+    display: block;
+    border-style: none;
+  }
+
+  @include smallest-query {
+    width: 100px;
+  }
+}

@@ -4,6 +4,7 @@
 // @author Nicolas Gallagher and Jonathan Neal
 //
 
+@import "compass/css3/box-sizing";
 
 // ==========================================================================
 // HTML5 display definitions
@@ -53,7 +54,7 @@ audio:not([controls]) {
 // Set default box model
 @if $setBoxSizing {
   * {
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     *behavior: url(/boxsizing.htc);
   }
 }

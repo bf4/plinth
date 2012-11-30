@@ -40,8 +40,10 @@
       }
     }
     @else {
-      .row {
-        margin: 0 0-(0.5*nth($grid,$padding-pos));
+      @if(length($grid) > 1){
+        .row {
+          margin: 0 0-(0.5*nth($grid,$padding-pos));
+        }
       }
     }
   }

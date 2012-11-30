@@ -11,7 +11,8 @@
   $query-pos: 4;
   @each $grid in $grids {
     // If there is a media query
-    @if(length($grid) == $query-pos) {
+    @if(length($grid) == 1){}
+    @else if(length($grid) == $query-pos) {
 
       .#{nth($grid,1)}only {
         display: none;

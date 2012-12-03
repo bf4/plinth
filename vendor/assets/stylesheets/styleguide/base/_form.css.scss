@@ -89,7 +89,7 @@ select {
   width: 100%;
 }
 
-/* Fieldsets */
+/* Fieldsets - Removed by Ad on the 28th Nov 2012
 fieldset {
   border: solid 1px #ddd;
   border-radius: 3px;
@@ -104,7 +104,7 @@ fieldset {
     margin: 0 0 0 -3px;
   }
 }
-
+*/
 
 
 .location-input {
@@ -129,6 +129,50 @@ fieldset {
 .geolocation .location-input .locate {
   display: block;
 }
+
+// ==========================================================================
+// Formtastic list forms
+// ==========================================================================
+.formtastic {
+  .inputs, .actions{
+    & > ol {
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+  }
+
+  .input {
+    margin-bottom: ms(1);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  &.horizontal {
+    label {
+      width: 20%;
+      float: left;
+      display: block;
+      abbr {
+        border: none;
+      }
+
+      & + input,
+      & + textarea,
+      & + select {
+        width: 76%;
+        vertical-align:middle;
+      }
+    }
+
+    .action {
+      margin-left: 20%;
+    }
+  }
+}
+
 
 // ==========================================================================
 // Form validations

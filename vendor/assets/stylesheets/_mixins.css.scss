@@ -15,26 +15,22 @@
     @else if(length($grid) == $query-pos) {
 
       .#{nth($grid,1)}only {
-        display: none;
+        display: none !important;
       }
 
       // Add Rules wrapped in media query
-      @include media-query( nth($grid,$query-pos), nth($grid,1) ) {
+      @include media-query( nth($grid,$query-pos)) {
         @include build-column-size($grid);
         .#{nth($grid,1)}only {
-          display: block;
+          display: block !important;
         }
 
         .#{nth($grid,1)}hide {
-          display: none;
+          display: none !important;
         }
       }
     }
     @else {
-      body:after {
-        content: nth($grid,1);
-        display: none;
-      }
       @include build-column-size($grid);
     }
   }
@@ -79,16 +75,36 @@
 }
 
 // ==========================================================================
+// Conditional CSS - JS Detection
+// ==========================================================================
+
+@mixin conditional-CSS($grids) {
+  $query-pos: 4;
+
+  @each $grid in $grids {
+    @if(length($grid) < $query-pos){
+      body:after {
+        content: nth($grid,1);;
+        display: none;
+      }
+    }
+    @else {
+      @include media-query( nth($grid,$query-pos)) {
+        body:after {
+          content: nth($grid,1);;
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// ==========================================================================
 // Simple Media Query Generator
 // ==========================================================================
 
-@mixin media-query($size,$name) {
+@mixin media-query($size) {
   @media ($size) {
-    body:after {
-        content: $name;
-        display: none;
-    }
-
     @content;
   }
 }
@@ -158,7 +174,7 @@
   $length: length($grids);
   $mobile: nth($grids, $length);
 
-  @include media-query( nth($mobile,$query-position), nth($mobile,1) ) {
+  @include media-query( nth($mobile,$query-position)) {
     @content;
   }
 }

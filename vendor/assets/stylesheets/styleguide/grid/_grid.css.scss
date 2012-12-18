@@ -6,6 +6,25 @@
 
 
 // ==========================================================================
+// Conditional CSS - JS Detection
+// ==========================================================================
+
+@include conditional-CSS($grids);
+
+
+// ==========================================================================
+// Set default box model
+// ==========================================================================
+
+@if $setBoxSizing {
+  * {
+    @include box-sizing(border-box);
+    *behavior: url(/boxsizing.htc);
+  }
+}
+
+
+// ==========================================================================
 // Container
 // ==========================================================================
 
@@ -33,7 +52,7 @@
   $query-pos: 4;
   @each $grid in $grids {
     @if(length($grid) == $query-pos ) {
-      @include media-query( nth($grid,$query-pos), nth($grid,1) ) {
+      @include media-query( nth($grid,$query-pos)) {
         .row {
           margin: 0 0px-(0.5*nth($grid,$padding-pos));
         }

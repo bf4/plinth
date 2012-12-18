@@ -51,13 +51,7 @@ audio:not([controls]) {
     display: none;
 }
 
-// Set default box model
-@if $setBoxSizing {
-  * {
-    @include box-sizing(border-box);
-    *behavior: url(/boxsizing.htc);
-  }
-}
+
 
 // ==========================================================================
 // Lists
@@ -120,6 +114,10 @@ svg:not(:root) {
 
 figure {
     margin: 0;
+}
+
+figure img {
+  max-width: 100% !important;
 }
 
 // ==========================================================================

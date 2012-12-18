@@ -24,7 +24,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "sass-rails"
 
   gem.add_development_dependency "rails",   "~> 3.1"
-  gem.add_development_dependency "bundler", "~> 1.1.0"
+  gem.add_development_dependency "bundler"
   gem.add_development_dependency "sqlite3"
 
 end

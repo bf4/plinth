@@ -73,7 +73,8 @@ plugin = ($)->
   
   $ ->
     $('body').on 'click.switch.data-api', '[data-switch]', ( e ) ->
-      $(e.target).switch('click')
+      $el = if (el =  $(e.target)).is('a') then el else el.closest('a')
+      $el.switch('click')
       e.preventDefault()
 
 do ( plugin ) ->

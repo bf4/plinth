@@ -120,6 +120,13 @@ h5, .h5 {
   font-weight: normal;
 }
 
+@include smallest-query {
+  h1, .h1 {
+    font-size: ms(3);
+    line-height: 1.19;
+  }
+}
+
 // Addresses styling not present in IE7/8/9, S5, Chrome.
 
 abbr[title] {

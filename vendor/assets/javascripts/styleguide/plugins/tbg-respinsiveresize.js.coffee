@@ -32,11 +32,13 @@ plugin = ($)->
         $window.trigger 'responsiveResize', @size()
       @resizeTimer = null
 
+
     resize: ->
       if @resizeTimer then clearTimeout @resizeTimer
       @resizeTimer = setTimeout @resizeEvent, 100
 
     size: ->
+      if not window.getComputedStyle? then return ''
       window.getComputedStyle(document.body,':after').getPropertyValue('content').replace('-','') || ''
 
   $ ->

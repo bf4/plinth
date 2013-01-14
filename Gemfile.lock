@@ -1,10 +1,4 @@
 GIT
-  remote: git@github.com:adtaylor/jsPercolator.git
-  revision: 7686a924d74cae9edd1b1ce1f5346c0b17b09142
-  specs:
-    jsPercolator (0.0.1)
-
-GIT
   remote: https://github.com/bradphelan/jasminerice
   revision: ee4681169096fb15913b90cf15832e6b15e15a22
   specs:
@@ -192,7 +186,6 @@ DEPENDENCIES
   haml-rails
   jasminerice!
   jquery-rails
-  jsPercolator!
   maruku
   rails (~> 3.1)
   sass-rails (~> 3.2.3)

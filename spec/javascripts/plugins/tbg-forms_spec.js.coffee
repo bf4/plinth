@@ -59,7 +59,7 @@ describe "A Form Handler", ->
       spyOn(inst, 'sendRequest').andCallFake ->
         @showSuccess()
       $form.submit()
-      expect($($form.data 'forms_success_replace').html()).toEqual($form.data 'forms_success_content')
+      expect($($form.data 'formsSuccessReplace').html()).toEqual($form.data 'formsSuccessContent')
 
     describe 'when Handlebars is present', ->
       beforeEach ->
@@ -81,7 +81,7 @@ describe "A Form Handler", ->
         serverMock = a:
                       b: 'test'
         inst.showSuccess serverMock
-        content = $($form.data('forms_success_replace')).html()
-        tmpl = Handlebars.compile($form.data('forms_success_content'))(serverMock)
+        content = $($form.data('formsSuccessReplace')).html()
+        tmpl = Handlebars.compile($form.data('formsSuccessContent'))(serverMock)
         console.log content, tmpl, $form.data()
         expect(content).toEqual(tmpl)

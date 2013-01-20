@@ -64,18 +64,17 @@ plugin = ($)->
       else
         @_showSuccessPlain()
       $('body').trigger 'tbgform-success', [@form]
-      if @form.data 'forms_success_formfade' then @form.fadeOut()
+      if @form.data 'formsSuccessFormfade' then @form.fadeOut()
 
     _showSuccessTemplated: (data)->
-      template = Handlebars.compile @form.data('forms_success_content')
-      console.log  template(data)
-      successArea = $(@form.data 'forms_success_replace')
+      template = Handlebars.compile @form.data('formsSuccessContent')
+      successArea = $(@form.data 'formsSuccessReplace')
       successArea.fadeOut().html( template(data) ).fadeIn()
 
 
     _showSuccessPlain: ->
-      @successArea = $(@form.data 'forms_success_replace')
-      @successHTML = @form.data 'forms_success_content'
+      @successArea = $(@form.data 'formsSuccessReplace')
+      @successHTML = @form.data 'formsSuccessContent'
       @successArea.fadeOut().html(@successHTML).fadeIn()
 
 

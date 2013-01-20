@@ -1,7 +1,11 @@
+#=require styleguide/lib/handlebars
 #=require styleguide/plugins/tbg-forms
 
 describe "A Form Handler", ->
   beforeEach ->
+    if Handlebars?
+      window._Handlebars = Handlebars
+      delete window.Handlebars
     loadFixtures 'plugins/tbg-forms_fixture'
 
   describe "Should be a jQuery Plugin", ->
@@ -55,7 +59,29 @@ describe "A Form Handler", ->
       spyOn(inst, 'sendRequest').andCallFake ->
         @showSuccess()
       $form.submit()
-      expect($($form.data 'tbgforms-success-replace').html()).toEqual($form.data 'tbgforms-success-content')
+      expect($($form.data 'forms_success_replace').html()).toEqual($form.data 'forms_success_content')
 
+    describe 'when Handlebars is present', ->
+      beforeEach ->
+        if not Handlebars? and _Handlebars?
+          window.Handlebars = _Handlebars
 
+      it "calls the templating method with server return", ->
+        expect(Handlebars).toBeDefined()
+        inst = $('[data-forms]').data('formsPlugin')
+        spyOn(inst, '_showSuccessTemplated')
+        serverMock = a:
+                      b: 'test'
+        inst.showSuccess serverMock
+        expect(inst._showSuccessTemplated).toHaveBeenCalledWith(serverMock)
 
+      it "parses the template using the variables returned by the server", ->
+        $form = $('[data-forms]')
+        inst = $form.data('formsPlugin')
+        serverMock = a:
+                      b: 'test'
+        inst.showSuccess serverMock
+        content = $($form.data('forms_success_replace')).html()
+        tmpl = Handlebars.compile($form.data('forms_success_content'))(serverMock)
+        console.log content, tmpl, $form.data()
+        expect(content).toEqual(tmpl)

@@ -40,8 +40,8 @@ plugin = ($)->
         url: url
         data: data
         dataType: "json"
-        success: =>
-          @showSuccess()
+        success: (successData)=>
+          @showSuccess(sucessData)
         error: (err) =>
           @showErrors $.parseJSON(err.responseText)
 
@@ -57,13 +57,27 @@ plugin = ($)->
         $this.siblings('label').addClass('is-error')
 
 
-    showSuccess :->
+    showSuccess: (data)->
       @showErrors {}
-      @successArea = $(@form.data 'forms-success-replace')
-      @successHTML = @form.data 'forms-success-content'
-      @successArea.fadeOut().html(@successHTML).fadeIn()
+      if Handlebars?
+        @_showSuccessTemplated data
+      else
+        @_showSuccessPlain()
       $('body').trigger 'tbgform-success', [@form]
-      if @form.data 'forms-success-formfade' then @form.fadeOut()
+      if @form.data 'forms_success_formfade' then @form.fadeOut()
+
+    _showSuccessTemplated: (data)->
+      template = Handlebars.compile @form.data('forms_success_content')
+      console.log  template(data)
+      successArea = $(@form.data 'forms_success_replace')
+      successArea.fadeOut().html( template(data) ).fadeIn()
+
+
+    _showSuccessPlain: ->
+      @successArea = $(@form.data 'forms_success_replace')
+      @successHTML = @form.data 'forms_success_content'
+      @successArea.fadeOut().html(@successHTML).fadeIn()
+
 
 
 

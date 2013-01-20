@@ -41,7 +41,7 @@ plugin = ($)->
         data: data
         dataType: "json"
         success: (successData)=>
-          @showSuccess(sucessData)
+          @showSuccess(successData)
         error: (err) =>
           @showErrors $.parseJSON(err.responseText)
 

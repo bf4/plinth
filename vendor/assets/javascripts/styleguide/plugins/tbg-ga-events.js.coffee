@@ -52,6 +52,7 @@ plugin = ($)->
   $.fn.gaEvent = ( option , type = "gaevent") ->
     this.each ->
       $this = $(@)
+      $this = if ($t = $(this)).is("[data-#{type}]") then $t else $t.closest("[data-#{type}]")
       data = $this.data 'gaeventplugin'
       if not (eventContent= $this.data type ) then return removeData($this, type)
       if !data then $this.data 'gaeventplugin', (data = new GAEvent @, eventContent)

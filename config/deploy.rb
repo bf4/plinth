@@ -17,12 +17,12 @@ require "aws_ec2"
 
 set :application, "sb-styleguide"
 set :repository,  "git@github.com:thebeansgroup/sb-styleguide.git"
-#set :branch, "rails-app"
 
 set :use_sudo, false
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :deploy_via, :remote_cache
 
 set :user, "deploy"
 set :deploy_to, "/var/www/apps/#{application}"

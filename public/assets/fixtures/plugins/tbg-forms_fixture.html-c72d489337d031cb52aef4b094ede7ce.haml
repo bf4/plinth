@@ -1,0 +1,12 @@
+#replaceContent My content
+%form.inline-form{ :class=>"new_mailinglist", :id=>"new_mailinglist", :data=>{:forms => "/insights.json", :"forms-success-content" => "<h3>Test content {{a.b}}</h3>", :"forms-success-replace"=>"#replaceContent"}}
+  .row
+    .mother-eight.column
+      .row.collapse
+        .mother-three.column
+          %label{:for=>"mailinglist_email"} Email
+          %input.email{:type=>"email", :name=>"emails",  :id=>"mailinglist_email", :name=>"mailinglist[email]", :placeholder=>"Your Email Address"}
+
+        .mother-one.column
+          %input{:type=>"submit", :class=>"small orange btn suffix"}
+

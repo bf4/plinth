@@ -46,7 +46,6 @@ group :development, :test, :staging do
   # gem 'jsPercolator', :git => "git@github.com:adtaylor/jsPercolator.git"
   gem "rails", "~> 3.2.12"
   gem "bundler"
-  gem "sqlite3"
   gem "capistrano"
   gem "aws-sdk"
   gem 'rvm-capistrano', '~>1.2.7'

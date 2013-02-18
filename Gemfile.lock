@@ -96,7 +96,7 @@ GEM
       multi_json
       thor
     haml (3.1.8)
-    haml-coderay (0.1.2)
+    haml-coderay (0.2.0)
       coderay
       haml
     haml-rails (0.4)

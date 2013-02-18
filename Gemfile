@@ -39,9 +39,12 @@ gem 'jquery-rails'
 # Javascript Testing
 #
 
-group :development, :test do
+group :development, :test, :staging do
   gem 'growl'
   gem 'jasminerice', :git => "https://github.com/bradphelan/jasminerice"
   gem "guard-jasmine"
   # gem 'jsPercolator', :git => "git@github.com:adtaylor/jsPercolator.git"
+  gem "rails", "~> 3.2.12"
+  gem "bundler"
+  gem "sqlite3"
 end

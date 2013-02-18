@@ -47,4 +47,7 @@ group :development, :test, :staging do
   gem "rails", "~> 3.2.12"
   gem "bundler"
   gem "sqlite3"
+  gem "capistrano"
+  gem "aws-sdk"
+  gem 'rvm-capistrano', '~>1.2.7'
 end

@@ -1,5 +1,3 @@
-require 'new_relic/recipes'
-
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'deploy')
 Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
 
@@ -17,7 +15,7 @@ require "rvm/capistrano"                               # Load RVM's capistrano p
 require "aws_ec2"
 
 
-set :application, "styleguide"
+set :application, "sb-styleguide"
 set :repository,  "git@github.com:thebeansgroup/sb-styleguide.git"
 #set :branch, "rails-app"
 
@@ -84,10 +82,6 @@ end
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
-
-# We need to run this after our collector mongrels are up and running
-# This goes out even if the deploy fails, sadly 
-after "deploy:update", "newrelic:notice_deployment"
 
 # We need to trust the rvmrc file once the new dir has been created
 # and populated

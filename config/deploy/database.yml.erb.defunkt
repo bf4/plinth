@@ -1,0 +1,13 @@
+# store your custom template at foo/bar/database.yml.erb
+# set :template_dir, "foo/bar"
+#
+# example of database template
+production:
+  adapter: mysql2
+  encoding: utf8
+  timeout: 5000
+  database: #{application}
+  host: db.thebeansgroup.com
+  pool: 5
+  username: morebeans_re
+  password: #{Capistrano::CLI.ui.ask("Enter MySQL database password: ")}

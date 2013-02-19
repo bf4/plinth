@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 # Declare your gem's dependencies in sb-styleguide.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -45,8 +45,8 @@ group :development, :test, :staging do
   gem "guard-jasmine"
   # gem 'jsPercolator', :git => "git@github.com:adtaylor/jsPercolator.git"
   gem "rails", "~> 3.2.12"
-  gem "bundler"
   gem "capistrano"
   gem "aws-sdk"
   gem 'rvm-capistrano', '~>1.2.7'
+  gem "bundler", "~> 1.2.4"
 end

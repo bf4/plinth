@@ -1,3 +1,43 @@
+//
+// Coderay Example  Module
+// $author Ad Taylor
+
+// ======================================================
+// Add example block to coderay blocks
+// ======================================================
+
+.sg-example, .CodeRay {
+  margin: $base-line-height-px 0;
+}
+
+.example-highlight {
+  background-color: rgba(0,0,0,0.05);
+  font-weight: bold;
+  text-align: center;
+}
+
+.CodeRay, .sg-example, pre code {
+  font-size: 0.85em;
+}
+
+.CodeRay {
+  background-color: #F8F8F7;
+  border-bottom: 3px solid $main-color;
+
+  .line-numbers {
+    margin-right: $column-gutter*2;
+  }
+}
+
+.sg-example {
+  border: 1px dashed #ccc;
+  padding: 20px;
+}
+
+// ======================================================
+// Styles to give coderay a more 'githubish' feel
+// ======================================================
+
 .CodeRay {
   font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
   color: #000;

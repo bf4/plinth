@@ -1,0 +1,69 @@
+-#
+-# Introduction
+-#
+:markdown
+  This grid system is built to be flexible but still simple enough to read. 
+  It can scale up and down, it can fold up and it can be pushed around.
+  
+  This is only one rule to using this grid system. Try and keep it as *simple as possible*. 
+  Rather than creating a 16 column grid, maybe thing about a 4 or 8 coumn grid and nest the element that need it.
+  
+  Make it only as flexible as it needs be else it will quickly become a pain to maintain.
+%hr
+
+
+-# 
+-# Setting the Grid
+-# 
+
+%h3#Setting-Grids Setting Grids
+:markdown
+  Whilst there are defaults set for the grid system, grids should be set per-project.
+  The grids are set within the `application.css.scss` file of the project and should be defined before 
+  importing any styles.
+
+  ##### Defining a Break point
+
+  Breakpoints must be defined as [SASS](http://sass-lang.com) variables and should be of the following format:
+
+:coderay
+  #!SCSS
+    $[name]: '[prefix]', [columns], [gutter(px)], "[media query]"
+:markdown
+  The smallest break point for this site is defined as:
+
+:coderay
+  #!SCSS
+     $baby: 'baby-', 2, 10px, "max-width: 655px";
+:markdown
+  **NB.** The largest (screen size) breakpoint should not have a media query set.
+
+  ##### Setting the break points
+  
+  Once all breakpoints are defined they should be added to the `$grids` variable. The following is the 
+  grid settings block from this site:
+:coderay
+  #!SCSS
+  $baby: 'baby-', 2, 10px, "max-width: 655px";
+  $sister: 'sister-', 4, 15px, "max-width: 785px";
+  $mother: 'mother-', 8, 20px;
+  // Declare grid
+  $grids : $mother, $sister, $baby;
+-# 
+
+:markdown
+  ##### Setting Maximum Width
+
+  To set the maximum width of the container you should set the variable, `$container-width`.
+
+:coderay
+  #!SCSS
+  $container-width: 800px;
+-# 
+%hr
+
+%h3#Live-Grid-Example Live Grid Example
+:markdown
+  This grid is using the example setting above and also the same grids that are used on this site.
+
+= example "grids", "live_grid"

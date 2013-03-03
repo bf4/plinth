@@ -2,13 +2,16 @@
 %html
   %head
     %meta{:charset => "utf-8"}
-    %title= @page_title || "SB Style Guide"
+    %title= strip_tags(@page_title) || "SB Style Guide"
     = javascript_include_tag "lib/modernizr"
     = stylesheet_link_tag "application"
   %body.page_classes
     = render :partial => "layouts/main_nav"
     .container
-      = yield
+      = render :partial => "shared/title"
+      .row
+        .mother-three.sister-four.column= render :partial => "shared/ui_nav"
+        .mother-five.sister-four.column= yield
     = javascript_include_tag  "application"
     %footer.footer 
       .container

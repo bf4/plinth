@@ -1,0 +1,5 @@
+- unless @page_nav.nil?
+  %nav.panel
+    %ul
+      - @page_nav.each do |text,path|
+        %li= link_to text, path

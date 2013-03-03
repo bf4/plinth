@@ -34,7 +34,7 @@
 // Action list Collapse state
 // ==========================================================================
 
-@mixin test {
+@mixin create_action_list_once_set {
 $gridSize: length($grids);
 $lastMQ: nth( nth($grids, $gridSize), 4);
 
@@ -49,4 +49,14 @@ $lastMQ: nth( nth($grids, $gridSize), 4);
 }
 }
 
-@include test();
+@include create_action_list_once_set();
+
+
+// ==========================================================================
+// Action list - hoz
+// ==========================================================================
+.unset-list {
+  padding-left: 0;
+  list-style: none;
+  list-style-image: none;
+}

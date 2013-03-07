@@ -1,4 +1,6 @@
-:markdown
-  #### Example 1.
-
-= example "grids", "example_layout_1"
+- @layouts.each do |layout|
+  %article
+    %h2.h4= layout[1]
+    %ul.action-list
+      %li= link_to 'View Example', grid_layout_path( layout[0] ), class: "small green btn"
+      %li= link_to 'View HAML', grid_layout_path( layout[0], :haml), class: "small blue btn"

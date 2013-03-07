@@ -40,7 +40,7 @@ SbStyleguide::Application.routes.draw do
   match "grids" => "grids#index", as: "grid"
   get "grids/settings", as: "grid_settings"
   get "grids/layouts", as: "grid_layouts"
-
+  match "/grids/layouts/:id" => "grids#show", as: "grid_layout"
   #
   # Temp root to start project
   #

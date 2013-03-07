@@ -16,4 +16,10 @@ module ApplicationHelper
     code_contents = CodeRay.scan( contents , :haml).div(:line_numbers => :table)
     "<div><div class='sg-example'>#{haml_contents}</div>#{code_contents}</div>".html_safe
   end
+
+  def nav_link(text, path)
+    classes = ""
+    classes += "is-active" if path.include? controller.controller_name 
+    content_tag :li,  link_to( text, path), class: classes
+  end
 end

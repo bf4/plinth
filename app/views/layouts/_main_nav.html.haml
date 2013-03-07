@@ -1,18 +1,12 @@
 %nav.nav-global
   #nav-global.nav-collapse.baby-switch-content<
     %ul.nav-items.collapse><
-      %li><
-        = link_to "Home", root_path
-      %li><
-        = link_to "Grids", grid_path
-      %li><
-        = link_to "Base", base_path
-      %li><
-        = link_to "Modules", modules_path
-      %li><
-        = link_to "Javascript", javascripts_path
-      %li><
-        = link_to "Github", github_path
+      = nav_link "Home", root_path
+      = nav_link "Grids", grid_path
+      = nav_link "Base", base_path
+      = nav_link "Modules", modules_path
+      = nav_link "Javascript", javascripts_path
+      = nav_link "Github", github_path
   .nav-mobile-switch.baby-only
     %a{ :href => "#nav-global", :data => {:switch => true, :"switch-toggle" => true} }><
       %span>< Show navigation

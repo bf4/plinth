@@ -15,7 +15,7 @@ SbStyleguide::Application.routes.draw do
   # Modules
   #
 
-  match "modules" => "modules#index", as: "modules"
+  match "modules" => "modules#tabs", as: "modules"
   get "modules/alerts", as: "modules_alerts"
   get "modules/footer", as: "modules_footer"
   get "modules/nav", as: "modules_nav"

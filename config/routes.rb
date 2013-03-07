@@ -1,6 +1,5 @@
 SbStyleguide::Application.routes.draw do
 
-  get "javascript/index", as: "javascripts"
   
   # get "javascript/close"
 # 
@@ -11,33 +10,34 @@ SbStyleguide::Application.routes.draw do
 #   get "javascript/responsive-resize"
 # 
 #   get "javascript/switch"
-# 
-  get "modules/index", as: "module"
-# 
-#   get "modules/alerts"
-# 
-#   get "modules/footer"
-# 
-#   get "modules/nav"
-# 
-#   get "modules/panels"
-# 
-#   get "modules/tabs"
-# 
+
+  #
+  # Modules
+  #
+
+  match "modules" => "modules#index", as: "modules"
+  get "modules/alerts", as: "modules_alerts"
+  get "modules/footer", as: "modules_footer"
+  get "modules/nav", as: "modules_nav"
+  get "modules/panels", as: "modules_panels"
+  get "modules/tabs", as: "modules_tabs"
+
+  #
+  # Base
+  #
+
   match "base" => "base#index", as: "base"
   get "base/lists", as: "base_lists"
-# 
-#   get "base/lists"
-# 
-#   get "base/buttons"
-# 
-#   get "base/labels"
-# 
-#   get "base/forms"
-# 
-#   get "base/webfonts"
-# 
-  get "grids/index", as: "grid"
+  get "base/labels", as: "base_labels"
+  get "base/buttons", as: "base_buttons"
+  get "base/forms", as: "base_forms"
+  get "base/webfonts", as: "base_webfonts"
+ 
+  #
+  # Grids
+  #
+
+  match "grids" => "grids#index", as: "grid"
   get "grids/settings", as: "grid_settings"
   get "grids/layouts", as: "grid_layouts"
 
@@ -45,8 +45,13 @@ SbStyleguide::Application.routes.draw do
   # Temp root to start project
   #
   
-  root :to => "ui#index"
+  root :to => "base#index"
 
+  #
+  # Javascripts
+  #
+
+  match "/javascripts/index.html" => redirect('/javascripts/index.html') , as: "javascripts"
 
 
   # 

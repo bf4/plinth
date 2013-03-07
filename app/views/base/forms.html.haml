@@ -1,2 +1,40 @@
-%h1 Base#forms
-%p Find me in app/views/base/forms.html.haml
+:markdown
+  Our form markup is dictated by a rails gem called [formtastic](https://github.com/justinfrench/formtastic). The gem allows the forms to be 
+  dynamically populated by rails and cuts out a lot of plumbing to models.
+
+  The downside to this approach is that we lose a lot of control over the forms. Whilst this is a pain, it is much less painful than manually creating 
+  every detail of the form.
+
+  ##### Example formtastic markup
+
+:coderay
+  #!HAML
+
+  = semantic_form_for @post do |f|
+    = f.inputs do
+      = f.input :title, input_html: { size: 10 }
+      = f.input :body, input_html: { class: 'autogrow', rows: 10, cols: 20, maxlength: 10  }
+      = f.input :created_at, input_html: { disabled: true }
+      = f.input :updated_at, input_html: { readonly: true }
+     = f.actions
+%hr
+
+%h3 Example markup of standard form
+:markdown
+  This is some example markup you would expect formtastic to output.
+= example "base", "form_example"
+%hr
+
+%h3 Example markup of horizontal form
+:markdown
+  To make a form horizontal you need to add the class `.horizontal` to the form.
+= example "base", "form_example_horizontal"
+%hr
+
+%h3#Location-input Location Input
+= example "base", "form_location"
+%hr
+
+%h3#grouped-inputs Grouped Inputs
+= example "base", "form_group"
+%hr

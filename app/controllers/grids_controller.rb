@@ -17,8 +17,8 @@ class GridsController < ApplicationController
   private 
   def grids_nav
     {
-      "Grid Settings File" => "#Setting-Grids" ,
-      "Grid Example" => "#Live-Grid-Example" ,
+      "Grid Settings File" => grid_path +  "#Setting-Grids" ,
+      "Grid Example" => grid_path + "#Live-Grid-Example" ,
       "Layouts" => grid_layouts_path
       }
   end

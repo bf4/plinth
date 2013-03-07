@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset='UTF-8'>
+  <title>Codo Documentation</title>
+  <link rel='stylesheet' href='assets/codo.css' type='text/css'>
+  <script src='assets/codo.js'></script>
+  <script src='assets/search_data.js'></script>
+</head>
+  <body>
+    <div id='base' data-path=''></div>
+<div id='header'>
+  <div id='menu'>
+    <a href='README.md.html' title='Codo'>Codo</a>
+    &raquo;
+    <a href='class_index.html' title='Index'>Index</a>
+    &raquo;
+    <span class='title'>README.md</span>
+    <nav>
+      <ul>
+        <li class='noframes'>
+          (<a class='noframes' href='#'>no frames</a>)
+        </li>
+      </ul>
+    </nav>
+    <div id='search'>
+      <a id='class_list_link' href='class_list.html'>Classes</a>
+      <a id='file_list_link' href='file_list.html'>Files</a>
+      <a id='method_list_link' href='method_list.html'>Methods</a>
+      <a id='extra_list_link' href='extra_list.html'>Extras</a>
+    </div>
+  </div>
+  <iframe id='search_frame'></iframe>
+  <div id='fuzzySearch'>
+    <input type='text'>
+    <ol></ol>
+  </div>
+  <div id='help'>
+    <p>
+      Quickly fuzzy find classes, mixins, methods, file:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-T</span>
+        Open fuzzy finder dialog
+      </li>
+    </ul>
+    <p>
+      In frame mode you can toggle the list naviation frame on the left side:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-L</span>
+        Toggle list view
+      </li>
+    </ul>
+    <p>
+      You can focus a list in frame mode or toggle a tab in frameless mode:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-C</span>
+        Class list
+      </li>
+      <li>
+        <span>Ctrl-I</span>
+        Mixin list
+      </li>
+      <li>
+        <span>Ctrl-F</span>
+        File list
+      </li>
+      <li>
+        <span>Ctrl-M</span>
+        Method list
+      </li>
+      <li>
+        <span>Ctrl-E</span>
+        Extras list
+      </li>
+    </ul>
+    <p>
+      You can focus and blur the search input:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-S</span>
+        Focus search input
+      </li>
+      <li>
+        <span>Esc</span>
+        Blur search input
+      </li>
+    </ul>
+    <p>
+      In frameless mode you can close the list tab:
+    </p>
+    <ul>
+      <li>
+        <span>Esc</span>
+        Close list tab
+      </li>
+    </ul>
+  </div>
+</div>
+    <div id='content'>
+      <nav class='toc'>
+        <p class='title'>
+          <a class='hide_toc' href='#'>
+            <strong>Table of Contents</strong>
+          </a>
+          <small>
+            (<a class='float_toc' href='#'>left</a>)
+          </small>
+        </p>
+      </nav>
+      <div id='filecontents'>
+        <h1>Sb::Styleguide</h1><p>TODO: Write a gem description</p><h2>Development Workflow</h2><p>Clone the repository:</p><pre><code>git clone https://github.com/thebeansgroup/sb-styleguide.git </code></pre><p>Checkout the develop branch</p><pre><code>git checkout develop</code></pre><p>Create a new branch for the feature you want to work on:</p><pre><code>git checkout -b feature/[name-of-feature]</code></pre><p>To run the site, use the foreman:</p><pre><code>bundle install
+foreman start</code></pre><p><strong>NB: </strong> Ensure that you are <em>adding</em> and <em>committing</em> files into your branch as you go along. It is also good practive to <em>push</em> the branch to github at the end of your development session, this enusres global access to the markup you have changed.</p><h2>Installation</h2><p>Add this line to your application&#39;s Gemfile:</p><pre><code>gem &#39;sb-styleguide&#39;</code></pre><p>And then execute:</p><pre><code>$ bundle</code></pre><p>Or install it yourself as:</p><pre><code>$ gem install sb-styleguide</code></pre>
+<h2>Usage</h2>
+<h3>Javascript</h3><p>All javascripts provided by this styleguide can be pulled into the asset pipeline
+with the normal require command:</p><pre><code>//= require test</code></pre>
+<h3>Stylesheets</h3><p>All stylesheets provided by this styleguide can be pulled into the asset pipeline
+with the normal require command:</p><pre><code>//= require test</code></pre>
+<h3>Views/Partials</h3><p>In order to include partials defined by the styleguide you will have to add the
+styleguid&#39;s view path to your apps view path. The quickest way is by creating
+a before filter in either the action where you want the views to be accessible
+or, if you will be using the views often, you can define the filter in the
+application controller.</p><pre><code>before_filter :styleguide_view_path
+
+private
+def styleguide_view_path
+  gem = Gem.loaded_specs[&#39;sb-styleguide&#39;]
+  if gem
+    prepend_view_path &quot;#{gem.full_gem_path}/vendor/assets/views&quot;
+  end
+end</code></pre>
+<h2>Contributing</h2>
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature develop</code>)</li>
+<li>Commit your changes (<code>git commit -am &#39;Added some feature&#39;</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request, make sure your pull request target is the develop branch, not the master</li>
+</ol>
+
+      </div>
+    </div>
+    <div id='footer'>
+  Generated on
+  Tue Mar 05 2013 16:39:35 GMT+0000 (GMT)
+  by
+  <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
+  v1.5.6
+  (Node.js v0.8.19).
+  &#10034;
+  Press Ctrl-h to see the keyboard shortcuts
+  &#10034;
+  <a href='http://twitter.com/#!/netzpirat'>@netzpirat</a>
+  &#10034;
+  <a href='https://mksoft.ch'>mksoft.ch</a>
+</div>
+  </body>
+</html>

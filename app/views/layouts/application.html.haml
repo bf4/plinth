@@ -13,32 +13,3 @@
         .mother-three.sister-four.column= render :partial => "shared/ui_nav"
         .mother-five.sister-four.column= yield
     = javascript_include_tag  "application"
-    %footer.footer 
-      .container
-        %a{ :href=> '#footer-content', :class => "footer-tab ss-icon footer-up", :data => { :switch => true, :"switch-toggle" => true}} navigateup
-        %a{ :href=> '#footer-content', :class => "footer-tab ss-icon footer-down", :data => { :switch => true, :"switch-toggle" => true}} navigatedown
-
-      #footer-content.container
-        .mother-seven.column
-          .row
-            .mother-two.sister-one.column.footer-logo-container
-              %a{:href=>root_path}
-                .footer-logo{ :role=>"img", :"aria-label"=>"Studentbeans.com"}
-          .row
-            %p.support &copy; #{Time.now.year.to_s} The Beans Group. All Rights reserved.
-        .mother-two.column
-          %ul.support
-            %li=link_to "footer link"
-            %li=link_to "footer link"
-            %li=link_to "footer link"
-        .mother-two.column
-          %ul.support
-            %li=link_to "footer link"
-            %li=link_to "footer link"
-            %li=link_to "footer link"
-        .mother-one.column
-          %ul.action-list.h5
-            %li=link_to "facebook", "http://facebook.com", :class => "ss-icon ss-social"
-            %li=link_to "twitter", "http://twitter.com", :class => "ss-icon ss-social"
-
-

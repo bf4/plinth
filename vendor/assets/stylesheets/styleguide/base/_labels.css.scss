@@ -4,6 +4,23 @@
 //
 @import "compass/css3";
 
+// ==========================================================================
+// Label colouring in
+// ==========================================================================
+
+@mixin label-color($color, $hover-color, $txt-color, $hover-txt-color: false) {
+  background-color: $color;
+  color: $txt-color;
+
+  &:hover, &.is-active {
+    background-color: $hover-color;
+    @if $hover-txt-color {
+      color: $hover-txt-color;
+    } @else {
+      color: $txt-color;
+    }
+  }
+}
 
 // ==========================================================================
 // Default alert
@@ -17,9 +34,7 @@
 
   @include border-radius( ms(0)/4 );
 
-  background-color: mono(2);
-
-  color: $white;
+  @include label-color( mono(2), mono(3) , $white);
   @extend small;
   line-height: 1;
   text-align: center;
@@ -28,15 +43,16 @@
 
   /* Label colors */
   &.orange {
-    background-color: orange();
+    @include label-color( orange(), orange(2), $white );
   }
 
   &.blue {
-    background-color: blue();
+    @include label-color( blue(), blue(2), $white );
  }
 
   &.green {
-    background-color: green();
+    @include label-color( green(), green(2), $white);
  }
 
 }
+

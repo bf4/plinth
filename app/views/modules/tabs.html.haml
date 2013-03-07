@@ -1,2 +1,58 @@
-%h1 Modules#tabs
-%p Find me in app/views/modules/tabs.html.haml
+:markdown
+  This module is names `Tabs` in the style guide for convenience only. In mark-up and 
+  code it is called `Switch` as it does much more than traditional tabs.
+
+  Tabs use the `Switch` plugin to manage active state.
+
+%h3.h5 data-switch options
+
+%dl
+  %dt 
+    %code data-switch="true"
+  %dd An event listener will initalise the switch plugin when an element with this attribute is clicked.
+  %dt
+    %code data-switch-group="[group name]"
+  %dd By giving an element a group name then the plugin can change the state of other switches within the same group.
+  %dt 
+    %code data-switch-toggle
+  %dd This option enables a switch to toggle it's state upon click.
+
+%ul.shout
+  %li= link_to "View the Switch Plugin ", "/jasmine?spec=Switch%3A"
+  %li= link_to "View Switch Plugin Tests", "/jasmine?spec=Switch%3A"
+%hr
+
+%h3#minimal-switch Minimal Switch
+:markdown
+  Simplest form of the switch. This version of the switch is a simple reveal with no off state.
+= example "modules", "tabs_minimal"
+%hr
+
+
+%h3#toggle-switch Toogle Switch
+:markdown
+  Using the data attribute `data-switch-toggle`, content can be toggled and it's state has no effect on other elements.
+= example "modules", "tabs_toggle"
+%hr
+
+%h3#simple-group Simple Groups
+:markdown
+  By adding the `switch-group` data element we can make groups of switches reactive to each others state.
+= example "modules", "tabs_simple_group"
+%hr
+
+
+%h3#simple-group-toggle Simple Groups With Toggle
+:markdown
+  If you add to the switch link then 
+  the content will toggle open and shut when the user clicks.
+= example "modules", "tabs_simple_group_toggle"
+%hr
+
+%h3#Traditional-tabs Traditional Tabs
+:markdown
+  Creating a tabbed module is easy. Simply add the class `.tab` to the links `ul` of a grouped switch.
+  
+  If you wish for a tab to be open on load then add `.is-active` to the tab `li` and corresponding `.switch-content`.
+= example "modules", "tabs_traditional"
+%hr

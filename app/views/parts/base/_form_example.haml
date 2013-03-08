@@ -1,0 +1,26 @@
+%form{:action => "/test-endpoint", :class => "formtastic entry", :data => { :"forms-success-content" => " ",  :"forms-success-replace" => ".test-content", :forms => "/test-endpoint" } }
+  %fieldset.inputs
+    %ol
+      %li.string.input.required.stringish 
+        %label{:for => "test_entry_first_name"}
+          First name
+          %abbr{:title => "required"} *
+        %input{:id => "test_entry_first_name", :maxlength => "255", :name => "entry[first_name]", :type => "text"}
+      %li.string.input.required.stringish
+        %label{:for => "test_entry_last_name"}
+          Last name
+          %abbr{:title => "required"} *
+        %input{:id => "test_entry_last_name", :maxlength => "255", :name => "entry[last_name]", :type => "text"}
+      %li.email.input.required.stringish
+        %label{:for => "test_entry_email"}
+          Email
+          %abbr{:title => "required"} *
+        %input{:id => "test_entry_email", :maxlength => "255",  :name => "entry[email]",  :type => "email"}
+
+  %fieldset.actions
+    %ol
+      %li.support.action
+        :markdown
+          By submitting this test you agree to the [Terms and Conditions](/terms-and-conditions) and to share your information with us.
+      %li.action.button_action
+        %button.green.btn{:name => "button", :type => "submit"} Submit Test

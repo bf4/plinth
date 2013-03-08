@@ -1,0 +1,17 @@
+%ul.tabs
+  %li.is-active= link_to "SS Standard", "#ss-standard", :data => { :switch => true , :"switch-group" => "ss-group"  }
+  %li= link_to "SS Social", "#ss-social", :data => { :switch => true , :"switch-group" => "ss-group"  }
+
+%div.switch-content.is-active{:id => "ss-standard"}
+  %h3 SS Standard
+  :coderay
+    #!HAML
+    %a.ss-icon &#xE001;
+  = render partial: "base/webfonts_ss_standard"
+
+%div.switch-content{:id => "ss-social"}
+  %h3 SS Social
+  :coderay
+    #!HAML
+    %a.ss-icon.ss-social &#xF610
+  = render partial: "base/webfonts_social_standard"

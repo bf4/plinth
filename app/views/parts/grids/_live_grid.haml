@@ -1,0 +1,29 @@
+.row
+  - 8.times do |n|
+    .mother-one.sister-one.baby-one.column
+      %p.example-highlight= n+1
+
+.row
+  .mother-one.sister-hide.column
+    %p.example-highlight 1
+  .mother-two.sister-one.baby-two.column
+    %p.example-highlight 2
+  .mother-five.sister-three.baby-two.column
+    %p.example-highlight 5
+
+.row
+  .mother-push-two.mother-six.sister-push-none.sister-four.column
+    %p.example-highlight 6
+    .row
+      .mother-eight.column
+        %p.example-highlight Nested Grid
+    .row
+      .mother-four.sister-four.column
+        %p.example-highlight 4
+      .mother-four.sister-four.column
+        %p.example-highlight 4
+
+.row
+  .mother-eight.column
+    %p.example-highlight 8
+

@@ -25,8 +25,10 @@ end
 gem "haml"
 gem "haml-rails"
 gem "haml-coderay"
-gem "maruku"
+gem 'kramdown'
+gem 'kramdown-haml'
 gem 'thin'
+gem 'formtastic'
 
 #
 # Jquery rails - @TODO Is this needed?

@@ -1,0 +1,92 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %title= "Layout Example - SB Style Guide"
+    = javascript_include_tag "lib/modernizr"
+    = stylesheet_link_tag "vanilla-normal"
+    %style(type="text/css") 
+      :sass
+        .jumbotron
+          padding-bottom: 2em
+          margin-bottom: 1em
+          background: url(http://placekitten.com/g/1200/400) center center
+          background-size: cover
+          color: #fff
+          text-shadow: 0 1px 1px rgba(0,0,0,.6)
+        .jumbotron-nav
+          margin-top: 2em
+        .nav-global
+          background-color: #222
+          border-radius: 5px
+        .nav-global .nav-items > li
+          border-color: #666
+        .nav-global .nav-items > li.is-active
+          border-color: #999
+          a
+            border-color: #999
+        article
+          text-align: center
+        [role='banner']
+          margin-top: 1em
+          margin-bottom: 1em
+        footer
+          margin-top: 2em
+          border-top: 1px solid #ccc
+          p
+            padding-top: 1em
+
+  %body
+
+    .jumbotron
+      .container
+
+        -# Standard navigation
+
+        .jumbotron-nav.twelve.column
+          %nav.nav-global
+            #nav-global-2.nav-collapse.mobile-switch-content<
+              %ul.nav-items.collapse><
+                %li.is-active><
+                  %a{:href => "#Item-1"} Item 1
+                %li><
+                  %a{:href => "#Item-2"} Item 2
+                %li><
+                  %a{:href => "#Item-3"} Item 3
+
+            .nav-mobile-switch.mobile-only
+              %a{ :href => "#nav-global-2", :data => {:switch => true, :"switch-toggle" => true} }><
+                %span>< Show navigation
+              %i><
+              %i><
+              %i><
+
+
+        -# Header banner
+
+        .row
+          %header.twelve.column{ role: "banner"}
+            %hgroup
+              %h1 Basic Marketing Site
+              %p.standout Our version of the infamous twitter bootstrap marketing example. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+              = link_to "Learn More", "Learn" , class: "orange btn"
+
+    .container
+
+      -# Featured content
+
+      .row
+        - 3.times do |n|
+          %article.four.column
+            %h2 Heading #{n}
+            %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+            %a{ href: "view", class: "btn"}
+              View Details
+              %b.ss-icon.ss-navigateright
+
+      -# Footer
+
+      .row
+        %footer.twelve.column
+          %p.secondary &copy; Company 2013
+    = javascript_include_tag  "application"

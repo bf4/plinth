@@ -6,14 +6,16 @@
 // Settings grids
 // ======================================================
 
-$baby: 'baby-', 2, 10px, "max-width: 655px";
-$sister: 'sister-', 4, 15px, "max-width: 785px";
-$mother: 'mother-', 8, 20px;
-// Declare grid
-$grids : $mother, $sister, $baby;
-
 // Max container width
-$container-width: 800px;
+$container-width: 910px;
+
+$baby: 'baby-', 2, 10px;//"max-width: 655px";
+$sister: 'sister-', 4, 15px, "min", 700px;//"max-width: 785px";
+$mother: 'mother-', 8, 20px, "min", $container-width;
+// Declare grid
+$grids : $baby, $sister, $mother;
+
+
 
 // Module scale
 $baseFontSize: 14px !default;

@@ -7,46 +7,86 @@
 // Create column sizes
 // ==========================================================================
 
+@mixin create-conditional-classes($grids) {
+  @each $grid in $grids {
+    $grid-name: nth($grid, 1);
+
+    @each $gridmq in $grids {
+      $gridmq-name: nth($gridmq, 1);
+
+      @include is-responsive($gridmq){
+        @include show-hide($grid-name, $gridmq-name);
+      }      
+    }
+  }
+}
+
+@mixin is-responsive($grid){
+  @if length($grid) > 3 {
+    @include media-query($grid){
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+@mixin show-hide($n1, $n2){
+  @if($n1 == $n2) {
+    .#{$n1}hide{display:none !important}
+    .#{$n1}only{display:block !important}
+  }
+  @else {
+    .#{$n1}hide{display:block !important}
+    .#{$n1}only{display:none !important}
+  }
+}
+
 @mixin create-column-sizes($grids) {
   $query-pos: 4;
   @each $grid in $grids {
     // If there is a media query
     @if(length($grid) == 1){}
-    @else if(length($grid) == $query-pos) {
+    @else if(length($grid) >= $query-pos) {
 
-      .#{nth($grid,1)}only {
+      /*.#{nth($grid,1)}only {
         display: none !important;
-      }
+      }*/
 
       // Add Rules wrapped in media query
-      @include media-query( nth($grid,$query-pos)) {
+      //@include media-query( nth($grid,$query-pos)) {
+      @include media-query($grid) {
         @include build-column-size($grid);
-        .#{nth($grid,1)}only {
-          display: block !important;
-        }
+        // .#{nth($grid,1)}only {
+        //   display: block !important;
+        // }
 
-        .#{nth($grid,1)}hide {
-          display: none !important;
-        }
+        // .#{nth($grid,1)}hide {
+        //   display: none !important;
+        // }
       }
     }
     @else {
       @include build-column-size($grid);
     }
   }
+  @include create-conditional-classes($grids);
 }
 
 @mixin build-column-size($grid) {
   $padding-pos: 3;
   $total-columns: nth($grid,2);
+
   @if(length($grid) >= $padding-pos ) {
     .column {
       padding: 0 (0.5 * nth($grid,$padding-pos));
-      @if($total-columns == 1){
-        float: none;
-        width: auto;
-        right: auto;
-        left: auto;
+      @if($total-columns > 1){
+        float: left;
+        width: 100%;
+        & + &:last-child {
+          float: right;
+        }
       }
     }
   }
@@ -70,8 +110,6 @@
       right: 0;
     }
   }
-
-
 }
 
 // ==========================================================================
@@ -79,20 +117,27 @@
 // ==========================================================================
 
 @mixin conditional-CSS($grids) {
-  $query-pos: 4;
+  //$query-pos: 4;
+  $query-pos: 5;
 
   @each $grid in $grids {
     @if(length($grid) < $query-pos){
       body:after {
-        content: nth($grid,1);;
+        content: nth($grid,1);
         display: none;
       }
     }
     @else {
-      @include media-query( nth($grid,$query-pos)) {
+      /*@include media-query( nth($grid,$query-pos)) {
         body:after {
-          content: nth($grid,1);;
+          content: nth($grid,1);
           display: none;
+        }
+      }*/
+      @include media-query($grid) {
+        body:after {
+          content:nth($grid, 1);
+          display:none;
         }
       }
     }
@@ -103,9 +148,14 @@
 // Simple Media Query Generator
 // ==========================================================================
 
-@mixin media-query($size) {
-  @media ($size) {
-    @content;
+@mixin media-query($gridObj) {
+  @if length($gridObj) > 3 {
+    $queryType: nth($gridObj, 4);
+    $querySize: nth($gridObj, 5);
+
+    @include respond-to($queryType, $querySize) {
+      @content;
+    }
   }
 }
 
@@ -170,11 +220,52 @@
 // ==========================================================================
 
 @mixin smallest-query {
-  $query-position: 4;
-  $length: length($grids);
-  $mobile: nth($grids, $length);
+  //$query-position: 4;
+  @if length($grids) > 1 {
+    $length: length($grids);
+    //$mobile: nth($grids, $length - 1);
+    $mobile: nth($grids, 2);
 
-  @include media-query( nth($mobile,$query-position)) {
+    //@include media-query( nth($mobile,$query-position)) {
+    @include media-query($mobile) {
+      @content;
+    }
+  }
+}
+
+
+// ==========================================================================
+// Respond helper
+// ==========================================================================
+
+@mixin respond-to($query, $size) {
+  @if $fixed-mqs {
+    @if $query == "max" {
+      @if $container-width <= $size {
+        @content;
+      }
+    }
+    @else if $query == "min" {
+      @if $container-width >= $size {
+        @content;
+      }
+    }
+  }
+  @else {
+    // output normally
+    @media ("#{$query}-width: #{$size}") {
+      @content;
+    }
+  }
+}
+
+
+// ==========================================================================
+// Old IE
+// ==========================================================================
+
+@mixin old-ie {
+  @if $old-ie {
     @content;
   }
 }

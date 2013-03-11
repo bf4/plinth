@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+// ======================================================
+// Old IE!!
+// ======================================================
+
+$old-ie: true;
+$fixed-mqs: true;
+
+
+@import "application";
+
+/*@include respond("max-width: 655px"){
+  .container{width:250px!important}
+}*/

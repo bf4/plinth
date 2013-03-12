@@ -116,8 +116,25 @@
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <h1>GAEVENT CLASS DEFINITION</h1>
+  <p>GAEVENT CLASS DEFINITION</p><p>%a{ :href =&gt; &#39;#clickyclick&#39;, :class =&gt; &#39;btn&#39;, :data =&gt; { :gaevent =&gt; &#39;category|action|opt_label|opt_value|opt_noninteraction&#39; } }</p><h1>See: <a href="https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide">https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide</a></h1>
 
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      How to use the class
+    </h4>
+    <pre><code class='coffee'>gaEventInstance = new GAEvent $(&#39;.my-element&#39;)
+# Send form
+formInstance.send()</code></pre>
+    <h4>
+      How to use the class with jQuery
+    </h4>
+    <pre><code class='coffee'>$(&#39;.my-element&#39;).send()</code></pre>
+    <h4>
+      How to ensure plugin self initialises on element
+    </h4>
+    <pre><code class='coffee'>&lt;form data-forms=&quot;&#47;endpoint&quot;&gt; ... &lt;&#47;form&gt;</code></pre>
+  </div>
 </div>
 <div class='tags'>
 </div>
@@ -131,7 +148,7 @@
     </span>
     <span class='constructor note title'>Constructor</span>
     <span class='desc'>
-      
+      Construct a GAEvent instance
     </span>
   </li>
   <li>
@@ -141,7 +158,7 @@
       </a>
     </span>
     <span class='desc'>
-      
+      Send the event
     </span>
   </li>
 </ul>
@@ -151,7 +168,29 @@
     <p class='signature' id='constructor-instance'>
       - (void) <strong>constructor</strong>(element, eventcontent)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Construct a GAEvent instance</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>element</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>HTMLElement</span>
+    </li>
+    <li>
+      <span class='name'>array</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>Array</span>
+    </li>
+  </ul>
 </div>
   </div>
 </div>
@@ -161,14 +200,28 @@
     <p class='signature' id='sendEvent-instance'>
       - (void) <strong>sendEvent</strong>(data)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Send the event</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>array</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>If Google Analytics _gaq array defined push data</span>
+    </li>
+  </ul>
 </div>
   </div>
 </div>
     </div>
     <div id='footer'>
   Generated on
-  Tue Mar 12 2013 15:56:05 GMT+0000 (GMT)
+  Tue Mar 12 2013 16:41:39 GMT+0000 (GMT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.5.6

@@ -49,8 +49,6 @@ plugin = ($)->
     
     # Close the element - Removes this.$target element and triggers 'close' event
     #
-    # @return [?Boolean] false if this.$target is undefined
-    #
     close : ->
       if not @$target then return false
       @$target.trigger 'close'

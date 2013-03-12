@@ -116,8 +116,24 @@
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <h1>FORMs CLASS DEFINITION</h1>
-
+  <p>FORM CLASS DEFINITION</p>
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      How to use the class
+    </h4>
+    <pre><code class='coffee'>formInstance = new TBGForm $(&#39;.my-element&#39;)
+# Send form
+formInstance.send()</code></pre>
+    <h4>
+      How to use the class with jQuery
+    </h4>
+    <pre><code class='coffee'>$(&#39;.my-element&#39;).send()</code></pre>
+    <h4>
+      How to ensure plugin self initialises on element
+    </h4>
+    <pre><code class='coffee'>&lt;form data-forms=&quot;&#47;endpoint&quot;&gt; ... &lt;&#47;form&gt;</code></pre>
+  </div>
 </div>
 <div class='tags'>
 </div>
@@ -131,17 +147,17 @@
     </span>
     <span class='constructor note title'>Constructor</span>
     <span class='desc'>
-      
+      Construct a new TBGForm instance
     </span>
   </li>
   <li>
     <span class='signature'>
       <a href='#send-instance'>
-        - (void) <strong>send</strong>()
+        - (?Boolean) <strong>send</strong>()
       </a>
     </span>
     <span class='desc'>
-      
+      Send the form, calls sendRequest passing form data and url to post to
     </span>
   </li>
   <li>
@@ -151,7 +167,7 @@
       </a>
     </span>
     <span class='desc'>
-      
+      Execute ajax post
     </span>
   </li>
   <li>
@@ -161,7 +177,7 @@
       </a>
     </span>
     <span class='desc'>
-      
+      Handle form post errors - callback from sendRequest Clear previous errors, add error classes to relevent fields and labels and add error message summary
     </span>
   </li>
   <li>
@@ -171,7 +187,7 @@
       </a>
     </span>
     <span class='desc'>
-      
+      Handle form post success - callback from sendRequest Pass empty error object to showErrors; if Handlebars defined call _showSuccessTemplated with data object otherwise call _showSuccessPlain; trigger &#39;tbgform-success&#39; event with form data; fade form if necessary
     </span>
   </li>
   <li>
@@ -180,8 +196,9 @@
         - (void) <strong>_showSuccessTemplated</strong>(data)
       </a>
     </span>
+    <span class='note private title'>Private</span>
     <span class='desc'>
-      
+      Display compiled success template Compile template from data-formsSuccessContent; display with data object
     </span>
   </li>
   <li>
@@ -190,8 +207,9 @@
         - (void) <strong>_showSuccessPlain</strong>()
       </a>
     </span>
+    <span class='note private title'>Private</span>
     <span class='desc'>
-      
+      Display success with replaced content Display data-formsSuccessContent HTML
     </span>
   </li>
 </ul>
@@ -201,7 +219,21 @@
     <p class='signature' id='constructor-instance'>
       - (void) <strong>constructor</strong>(element)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Construct a new TBGForm instance</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>element</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>form we will attach the TBGForm to</span>
+    </li>
+  </ul>
 </div>
   </div>
 </div>
@@ -209,51 +241,136 @@
       <div class='methods'>
   <div class='method_details'>
     <p class='signature' id='send-instance'>
-      - (void) <strong>send</strong>()
+      - (?Boolean) <strong>send</strong>()
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Send the form, calls sendRequest passing form data and url to post to</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>?Boolean</tt>)
+      &mdash;
+      <span class='desc'>False if no url to post to</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='sendRequest-instance'>
       - (void) <strong>sendRequest</strong>(data, url)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Execute ajax post</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>object</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>JSON serialised form data</span>
+    </li>
+    <li>
+      <span class='name'>string</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>URL to post form to</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='showErrors-instance'>
       - (void) <strong>showErrors</strong>(errors)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Handle form post errors - callback from sendRequest
+Clear previous errors, add error classes to relevent fields and labels and add error message summary</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>object</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>JSON errors object</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='showSuccess-instance'>
       - (void) <strong>showSuccess</strong>(data)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Handle form post success - callback from sendRequest
+Pass empty error object to showErrors; if Handlebars defined call _showSuccessTemplated with data object otherwise call _showSuccessPlain; trigger &#39;tbgform-success&#39; event with form data; fade form if necessary</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>object</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>JSON data object from ajax post</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='_showSuccessTemplated-instance'>
       - (void) <strong>_showSuccessTemplated</strong>(data)
+      (private)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Display compiled success template
+Compile template from data-formsSuccessContent; display with data object</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>object</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>JSON data object from showSuccess</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='_showSuccessPlain-instance'>
       - (void) <strong>_showSuccessPlain</strong>()
+      (private)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Display success with replaced content
+Display data-formsSuccessContent HTML</p>
+</div>
+<div class='tags'>
 </div>
   </div>
 </div>
     </div>
     <div id='footer'>
   Generated on
-  Tue Mar 12 2013 15:56:05 GMT+0000 (GMT)
+  Tue Mar 12 2013 16:41:39 GMT+0000 (GMT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.5.6

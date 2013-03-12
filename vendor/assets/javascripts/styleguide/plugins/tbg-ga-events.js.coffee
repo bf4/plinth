@@ -17,30 +17,53 @@
 # limitations under the License.
 #
 
-# Useage:
-# ========================
-# 
-# HAML> %a{:href=>"#clickyclick", :class=>"btn", :data=> {:gaevent=>"category|action|opt_label|opt_value|opt_noninteraction"}}
-# See: https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
-
 plugin = ($)->
 
   "use strict"
 
   # GAEVENT CLASS DEFINITION
-  # ========================= 
+  #
+  # @example How to use with Haml
+  #   %a{ :href => '#clickyclick', :class => 'btn', :data => { :gaevent => 'category|action|opt_label|opt_value|opt_noninteraction' } }
+  #   # See: https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
+  #
+  # @example How to use the class
+  #     gaEventInstance = new GAEvent $('.my-element')
+  #     # Send form
+  #     formInstance.send()
+  #
+  # @example How to use the class with jQuery
+  #     $('.my-element').send()
+  #
+  # @example How to ensure plugin self initialises on element
+  #     <form data-forms="/endpoint"> ... </form>
+  #
   class GAEvent
+
+    # Construct a GAEvent instance
+    #
+    # @param [Object] element HTMLElement
+    # @param [Object] array Array
+    #
     constructor: ( element, @eventcontent ) ->
       $el = $(element)
       @sendEvent (if typeof eventcontent.split('|') isnt "array" then eventcontent.split('|') else [eventcontent])
 
     _constructor: GAEvent
 
+    # Send the event
+    #
+    # @param [Object] array If Google Analytics _gaq array defined push data
+    #
     sendEvent : (data)->
       data.unshift('_trackEvent')
       _gaq?.push data
 
-  # Private method
+  # Remove data
+  #
+  # @param [Object] object jQuery object
+  # @param [String] string Event string
+  #
   removeData = ( $el, ev )->
     $el.removeAttr('data-' + ev)
     $el.removeData(ev)

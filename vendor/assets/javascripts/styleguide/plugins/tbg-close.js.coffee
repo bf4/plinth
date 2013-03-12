@@ -22,12 +22,28 @@ plugin = ($)->
   "use strict"  
 
   # CLOSE CLASS DEFINITION
-  # ========================= 
-  class Close 
+  # 
+  # @example How to use the class
+  #     closeInstance = new Close $('.my-element')
+  #     # Close element
+  #     closeInstance.close()
+  #
+  # @example How to use the class with jQuery
+  #     $('.my-element').close('close')
+  #
+  # @example How to enusre plugin self initalises on element
+  #     <div data-close> Close me </div>
+  #
+  class Close
+
+    # Construct a new Close instance
+    # @param [Object] element HTMLElement on which we will try to close
+    #
     constructor: ( element ) ->
       $el = $(element)
-      @$target = @_getTarget $el
+      @$target = @_getarget $el
   
+    # Expose the Class 
     _constructor:  Close
   
     close : ->

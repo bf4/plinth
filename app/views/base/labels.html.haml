@@ -1,0 +1,22 @@
+-# 
+-# Labels
+-# 
+
+%h3#Standard-labels Standard Labels
+= example "base", "labels"
+%hr
+
+%h3#Sizing-labels Sizing Labels
+:markdown
+  Labels are simple classes that can be extended using the text helper classes we all ready have.
+= example "base", "labels_sizing"
+%hr
+
+
+%h3#Sizing-labels Sizing Labels
+:markdown
+  New label colours can be created easily using the `label-color` mixin.
+:coderay
+  #!SCSS
+  @include label-color($color, $hover-color, $txt-color, [$hover-txt-color])
+%hr

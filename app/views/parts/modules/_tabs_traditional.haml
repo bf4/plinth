@@ -1,0 +1,11 @@
+%ul.tabs
+  %li.is-active
+    %a{ :href =>  "#target1-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg1-2"} Switch link 1
+  %li
+    %a{ :href => "#target2-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg2-2"} Switch link 2
+  %li
+    %a{ :href => "#target3-3", :data => { :switch => true, :"switch-group" => "group-1"  }, :id => "eg3-2"} Switch link 3
+%div.switch-content.is-active{:id => "target1-3"} Switch content 1
+%div.switch-content{:id => "target2-3"} Switch content 2
+%div.switch-content{:id => "target3-3"} Switch content 3
+

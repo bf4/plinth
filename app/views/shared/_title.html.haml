@@ -1,0 +1,8 @@
+.row
+  %header.mother-eight.column{ role: "banner"}
+    - if @page_title
+      %h1!= @page_title
+    - if @page_description
+      %p.standout= @page_description
+    -if @page_title or @page_description
+      %hr

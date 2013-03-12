@@ -1,0 +1,9 @@
+- @layouts.each do |layout|
+  %article.layout-example
+    %h2.h3= layout[1]
+    %figure
+      = image_tag "layouts/#{layout[0]}.png"
+    %ul.action-list
+      %li= link_to 'View Example', grid_layout_path( layout[0] ), class: "small green btn"
+      %li= link_to 'View HAML', grid_layout_path( layout[0], :haml), class: "small blue btn"
+  %hr

@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 # Declare your gem's dependencies in sb-styleguide.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -25,8 +25,10 @@ end
 gem "haml"
 gem "haml-rails"
 gem "haml-coderay"
-gem "maruku"
+gem 'kramdown'
+gem 'kramdown-haml'
 gem 'thin'
+gem 'formtastic'
 
 #
 # Jquery rails - @TODO Is this needed?
@@ -39,9 +41,15 @@ gem 'jquery-rails'
 # Javascript Testing
 #
 
-group :development, :test do
+group :development, :test, :staging do
   gem 'growl'
   gem 'jasminerice', :git => "https://github.com/bradphelan/jasminerice"
   gem "guard-jasmine"
   # gem 'jsPercolator', :git => "git@github.com:adtaylor/jsPercolator.git"
+  gem "rails", "~> 3.2.12"
+  gem "capistrano"
+  gem "aws-sdk"
+  gem 'rvm-capistrano', '~>1.2.7'
+  gem "bundler", "~> 1.2.4"
+  gem "net-sftp", "~> 2.1.1"
 end

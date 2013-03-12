@@ -185,6 +185,10 @@ code {
   background-color: transparentize( $main-color, 0.7);
 }
 
+pre > code {
+  display: block;
+}
+
 // Improves readability of pre-formatted text in all browsers.
 
 pre {

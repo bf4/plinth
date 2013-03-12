@@ -16,12 +16,10 @@ Create a new branch for the feature you want to work on:
 
     git checkout -b feature/[name-of-feature]
 
-To run the site, use the middleman server:
+To run the site, use the foreman:
 
-    middleman server
-
-    # Or use the alias
-    mms
+    bundle install
+    foreman start
 
 **NB: ** Ensure that you are _adding_ and _committing_ files into your branch as you go along. It is also good practive to _push_ the branch to github at the end of your development session, this enusres global access to the markup you have changed.
 

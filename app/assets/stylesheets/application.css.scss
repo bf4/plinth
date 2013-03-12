@@ -7,10 +7,10 @@
 // ======================================================
 
 // Max container width
-$container-width: 910px;
+$container-width: 800px;
 
-$baby: 'baby-', 2, 10px;//"max-width: 655px";
-$sister: 'sister-', 4, 15px, "min", 700px;//"max-width: 785px";
+$baby: 'baby-', 2, 10px;
+$sister: 'sister-', 4, 15px, "min", 655px;
 $mother: 'mother-', 8, 20px, "min", $container-width;
 // Declare grid
 $grids : $baby, $sister, $mother;

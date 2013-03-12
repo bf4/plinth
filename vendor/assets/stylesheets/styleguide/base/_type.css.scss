@@ -120,7 +120,9 @@ h5, .h5 {
   font-weight: normal;
 }
 
-@include smallest-query {
+@include smallest-query(true) {
+  // Pass true to output outside
+  // media query for IE
   h1, .h1 {
     font-size: ms(5);
     line-height: 1.34;

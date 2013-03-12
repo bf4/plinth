@@ -16,20 +16,18 @@
   }
 }
 
-@mixin switch($n1, $n2){
-  @if($n1 == $n2) {
-    .#{$n1}switch-content {
+@mixin switch-content($grid-name, $nested-grid-name){
+  @if($grid-name == $nested-grid-name) {
+    .#{$grid-name}switch-content {
       display: none;
-
       &.is-active {
         display: block;
       }
     }
   }
   @else {
-    .#{$n1}switch-content {
+    .#{$grid-name}switch-content {
       display: block;
-
       &.is-active {
         display: none;
       }
@@ -40,18 +38,11 @@
 @each $grid in $grids {
   $grid-name: nth($grid, 1);
 
-  @each $gridmq in $grids {
-    $gridmq-name: nth($gridmq, 1);
+  @each $nested-grid in $grids {
+    $nested-grid-name: nth($nested-grid, 1);
     // If there is a media query
-    @include is-responsive($gridmq) {
-      /*.#{$grid-name}switch-content {
-        display: none;
-
-        &.is-active {
-          display: block;
-        }
-      }*/
-      @include switch($grid-name, $gridmq-name);
+    @include is-responsive($nested-grid) {
+      @include switch-content($grid-name, $nested-grid-name);
     }   
   }
 }

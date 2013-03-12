@@ -11,35 +11,26 @@
   @each $grid in $grids {
     $grid-name: nth($grid, 1);
 
-    @each $gridmq in $grids {
-      $gridmq-name: nth($gridmq, 1);
+    @each $nested-grid in $grids {
+      $nested-grid-name: nth($nested-grid, 1);
 
-      @include is-responsive($gridmq){
-        @include show-hide($grid-name, $gridmq-name);
+      @include is-responsive($nested-grid){
+        @include conditional-display($grid-name, $nested-grid-name);
       }      
     }
   }
 }
 
-@mixin is-responsive($grid){
-  @if length($grid) > 3 {
-    @include media-query($grid){
-      @content;
-    }
+@mixin conditional-display($grid-name, $nested-grid-name){
+  // Abstract the conditional display classes from
+  // create-conditional-classes mixin
+  @if($grid-name == $nested-grid-name) {
+    .#{$grid-name}hide{display:none !important}
+    .#{$grid-name}only{display:block !important}
   }
   @else {
-    @content;
-  }
-}
-
-@mixin show-hide($n1, $n2){
-  @if($n1 == $n2) {
-    .#{$n1}hide{display:none !important}
-    .#{$n1}only{display:block !important}
-  }
-  @else {
-    .#{$n1}hide{display:block !important}
-    .#{$n1}only{display:none !important}
+    .#{$grid-name}hide{display:block !important}
+    .#{$grid-name}only{display:none !important}
   }
 }
 
@@ -49,22 +40,8 @@
     // If there is a media query
     @if(length($grid) == 1){}
     @else if(length($grid) >= $query-pos) {
-
-      /*.#{nth($grid,1)}only {
-        display: none !important;
-      }*/
-
-      // Add Rules wrapped in media query
-      //@include media-query( nth($grid,$query-pos)) {
       @include media-query($grid) {
         @include build-column-size($grid);
-        // .#{nth($grid,1)}only {
-        //   display: block !important;
-        // }
-
-        // .#{nth($grid,1)}hide {
-        //   display: none !important;
-        // }
       }
     }
     @else {
@@ -117,7 +94,6 @@
 // ==========================================================================
 
 @mixin conditional-CSS($grids) {
-  //$query-pos: 4;
   $query-pos: 5;
 
   @each $grid in $grids {
@@ -128,12 +104,6 @@
       }
     }
     @else {
-      /*@include media-query( nth($grid,$query-pos)) {
-        body:after {
-          content: nth($grid,1);
-          display: none;
-        }
-      }*/
       @include media-query($grid) {
         body:after {
           content:nth($grid, 1);
@@ -219,34 +189,52 @@
 // Smallest query
 // ==========================================================================
 
-@mixin smallest-query {
-  //$query-position: 4;
+@mixin smallest-query($ie-override: false) {
   @if length($grids) > 1 {
     $length: length($grids);
-    //$mobile: nth($grids, $length - 1);
     $mobile: nth($grids, 2);
 
-    //@include media-query( nth($mobile,$query-position)) {
     @include media-query($mobile) {
       @content;
     }
+  }
+  // If old IE and override both set,
+  // output without query
+  @if $old-ie and $ie-override {
+    @content;
   }
 }
 
 
 // ==========================================================================
-// Respond helper
+// Responsive helpers
 // ==========================================================================
 
+@mixin is-responsive($grid){
+  // Pass in content to be conditionally output
+  // either in a media query or by default
+  @if length($grid) > 3 {
+    @include media-query($grid){
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+
 @mixin respond-to($query, $size) {
+  // If IE has a fixed query ($container-width) set,
+  // output it by default, otherwise output media query
   @if $fixed-mqs {
     @if $query == "max" {
-      @if $container-width <= $size {
+      @if $container-width == $size {
         @content;
       }
     }
     @else if $query == "min" {
-      @if $container-width >= $size {
+      @if $container-width == $size {
         @content;
       }
     }
@@ -265,6 +253,8 @@
 // ==========================================================================
 
 @mixin old-ie {
+  // If old IE version (7,8)
+  // output IE only styles
   @if $old-ie {
     @content;
   }

@@ -27,13 +27,17 @@
 // Action list Collapse state
 // ==========================================================================
 
-@include smallest-query{
+@include smallest-query(true){
+  // Pass true to output outside
+  // media query for IE
   .action-list.collapse {
     & > li {
       display: inline-block;
       margin:0;
-      *display: inline;
-      *zoom: 1;
+      @if old-ie {
+        *display: inline;
+        *zoom: 1;
+      }
 
       &:last-child {
         margin-right: 0;

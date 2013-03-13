@@ -69,6 +69,7 @@ plugin = ($)->
           @showErrors $.parseJSON(err.responseText)
 
     # Handle form post errors - callback from sendRequest
+    # 
     # Clear previous errors, add error classes to relevent fields and labels and add error message summary
     #
     # @param [Object] object JSON errors object
@@ -84,6 +85,7 @@ plugin = ($)->
         $this.siblings('label').addClass('is-error')
 
     # Handle form post success - callback from sendRequest
+    # 
     # Pass empty error object to showErrors; if Handlebars defined
     #   call _showSuccessTemplated with data object otherwise call
     #   _showSuccessPlain; trigger 'tbgform-success' event with form data; fade form if necessary
@@ -100,6 +102,7 @@ plugin = ($)->
       if @form.data 'formsSuccessFormfade' then @form.fadeOut()
 
     # Display compiled success template
+    #
     # Compile template from data-formsSuccessContent; display with data object
     # 
     # @private
@@ -111,6 +114,7 @@ plugin = ($)->
       successArea.fadeOut().html( template(data) ).fadeIn()
 
     # Display success with replaced content
+    #
     # Display data-formsSuccessContent HTML
     #
     # @private

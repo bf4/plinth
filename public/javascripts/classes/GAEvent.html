@@ -116,10 +116,14 @@
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <p>GAEVENT CLASS DEFINITION</p><p>%a{ :href =&gt; &#39;#clickyclick&#39;, :class =&gt; &#39;btn&#39;, :data =&gt; { :gaevent =&gt; &#39;category|action|opt_label|opt_value|opt_noninteraction&#39; } }</p><h1>See: <a href="https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide">https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide</a></h1>
-
+  <p>GAEVENT CLASS DEFINITION</p>
   <div class='examples'>
     <h3>Examples:</h3>
+    <h4>
+      How to use with Haml
+    </h4>
+    <pre><code class='coffee'>%a{ :href =&gt; &#39;&#47;some&#47;link&#39;, :class =&gt; &#39;btn&#39;, :data =&gt; { :gaevent =&gt; &#39;category|action|opt_label|opt_value|opt_noninteraction&#39; } }
+# See: https:&#47;&#47;developers.google.com&#47;analytics&#47;devguides&#47;collection&#47;gajs&#47;eventTrackerGuide</code></pre>
     <h4>
       How to use the class
     </h4>
@@ -221,7 +225,7 @@ formInstance.send()</code></pre>
     </div>
     <div id='footer'>
   Generated on
-  Tue Mar 12 2013 16:41:39 GMT+0000 (GMT)
+  Wed Mar 13 2013 11:13:29 GMT+0000 (GMT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.5.6

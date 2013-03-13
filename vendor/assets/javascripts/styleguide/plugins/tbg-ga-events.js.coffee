@@ -24,8 +24,8 @@ plugin = ($)->
   # GAEVENT CLASS DEFINITION
   #
   # @example How to use with Haml
-  #   %a{ :href => '#clickyclick', :class => 'btn', :data => { :gaevent => 'category|action|opt_label|opt_value|opt_noninteraction' } }
-  #   # See: https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
+  #     %a{ :href => '/some/link', :class => 'btn', :data => { :gaevent => 'category|action|opt_label|opt_value|opt_noninteraction' } }
+  #     # See: https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
   #
   # @example How to use the class
   #     gaEventInstance = new GAEvent $('.my-element')

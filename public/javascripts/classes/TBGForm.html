@@ -153,7 +153,7 @@ formInstance.send()</code></pre>
   <li>
     <span class='signature'>
       <a href='#send-instance'>
-        - (?Boolean) <strong>send</strong>()
+        - (void) <strong>send</strong>()
       </a>
     </span>
     <span class='desc'>
@@ -241,21 +241,12 @@ formInstance.send()</code></pre>
       <div class='methods'>
   <div class='method_details'>
     <p class='signature' id='send-instance'>
-      - (?Boolean) <strong>send</strong>()
+      - (void) <strong>send</strong>()
     </p>
     <div class='docstring'>
   <p>Send the form, calls sendRequest passing form data and url to post to</p>
 </div>
 <div class='tags'>
-  <h3>Returns:</h3>
-  <ul class='return'>
-    <li>
-      <span class='type'></span>
-      (<tt>?Boolean</tt>)
-      &mdash;
-      <span class='desc'>False if no url to post to</span>
-    </li>
-  </ul>
 </div>
   </div>
   <div class='method_details'>
@@ -292,8 +283,7 @@ formInstance.send()</code></pre>
       - (void) <strong>showErrors</strong>(errors)
     </p>
     <div class='docstring'>
-  <p>Handle form post errors - callback from sendRequest
-Clear previous errors, add error classes to relevent fields and labels and add error message summary</p>
+  <p>Handle form post errors - callback from sendRequest</p><p>Clear previous errors, add error classes to relevent fields and labels and add error message summary</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -314,8 +304,7 @@ Clear previous errors, add error classes to relevent fields and labels and add e
       - (void) <strong>showSuccess</strong>(data)
     </p>
     <div class='docstring'>
-  <p>Handle form post success - callback from sendRequest
-Pass empty error object to showErrors; if Handlebars defined call _showSuccessTemplated with data object otherwise call _showSuccessPlain; trigger &#39;tbgform-success&#39; event with form data; fade form if necessary</p>
+  <p>Handle form post success - callback from sendRequest</p><p>Pass empty error object to showErrors; if Handlebars defined call _showSuccessTemplated with data object otherwise call _showSuccessPlain; trigger &#39;tbgform-success&#39; event with form data; fade form if necessary</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -337,8 +326,7 @@ Pass empty error object to showErrors; if Handlebars defined call _showSuccessTe
       (private)
     </p>
     <div class='docstring'>
-  <p>Display compiled success template
-Compile template from data-formsSuccessContent; display with data object</p>
+  <p>Display compiled success template</p><p>Compile template from data-formsSuccessContent; display with data object</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -360,8 +348,7 @@ Compile template from data-formsSuccessContent; display with data object</p>
       (private)
     </p>
     <div class='docstring'>
-  <p>Display success with replaced content
-Display data-formsSuccessContent HTML</p>
+  <p>Display success with replaced content</p><p>Display data-formsSuccessContent HTML</p>
 </div>
 <div class='tags'>
 </div>
@@ -370,7 +357,7 @@ Display data-formsSuccessContent HTML</p>
     </div>
     <div id='footer'>
   Generated on
-  Tue Mar 12 2013 16:41:39 GMT+0000 (GMT)
+  Wed Mar 13 2013 11:13:29 GMT+0000 (GMT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.5.6

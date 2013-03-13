@@ -4,7 +4,7 @@
     %meta{:charset => "utf-8"}
     %title= strip_tags(@page_title) || "SB Style Guide"
     = javascript_include_tag "lib/modernizr"
-    = stylesheet_link_tag "application"
+    = sassie_stylesheets "application"
   %body.page_classes
     = render :partial => "layouts/main_nav"
     .container

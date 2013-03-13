@@ -4,6 +4,41 @@
 //
 
 // ==========================================================================
+// Column helper
+// For each grid, output conditional display classes, within media queries if appropriate
+// ==========================================================================
+
+@mixin create-conditional-classes($grids) {
+  @each $grid in $grids {
+    $grid-name: nth($grid, 1);
+
+    @each $nested-grid in $grids {
+      $nested-grid-name: nth($nested-grid, 1);
+
+      @include is-responsive($nested-grid){
+        @include conditional-display($grid-name, $nested-grid-name);
+      }      
+    }
+  }
+}
+
+// ==========================================================================
+// Column helper
+// Abstract the conditional display classes from @mixin create-conditional-classes
+// ==========================================================================
+
+@mixin conditional-display($grid-name, $nested-grid-name){  
+  @if($grid-name == $nested-grid-name) {
+    .#{$grid-name}hide{display:none !important}
+    .#{$grid-name}only{display:block !important}
+  }
+  @else {
+    .#{$grid-name}hide{display:block !important}
+    .#{$grid-name}only{display:none !important}
+  }
+}
+
+// ==========================================================================
 // Create column sizes
 // ==========================================================================
 
@@ -12,41 +47,35 @@
   @each $grid in $grids {
     // If there is a media query
     @if(length($grid) == 1){}
-    @else if(length($grid) == $query-pos) {
-
-      .#{nth($grid,1)}only {
-        display: none !important;
-      }
-
-      // Add Rules wrapped in media query
-      @include media-query( nth($grid,$query-pos)) {
+    @else if(length($grid) >= $query-pos) {
+      @include media-query($grid) {
         @include build-column-size($grid);
-        .#{nth($grid,1)}only {
-          display: block !important;
-        }
-
-        .#{nth($grid,1)}hide {
-          display: none !important;
-        }
       }
     }
     @else {
       @include build-column-size($grid);
     }
   }
+  @include create-conditional-classes($grids);
 }
+
+// ==========================================================================
+// Build column size
+// ==========================================================================
 
 @mixin build-column-size($grid) {
   $padding-pos: 3;
   $total-columns: nth($grid,2);
+
   @if(length($grid) >= $padding-pos ) {
     .column {
       padding: 0 (0.5 * nth($grid,$padding-pos));
-      @if($total-columns == 1){
-        float: none;
-        width: auto;
-        right: auto;
-        left: auto;
+      @if($total-columns > 1){
+        float: left;
+        width: 100%;
+        & + &:last-child {
+          float: right;
+        }
       }
     }
   }
@@ -70,8 +99,6 @@
       right: 0;
     }
   }
-
-
 }
 
 // ==========================================================================
@@ -79,20 +106,20 @@
 // ==========================================================================
 
 @mixin conditional-CSS($grids) {
-  $query-pos: 4;
+  $query-pos: 5;
 
   @each $grid in $grids {
     @if(length($grid) < $query-pos){
       body:after {
-        content: nth($grid,1);;
+        content: nth($grid,1);
         display: none;
       }
     }
     @else {
-      @include media-query( nth($grid,$query-pos)) {
+      @include media-query($grid) {
         body:after {
-          content: nth($grid,1);;
-          display: none;
+          content:nth($grid, 1);
+          display:none;
         }
       }
     }
@@ -103,9 +130,14 @@
 // Simple Media Query Generator
 // ==========================================================================
 
-@mixin media-query($size) {
-  @media ($size) {
-    @content;
+@mixin media-query($gridObj) {
+  @if length($gridObj) > 3 {
+    $queryType: nth($gridObj, 4);
+    $querySize: nth($gridObj, 5);
+
+    @include respond-to($queryType, $querySize) {
+      @content;
+    }
   }
 }
 
@@ -167,14 +199,75 @@
 
 // ==========================================================================
 // Smallest query
+// Output within a media query for the smallest breakpoint
+// @param [Boolean] $ie-override - if true and $old-ie true, output regularly
 // ==========================================================================
 
-@mixin smallest-query {
-  $query-position: 4;
-  $length: length($grids);
-  $mobile: nth($grids, $length);
+@mixin smallest-query($ie-override: false) {
+  @if length($grids) > 1 {
+    $length: length($grids);
+    $mobile: nth($grids, 2);
 
-  @include media-query( nth($mobile,$query-position)) {
+    @include media-query($mobile) {
+      @content;
+    }
+  }
+  // If old IE and override both set,
+  // output without query
+  @if $old-ie and $ie-override {
+    @content;
+  }
+}
+
+// ==========================================================================
+// Is Responsive? - helper
+// Pass in content to be conditionally output either in a media query or by default
+// ==========================================================================
+
+@mixin is-responsive($grid){
+  @if length($grid) > 3 {
+    @include media-query($grid){
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+// ==========================================================================
+// Respond to - helper
+// If IE has a fixed query ($fixed-mqs) set, output it by default, otherwise output media query
+// ==========================================================================
+
+@mixin respond-to($query, $size) {  
+  @if $fixed-mqs {
+    @if $query == "max" {
+      @if $container-width == $size {
+        @content;
+      }
+    }
+    @else if $query == "min" {
+      @if $container-width == $size {
+        @content;
+      }
+    }
+  }
+  @else {
+    // output normally
+    @media ("#{$query}-width: #{$size}") {
+      @content;
+    }
+  }
+}
+
+// ==========================================================================
+// Old IE
+// If old IE version (7,8) output IE only styles
+// ==========================================================================
+
+@mixin old-ie {
+  @if $old-ie {
     @content;
   }
 }

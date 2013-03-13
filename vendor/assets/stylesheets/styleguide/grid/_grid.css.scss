@@ -47,12 +47,14 @@
 
 .row {
   @include clearfix;
-
   $padding-pos: 3;
-  $query-pos: 4;
+  //$query-pos: 4;
+  $query-pos: 5;
+
   @each $grid in $grids {
     @if(length($grid) == $query-pos ) {
-      @include media-query( nth($grid,$query-pos)) {
+      //@include media-query( nth($grid,$query-pos)) {
+      @include media-query($grid) {
         .row {
           margin: 0 0px-(0.5*nth($grid,$padding-pos));
         }
@@ -81,12 +83,10 @@
 
 .column {
   position: relative;
-  float: left;
-//  padding: 0 ($column-gutter/2);
+  
+  //padding: 0 ($column-gutter/2);
 
-  & + &:last-child {
-    float: right;
-  }
+  
 
   &.center {
     float: none;

@@ -28,15 +28,15 @@
 
 :coderay
   #!SCSS
-    $[name]: '[prefix]', [columns], [gutter(px)], "[media query]"
+    $[name]: '[prefix]', [columns], [gutter(px)], '[min/max]', [size(px)]
 :markdown
   The smallest break point for this site is defined as:
 
 :coderay
   #!SCSS
-     $baby: 'baby-', 2, 10px, "max-width: 655px";
+     $sister: 'sister-', 4, 15px, "min", 655px;
 :markdown
-  **NB.** The largest (screen size) breakpoint should not have a media query set.
+  **NB.** As the grids are designed mobile first, the smallest (screen size) breakpoint should not have a media query set.
 
   ##### Setting the break points
   
@@ -44,11 +44,15 @@
   grid settings block from this site:
 :coderay
   #!SCSS
-  $baby: 'baby-', 2, 10px, "max-width: 655px";
-  $sister: 'sister-', 4, 15px, "max-width: 785px";
-  $mother: 'mother-', 8, 20px;
+  // Set maximum container width for site
+  $container-width: 800px;
+
+  $baby: 'baby-', 2, 10px;
+  $sister: 'sister-', 4, 15px, "min", 655px;
+  $mother: 'mother-', 8, 20px, "min", $container-width;
+  
   // Declare grid
-  $grids : $mother, $sister, $baby;
+  $grids : $baby, $sister, $mother;
 -# 
 
 :markdown

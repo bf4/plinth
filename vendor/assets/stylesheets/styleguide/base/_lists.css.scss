@@ -12,15 +12,8 @@
   padding: 0;
 
   & > li {
-    display: inline-block;
+    display:block;
     margin-right: $column-gutter/4;
-    *display: inline;
-    *zoom: 1;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
   }
   
   .divider {
@@ -34,22 +27,24 @@
 // Action list Collapse state
 // ==========================================================================
 
-@mixin create_action_list_once_set {
-$gridSize: length($grids);
-$lastMQ: nth( nth($grids, $gridSize), 4);
-
-@media ( $lastMQ ) {
-
+@include smallest-query(true){
+  // Pass true to output outside
+  // media query for IE
   .action-list.collapse {
     & > li {
-      display: block;
+      display: inline-block;
+      margin:0;
+      @if old-ie {
+        *display: inline;
+        *zoom: 1;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
-
 }
-}
-
-@include create_action_list_once_set();
 
 
 // ==========================================================================

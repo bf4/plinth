@@ -16,28 +16,44 @@
   }
 }
 
-$query-pos: 4;
-@each $grid in $grids {
-  // If there is a media query
-  @if(length($grid) == $query-pos) {
-    @include media-query( nth($grid,$query-pos)) {
-      .#{nth($grid,1)}switch-content {
-        display: none;
-
-        &.is-active {
-          display: block;
-        }
+@mixin switch-content($grid-name, $nested-grid-name){
+  @if($grid-name == $nested-grid-name) {
+    .#{$grid-name}switch-content {
+      display: none;
+      &.is-active {
+        display: block;
       }
     }
   }
   @else {
-        .switch-content {
+    .#{$grid-name}switch-content {
+      display: block;
+      &.is-active {
         display: none;
-
-        &.is-active {
-          display: block;
-        }
       }
+    }
+  }
+}
+
+@each $grid in $grids {
+  $grid-name: nth($grid, 1);
+
+  @each $nested-grid in $grids {
+    $nested-grid-name: nth($nested-grid, 1);
+    // If there is a media query
+    @include is-responsive($nested-grid) {
+      @include switch-content($grid-name, $nested-grid-name);
+    }   
+  }
+}
+
+
+
+.switch-content {
+  display: none;
+
+  &.is-active {
+    display: block;
   }
 }
 

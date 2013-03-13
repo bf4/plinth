@@ -27,23 +27,15 @@ plugin = ($)->
   #     %a{ :href => '/some/link', :class => 'btn', :data => { :gaevent => 'category|action|opt_label|opt_value|opt_noninteraction' } }
   #     # See: https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
   #
-  # @example How to use the class
-  #     gaEventInstance = new GAEvent $('.my-element')
-  #     # Send form
-  #     formInstance.send()
-  #
-  # @example How to use the class with jQuery
-  #     $('.my-element').send()
-  #
   # @example How to ensure plugin self initialises on element
-  #     <form data-forms="/endpoint"> ... </form>
+  #     <form data-gaevent-load="true"> ... </form>
   #
   class GAEvent
 
-    # Construct a GAEvent instance
+    # Construct a GAEvent instance - split the event content string and pass to sendEvent
     #
     # @param [Object] element HTMLElement
-    # @param [Object] array Array
+    # @param [String] string Pipe delimited string of event content
     #
     constructor: ( element, @eventcontent ) ->
       $el = $(element)
@@ -51,18 +43,18 @@ plugin = ($)->
 
     _constructor: GAEvent
 
-    # Send the event
+    # Send the event to Google Analytics
     #
-    # @param [Object] array If Google Analytics _gaq array defined push data
+    # @param [Object] array If Google Analytics _gaq array defined push data array after inserting '_trackEvent' string at beginning of data array
     #
     sendEvent : (data)->
       data.unshift('_trackEvent')
       _gaq?.push data
 
-  # Remove data
+  # Remove data and data attributes from jQuery object
   #
-  # @param [Object] object jQuery object
-  # @param [String] string Event string
+  # @param [Object] object jQuery object from which to remove data
+  # @param [String] string Data string to be removed
   #
   removeData = ( $el, ev )->
     $el.removeAttr('data-' + ev)
@@ -86,6 +78,11 @@ plugin = ($)->
   # DATA API
   # ===================================
 
+  # On document ready, delegate a click handler on the body for 'click.gaEvent.data-api'
+  #   event with target of '[data-gaevent]' and attach plugin; attach a handler for
+  #   'tbgform-success.gaEvent.data-api' event and attach plugin; attach plugin to each
+  #   element with '[data-gaevent-load]' attribute
+  #
   $ ->
 
     $('body').on 'click.gaEvent.data-api', '[data-gaevent]' , ( e ) ->

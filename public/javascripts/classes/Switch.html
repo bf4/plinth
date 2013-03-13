@@ -116,8 +116,22 @@
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <h1>SWITCH CLASS DEFINITION</h1>
-
+  <p>SWITCH CLASS DEFINITION</p>
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      How to ensure plugin self initialises on element
+    </h4>
+    <pre><code class='coffee'>&lt;div data-switch=&quot;true&quot;&gt; ... &lt;&#47;div&gt;</code></pre>
+    <h4>
+      How to group switches and allow them to change state of other switches in that group
+    </h4>
+    <pre><code class='coffee'>&lt;div data-switch-group=&quot;[group name]&quot;&gt; ... &lt;&#47;div&gt;</code></pre>
+    <h4>
+      How to toggle switch state
+    </h4>
+    <pre><code class='coffee'>&lt;div data-switch-toggle=&quot;true&quot;&gt; ... &lt;&#47;div&gt;</code></pre>
+  </div>
 </div>
 <div class='tags'>
 </div>
@@ -131,7 +145,7 @@
     </span>
     <span class='constructor note title'>Constructor</span>
     <span class='desc'>
-      
+      Construct a new Switch instance Set this.parent, this.target, this.group and this.container elements for this.el; set this.toggle if attribute present
     </span>
   </li>
   <li>
@@ -141,7 +155,7 @@
       </a>
     </span>
     <span class='desc'>
-      
+      Click handler - If this.parent isn&#39;t active, close group if this.group defined and change state to true; if this.parent is active and this.toggle set then change state to false otherwise return undefined
     </span>
   </li>
   <li>
@@ -151,7 +165,7 @@
       </a>
     </span>
     <span class='desc'>
-      
+      Change active state of target content - add or remove activeClass from content and parent elements
     </span>
   </li>
   <li>
@@ -160,18 +174,20 @@
         - (void) <strong>_closeGroup</strong>()
       </a>
     </span>
+    <span class='note private title'>Private</span>
     <span class='desc'>
-      
+      Close group - if any content is active, get the target for that element&#39;s link and pass false and [active link content, active content] to switch group
     </span>
   </li>
   <li>
     <span class='signature'>
       <a href='#_getContent-instance'>
-        - (void) <strong>_getContent</strong>(el)
+        - (String) <strong>_getContent</strong>(el)
       </a>
     </span>
+    <span class='note private title'>Private</span>
     <span class='desc'>
-      
+      Get target element to do switch on
     </span>
   </li>
 </ul>
@@ -181,7 +197,21 @@
     <p class='signature' id='constructor-instance'>
       - (void) <strong>constructor</strong>(el)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Construct a new Switch instance</p><p>Set this.parent, this.target, this.group and this.container elements for this.el; set this.toggle if attribute present</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>element</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>HTMLElement, this.el, that acts as the switch</span>
+    </li>
+  </ul>
 </div>
   </div>
 </div>
@@ -191,35 +221,88 @@
     <p class='signature' id='click-instance'>
       - (void) <strong>click</strong>()
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Click handler - If this.parent isn&#39;t active, close group if this.group defined and change state to true; if this.parent is active and this.toggle set then change state to false otherwise return undefined</p>
+</div>
+<div class='tags'>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='changeStateTo-instance'>
       - (void) <strong>changeStateTo</strong>(action, elements)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Change active state of target content - add or remove activeClass from content and parent elements</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>boolean</span>
+      <span class='type'>
+        (<tt>Boolean</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>true to addClass to elements, false to removeClass from elements</span>
+    </li>
+    <li>
+      <span class='name'>array</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>HTMLElement for target content, HTMLElement for parent element</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='_closeGroup-instance'>
       - (void) <strong>_closeGroup</strong>()
+      (private)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Close group - if any content is active, get the target for that element&#39;s link and pass false and [active link content, active content] to switch group</p>
+</div>
+<div class='tags'>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='_getContent-instance'>
-      - (void) <strong>_getContent</strong>(el)
+      - (String) <strong>_getContent</strong>(el)
+      (private)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Get target element to do switch on</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>object</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>jQuery element to get target element from</span>
+    </li>
+  </ul>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>String</tt>)
+      &mdash;
+      <span class='desc'>id selector for target element</span>
+    </li>
+  </ul>
 </div>
   </div>
 </div>
     </div>
     <div id='footer'>
   Generated on
-  Wed Mar 13 2013 11:13:29 GMT+0000 (GMT)
+  Wed Mar 13 2013 14:16:52 GMT+0000 (GMT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.5.6

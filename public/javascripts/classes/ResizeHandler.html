@@ -114,6 +114,19 @@
           <td>vendor&#47;assets&#47;javascripts&#47;styleguide&#47;plugins&#47;tbg-respinsiveresize.js.coffee</td>
         </tr>
       </table>
+      <h2>Overview</h2>
+      <div class='docstring'>
+  <p>RESIZEHANDLER CLASS DEFINITION</p>
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      How to use the class
+    </h4>
+    <pre><code class='coffee'>resizeHandlerInstance = new ResizeHandler()</code></pre>
+  </div>
+</div>
+<div class='tags'>
+</div>
       <h2>Instance Method Summary</h2>
       <ul class='summary'>
   <li>
@@ -124,7 +137,7 @@
     </span>
     <span class='constructor note title'>Constructor</span>
     <span class='desc'>
-      
+      Construct a new ResizeHandler instance Create resizeEvent method to trigger &#39;responsiveResize&#39; event with current size
     </span>
   </li>
   <li>
@@ -134,17 +147,17 @@
       </a>
     </span>
     <span class='desc'>
-      
+      Set a timeout to call resizeEvent after 100ms, clearing existing timeout if one set
     </span>
   </li>
   <li>
     <span class='signature'>
       <a href='#size-instance'>
-        - (void) <strong>size</strong>()
+        - (String) <strong>size</strong>()
       </a>
     </span>
     <span class='desc'>
-      
+      Get a string representation of grid name Grid name set in CSS content on body::after pseudo-element
     </span>
   </li>
 </ul>
@@ -154,7 +167,10 @@
     <p class='signature' id='constructor-instance'>
       - (void) <strong>constructor</strong>()
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Construct a new ResizeHandler instance</p><p>Create resizeEvent method to trigger &#39;responsiveResize&#39; event with current size</p>
+</div>
+<div class='tags'>
 </div>
   </div>
 </div>
@@ -164,21 +180,36 @@
     <p class='signature' id='resize-instance'>
       - (void) <strong>resize</strong>()
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Set a timeout to call resizeEvent after 100ms, clearing existing timeout if one set</p>
+</div>
+<div class='tags'>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='size-instance'>
-      - (void) <strong>size</strong>()
+      - (String) <strong>size</strong>()
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Get a string representation of grid name</p><p>Grid name set in CSS content on body::after pseudo-element</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>String</tt>)
+      &mdash;
+      <span class='desc'>Grid name if available or empty string</span>
+    </li>
+  </ul>
 </div>
   </div>
 </div>
     </div>
     <div id='footer'>
   Generated on
-  Wed Mar 13 2013 11:13:29 GMT+0000 (GMT)
+  Wed Mar 13 2013 14:16:52 GMT+0000 (GMT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.5.6

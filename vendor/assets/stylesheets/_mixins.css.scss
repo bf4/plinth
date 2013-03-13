@@ -4,10 +4,10 @@
 //
 
 // ==========================================================================
-// Column helpers
+// Column helper
+// For each grid, output conditional display classes, within media queries if appropriate
 // ==========================================================================
 
-// For each grid, output conditional display classes, within media queries if appropriate
 @mixin create-conditional-classes($grids) {
   @each $grid in $grids {
     $grid-name: nth($grid, 1);
@@ -22,7 +22,11 @@
   }
 }
 
-// Abstracting out the conditional display classes from create-conditional-classes mixin above
+// ==========================================================================
+// Column helper
+// Abstract the conditional display classes from @mixin create-conditional-classes
+// ==========================================================================
+
 @mixin conditional-display($grid-name, $nested-grid-name){  
   @if($grid-name == $nested-grid-name) {
     .#{$grid-name}hide{display:none !important}
@@ -54,6 +58,10 @@
   }
   @include create-conditional-classes($grids);
 }
+
+// ==========================================================================
+// Build column size
+// ==========================================================================
 
 @mixin build-column-size($grid) {
   $padding-pos: 3;
@@ -191,10 +199,10 @@
 
 // ==========================================================================
 // Smallest query
-// ==========================================================================
-
 // Output within a media query for the smallest breakpoint
 // @param [Boolean] $ie-override - if true and $old-ie true, output regularly
+// ==========================================================================
+
 @mixin smallest-query($ie-override: false) {
   @if length($grids) > 1 {
     $length: length($grids);
@@ -211,12 +219,11 @@
   }
 }
 
-
 // ==========================================================================
 // Is Responsive? - helper
+// Pass in content to be conditionally output either in a media query or by default
 // ==========================================================================
 
-// Pass in content to be conditionally output either in a media query or by default
 @mixin is-responsive($grid){
   @if length($grid) > 3 {
     @include media-query($grid){
@@ -228,12 +235,11 @@
   }
 }
 
-
 // ==========================================================================
 // Respond to - helper
+// If IE has a fixed query ($fixed-mqs) set, output it by default, otherwise output media query
 // ==========================================================================
 
-// If IE has a fixed query ($container-width) set, output it by default, otherwise output media query
 @mixin respond-to($query, $size) {  
   @if $fixed-mqs {
     @if $query == "max" {
@@ -255,12 +261,11 @@
   }
 }
 
-
 // ==========================================================================
 // Old IE
+// If old IE version (7,8) output IE only styles
 // ==========================================================================
 
-// If old IE version (7,8) output IE only styles
 @mixin old-ie {
   @if $old-ie {
     @content;

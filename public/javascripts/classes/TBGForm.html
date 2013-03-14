@@ -177,7 +177,7 @@ formInstance.send()</code></pre>
       </a>
     </span>
     <span class='desc'>
-      Handle form post errors - callback from sendRequest Clear previous errors, add error classes to relevent fields and labels and add error message summary
+      Handle form post errors - called from sendRequest error callback.
     </span>
   </li>
   <li>
@@ -187,7 +187,7 @@ formInstance.send()</code></pre>
       </a>
     </span>
     <span class='desc'>
-      Handle form post success - callback from sendRequest Pass empty error object to showErrors; if Handlebars defined call _showSuccessTemplated with data object otherwise call _showSuccessPlain; trigger &#39;tbgform-success&#39; event with form data; fade form if necessary
+      Handle form post success - called from sendRequest success callback.
     </span>
   </li>
   <li>
@@ -260,15 +260,15 @@ formInstance.send()</code></pre>
   <h3>Parameters:</h3>
   <ul class='param'>
     <li>
-      <span class='name'>object</span>
+      <span class='name'>data</span>
       <span class='type'>
-        (<tt>Object</tt>)
+        (<tt>String</tt>)
       </span>
       &mdash;
-      <span class='desc'>JSON serialised form data</span>
+      <span class='desc'>serialized form data</span>
     </li>
     <li>
-      <span class='name'>string</span>
+      <span class='name'>url</span>
       <span class='type'>
         (<tt>String</tt>)
       </span>
@@ -283,18 +283,18 @@ formInstance.send()</code></pre>
       - (void) <strong>showErrors</strong>(errors)
     </p>
     <div class='docstring'>
-  <p>Handle form post errors - callback from sendRequest</p><p>Clear previous errors, add error classes to relevent fields and labels and add error message summary</p>
+  <p>Handle form post errors - called from sendRequest error callback.</p><p>Clear previous errors, add error classes to relevent fields and labels and add error message summary</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
   <ul class='param'>
     <li>
-      <span class='name'>object</span>
+      <span class='name'>errors</span>
       <span class='type'>
         (<tt>Object</tt>)
       </span>
       &mdash;
-      <span class='desc'>JSON errors object</span>
+      <span class='desc'>errors object</span>
     </li>
   </ul>
 </div>
@@ -304,18 +304,18 @@ formInstance.send()</code></pre>
       - (void) <strong>showSuccess</strong>(data)
     </p>
     <div class='docstring'>
-  <p>Handle form post success - callback from sendRequest</p><p>Pass empty error object to showErrors; if Handlebars defined call _showSuccessTemplated with data object otherwise call _showSuccessPlain; trigger &#39;tbgform-success&#39; event with form data; fade form if necessary</p>
+  <p>Handle form post success - called from sendRequest success callback.</p><p>Pass empty error object to showErrors; if Handlebars defined call _showSuccessTemplated with data object otherwise call _showSuccessPlain; trigger &#39;tbgform-success&#39; event with form data; fade form if necessary</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
   <ul class='param'>
     <li>
-      <span class='name'>object</span>
+      <span class='name'>data</span>
       <span class='type'>
         (<tt>Object</tt>)
       </span>
       &mdash;
-      <span class='desc'>JSON data object from ajax post</span>
+      <span class='desc'>response from ajax post</span>
     </li>
   </ul>
 </div>
@@ -332,12 +332,12 @@ formInstance.send()</code></pre>
   <h3>Parameters:</h3>
   <ul class='param'>
     <li>
-      <span class='name'>object</span>
+      <span class='name'>data</span>
       <span class='type'>
         (<tt>Object</tt>)
       </span>
       &mdash;
-      <span class='desc'>JSON data object from showSuccess</span>
+      <span class='desc'>data object from showSuccess</span>
     </li>
   </ul>
 </div>
@@ -357,7 +357,7 @@ formInstance.send()</code></pre>
     </div>
     <div id='footer'>
   Generated on
-  Wed Mar 13 2013 14:16:52 GMT+0000 (GMT)
+  Thu Mar 14 2013 13:49:05 GMT+0000 (GMT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.5.6

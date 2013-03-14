@@ -47,7 +47,7 @@ plugin = ($)->
     # Expose the Class 
     _constructor:  Close
     
-    # Close the element - Removes this.$target element and triggers 'close' event
+    # Close the element - Triggers 'close' event on this.$target then removes this.$target
     #
     close : ->
       if not @$target then return false
@@ -57,7 +57,7 @@ plugin = ($)->
     # Get the target element to be closed
     #
     # @private
-    # @param [Object] object jQuery wrapped HTMLElement to trigger close
+    # @param [Object] $el jQuery wrapped HTMLElement to get target to be closed from
     # @return [Object] jQuery wrapped HTMLElement to be closed
     #
     _getTarget: ($el) ->

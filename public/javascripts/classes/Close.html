@@ -157,7 +157,7 @@ closeInstance.close()</code></pre>
       </a>
     </span>
     <span class='desc'>
-      Close the element - Removes this.$
+      Close the element - Triggers &#39;close&#39; event on this.$
     </span>
   </li>
   <li>
@@ -203,7 +203,7 @@ closeInstance.close()</code></pre>
       - (void) <strong>close</strong>()
     </p>
     <div class='docstring'>
-  <p>Close the element - Removes this.$target element and triggers &#39;close&#39; event</p>
+  <p>Close the element - Triggers &#39;close&#39; event on this.$target then removes this.$target</p>
 </div>
 <div class='tags'>
 </div>
@@ -220,12 +220,12 @@ closeInstance.close()</code></pre>
   <h3>Parameters:</h3>
   <ul class='param'>
     <li>
-      <span class='name'>object</span>
+      <span class='name'>$el</span>
       <span class='type'>
         (<tt>Object</tt>)
       </span>
       &mdash;
-      <span class='desc'>jQuery wrapped HTMLElement to trigger close</span>
+      <span class='desc'>jQuery wrapped HTMLElement to get target to be closed from</span>
     </li>
   </ul>
   <h3>Returns:</h3>
@@ -243,7 +243,7 @@ closeInstance.close()</code></pre>
     </div>
     <div id='footer'>
   Generated on
-  Wed Mar 13 2013 14:16:52 GMT+0000 (GMT)
+  Thu Mar 14 2013 13:49:05 GMT+0000 (GMT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.5.6

@@ -37,7 +37,7 @@ plugin = ($)->
     #
     # Set this.parent, this.target, this.group and this.container elements for this.el; set this.toggle if attribute present
     #
-    # @param [Object] element HTMLElement, this.el, that acts as the switch
+    # @param [Object] el HTMLElement, this.el, that acts as the switch
     #
     constructor: ( @el ) ->
       @parent = if (parent = @el.parent('li')).length then parent else @el.parent()
@@ -46,8 +46,6 @@ plugin = ($)->
       @group = if ( groupName = @el.attr('data-switch-group') ) then $("[data-switch-group='#{groupName}']")
       @container = @el.closest 'ul'
 
-    # @constant [String] string CSS active state class
-    #
     activeClass: "is-active"
 
     _constructor: Switch
@@ -65,14 +63,14 @@ plugin = ($)->
 
     # Change active state of target content - add or remove activeClass from content and parent elements
     #
-    # @param [Boolean] boolean true to addClass to elements, false to removeClass from elements
-    # @param [Object] array HTMLElement for target content, HTMLElement for parent element
+    # @param [Boolean] action true to addClass to elements, false to removeClass from elements
+    # @param [Array] elements array of jQuery wrapped HTMLElements - target content element and parent element
     #
     changeStateTo: (action, elements =  [@content, @parent]) ->
       el["#{if action then "add" else "remove"}Class"] @activeClass for el in elements
 
-    # Close group - if any content is active, get the target for that element's link and pass false and
-    #   [active link content, active content] to switch group
+    # Close group - if any content is active, get the target for that element's descendant link element and pass false and
+    #   elements array [activeContent, activeEl] to switch group
     #
     # @private
     #
@@ -84,8 +82,8 @@ plugin = ($)->
     # Get target element to do switch on
     #
     # @private
-    # @param [Object] object jQuery element to get target element from
-    # @return [String] id selector for target element
+    # @param [Object] el jQuery wrapped HTMLElement to get target element from
+    # @return [Object] jQuery wrapped HTMLElement for el's target element
     #
     _getContent: ( el ) ->
       $(el.attr 'href')

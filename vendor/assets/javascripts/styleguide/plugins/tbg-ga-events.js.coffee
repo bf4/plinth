@@ -35,7 +35,7 @@ plugin = ($)->
     # Construct a GAEvent instance - split the event content string and pass to sendEvent
     #
     # @param [Object] element HTMLElement
-    # @param [String] string Pipe delimited string of event content
+    # @param [String] eventcontent Pipe delimited string of event content
     #
     constructor: ( element, @eventcontent ) ->
       $el = $(element)
@@ -45,7 +45,7 @@ plugin = ($)->
 
     # Send the event to Google Analytics
     #
-    # @param [Object] array If Google Analytics _gaq array defined push data array after inserting '_trackEvent' string at beginning of data array
+    # @param [Array] data If Google Analytics _gaq array defined then push data array after inserting '_trackEvent' string at beginning of data array
     #
     sendEvent : (data)->
       data.unshift('_trackEvent')
@@ -53,8 +53,8 @@ plugin = ($)->
 
   # Remove data and data attributes from jQuery object
   #
-  # @param [Object] object jQuery object from which to remove data
-  # @param [String] string Data string to be removed
+  # @param [Object] $el jQuery wrapped HTMLElement from which to remove data
+  # @param [String] ev Data string to be removed
   #
   removeData = ( $el, ev )->
     $el.removeAttr('data-' + ev)

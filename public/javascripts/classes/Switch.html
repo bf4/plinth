@@ -176,13 +176,13 @@
     </span>
     <span class='note private title'>Private</span>
     <span class='desc'>
-      Close group - if any content is active, get the target for that element&#39;s link and pass false and [active link content, active content] to switch group
+      Close group - if any content is active, get the target for that element&#39;s descendant link element and pass false and elements array [activeContent, activeEl] to switch group
     </span>
   </li>
   <li>
     <span class='signature'>
       <a href='#_getContent-instance'>
-        - (String) <strong>_getContent</strong>(el)
+        - (Object) <strong>_getContent</strong>(el)
       </a>
     </span>
     <span class='note private title'>Private</span>
@@ -204,7 +204,7 @@
   <h3>Parameters:</h3>
   <ul class='param'>
     <li>
-      <span class='name'>element</span>
+      <span class='name'>el</span>
       <span class='type'>
         (<tt>Object</tt>)
       </span>
@@ -238,7 +238,7 @@
   <h3>Parameters:</h3>
   <ul class='param'>
     <li>
-      <span class='name'>boolean</span>
+      <span class='name'>action</span>
       <span class='type'>
         (<tt>Boolean</tt>)
       </span>
@@ -246,12 +246,12 @@
       <span class='desc'>true to addClass to elements, false to removeClass from elements</span>
     </li>
     <li>
-      <span class='name'>array</span>
+      <span class='name'>elements</span>
       <span class='type'>
-        (<tt>Object</tt>)
+        (<tt>Array</tt>)
       </span>
       &mdash;
-      <span class='desc'>HTMLElement for target content, HTMLElement for parent element</span>
+      <span class='desc'>array of jQuery wrapped HTMLElements - target content element and parent element</span>
     </li>
   </ul>
 </div>
@@ -262,14 +262,14 @@
       (private)
     </p>
     <div class='docstring'>
-  <p>Close group - if any content is active, get the target for that element&#39;s link and pass false and [active link content, active content] to switch group</p>
+  <p>Close group - if any content is active, get the target for that element&#39;s descendant link element and pass false and elements array [activeContent, activeEl] to switch group</p>
 </div>
 <div class='tags'>
 </div>
   </div>
   <div class='method_details'>
     <p class='signature' id='_getContent-instance'>
-      - (String) <strong>_getContent</strong>(el)
+      - (Object) <strong>_getContent</strong>(el)
       (private)
     </p>
     <div class='docstring'>
@@ -279,21 +279,21 @@
   <h3>Parameters:</h3>
   <ul class='param'>
     <li>
-      <span class='name'>object</span>
+      <span class='name'>el</span>
       <span class='type'>
         (<tt>Object</tt>)
       </span>
       &mdash;
-      <span class='desc'>jQuery element to get target element from</span>
+      <span class='desc'>jQuery wrapped HTMLElement to get target element from</span>
     </li>
   </ul>
   <h3>Returns:</h3>
   <ul class='return'>
     <li>
       <span class='type'></span>
-      (<tt>String</tt>)
+      (<tt>Object</tt>)
       &mdash;
-      <span class='desc'>id selector for target element</span>
+      <span class='desc'>jQuery wrapped HTMLElement for el&#39;s target element</span>
     </li>
   </ul>
 </div>
@@ -302,7 +302,7 @@
     </div>
     <div id='footer'>
   Generated on
-  Wed Mar 13 2013 14:16:52 GMT+0000 (GMT)
+  Thu Mar 14 2013 13:49:05 GMT+0000 (GMT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.5.6

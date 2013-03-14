@@ -54,8 +54,8 @@ plugin = ($)->
 
     # Execute ajax post
     #
-    # @param [Object] object JSON serialised form data
-    # @param [String] string URL to post form to
+    # @param [String] data serialized form data
+    # @param [String] url URL to post form to
     #
     sendRequest : (data, url)->
       $.ajax
@@ -68,11 +68,11 @@ plugin = ($)->
         error: (err) =>
           @showErrors $.parseJSON(err.responseText)
 
-    # Handle form post errors - callback from sendRequest
+    # Handle form post errors - called from sendRequest error callback.
     # 
     # Clear previous errors, add error classes to relevent fields and labels and add error message summary
     #
-    # @param [Object] object JSON errors object
+    # @param [Object] errors errors object
     #
     showErrors :( errors )->
       @form.find('.form-msg.is-error').remove()
@@ -84,13 +84,13 @@ plugin = ($)->
         msg.text( "#{field} " + error.join(' & ') ).addClass('is-error')
         $this.siblings('label').addClass('is-error')
 
-    # Handle form post success - callback from sendRequest
+    # Handle form post success - called from sendRequest success callback.
     # 
     # Pass empty error object to showErrors; if Handlebars defined
     #   call _showSuccessTemplated with data object otherwise call
     #   _showSuccessPlain; trigger 'tbgform-success' event with form data; fade form if necessary
     #
-    # @param [Object] object JSON data object from ajax post
+    # @param [Object] data response from ajax post
     #
     showSuccess: (data)->
       @showErrors {}
@@ -106,7 +106,7 @@ plugin = ($)->
     # Compile template from data-formsSuccessContent; display with data object
     # 
     # @private
-    # @param [Object] object JSON data object from showSuccess
+    # @param [Object] data data object from showSuccess
     #
     _showSuccessTemplated: (data)->
       template = Handlebars.compile @form.data('formsSuccessContent')

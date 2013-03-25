@@ -205,7 +205,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
-  bundler
+  bundler (~> 1.2.4)
   capistrano
   coffee-rails (~> 3.2.1)
   compass-rails

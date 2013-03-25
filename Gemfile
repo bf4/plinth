@@ -50,6 +50,6 @@ group :development, :test, :staging do
   gem "capistrano"
   gem "aws-sdk"
   gem 'rvm-capistrano', '~>1.2.7'
-  gem "bundler"#, "~> 1.2.4"
+  gem "bundler", "~> 1.2.4"
   gem "net-sftp", "~> 2.1.1"
 end

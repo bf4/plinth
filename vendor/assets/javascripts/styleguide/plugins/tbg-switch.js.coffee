@@ -21,8 +21,24 @@ plugin = ($)->
   "use strict"  
 
   # SWITCH CLASS DEFINITION
-  # ========================= 
+  # 
+  # @example How to ensure plugin self initialises on element
+  #     <div data-switch="true"> ... </div>
+  # 
+  # @example How to group switches and allow them to change state of other switches in that group
+  #     <div data-switch-group="[group name]"> ... </div>
+  # 
+  # @example How to toggle switch state
+  #     <div data-switch-toggle="true"> ... </div>
+  #
   class Switch 
+    
+    # Construct a new Switch instance
+    #
+    # Set this.parent, this.target, this.group and this.container elements for this.el; set this.toggle if attribute present
+    #
+    # @param [Object] el HTMLElement, this.el, that acts as the switch
+    #
     constructor: ( @el ) ->
       @parent = if (parent = @el.parent('li')).length then parent else @el.parent()
       @content = @_getContent @el
@@ -32,8 +48,11 @@ plugin = ($)->
 
     activeClass: "is-active"
 
-    _constructor:  Switch
+    _constructor: Switch
 
+    # Click handler - If this.parent isn't active, close group if this.group defined and change state to true;
+    #   if this.parent is active and this.toggle set then change state to false otherwise return undefined
+    #
     click: ->
       if @parent.hasClass(@activeClass)
         if @toggle then return @changeStateTo false else return
@@ -42,14 +61,30 @@ plugin = ($)->
 
       @changeStateTo true
 
+    # Change active state of target content - add or remove activeClass from content and parent elements
+    #
+    # @param [Boolean] action true to addClass to elements, false to removeClass from elements
+    # @param [Array] elements array of jQuery wrapped HTMLElements - target content element and parent element
+    #
     changeStateTo: (action, elements =  [@content, @parent]) ->
       el["#{if action then "add" else "remove"}Class"] @activeClass for el in elements
 
+    # Close group - if any content is active, get the target for that element's descendant link element and pass false and
+    #   elements array [activeContent, activeEl] to switch group
+    #
+    # @private
+    #
     _closeGroup: ->
       if (activeEl = @container.find("li.#{@activeClass}")).length
         activeContent = @_getContent activeEl.children('a')
         @changeStateTo false, [activeContent, activeEl]
 
+    # Get target element to do switch on
+    #
+    # @private
+    # @param [Object] el jQuery wrapped HTMLElement to get target element from
+    # @return [Object] jQuery wrapped HTMLElement for el's target element
+    #
     _getContent: ( el ) ->
       $(el.attr 'href')
 

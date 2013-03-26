@@ -2,7 +2,7 @@
 <html>
   <head>
   <meta charset='UTF-8'>
-  <title>Codo Documentation</title>
+  <title>CoffeeScript API Documentation</title>
   <link rel='stylesheet' href='../assets/codo.css' type='text/css'>
   <script src='../assets/codo.js'></script>
   <script src='../assets/search_data.js'></script>
@@ -11,11 +11,9 @@
     <div id='base' data-path='../'></div>
 <div id='header'>
   <div id='menu'>
-    <a href='../README.md.html' title='Codo'>Codo</a>
-    &raquo;
     <a href='../class_index.html' title='Index'>Index</a>
     &raquo;
-    <span class='title'>ResizeHandler</span>
+    <span class='title'>Close</span>
     <nav>
       <ul>
         <li class='noframes'>
@@ -106,23 +104,33 @@
     <div id='content'>
       <h1>
         Class:
-        ResizeHandler
+        Close
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>vendor&#47;assets&#47;javascripts&#47;styleguide&#47;plugins&#47;tbg-respinsiveresize.js.coffee</td>
+          <td>tbg-close.js.coffee</td>
         </tr>
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <p>RESIZEHANDLER CLASS DEFINITION</p>
+  <p>CLOSE CLASS DEFINITION</p>
   <div class='examples'>
     <h3>Examples:</h3>
     <h4>
       How to use the class
     </h4>
-    <pre><code class='coffee'>resizeHandlerInstance = new ResizeHandler()</code></pre>
+    <pre><code class='coffee'>closeInstance = new Close $(&#39;.my-element&#39;)
+# Close element
+closeInstance.close()</code></pre>
+    <h4>
+      How to use the class with jQuery
+    </h4>
+    <pre><code class='coffee'>$(&#39;.my-element&#39;).close(&#39;close&#39;)</code></pre>
+    <h4>
+      How to ensure plugin self initialises on element
+    </h4>
+    <pre><code class='coffee'>&lt;div data-close&gt; Close me &lt;&#47;div&gt;</code></pre>
   </div>
 </div>
 <div class='tags'>
@@ -132,32 +140,22 @@
   <li>
     <span class='signature'>
       <a href='#constructor-instance'>
-        - (void) <strong>constructor</strong>()
+        - (void) <strong>constructor</strong>(element)
       </a>
     </span>
     <span class='constructor note title'>Constructor</span>
     <span class='desc'>
-      Construct a new ResizeHandler instance Create resizeEvent method to trigger &#39;responsiveResize&#39; event with current size
+      Construct a new Close instance
     </span>
   </li>
   <li>
     <span class='signature'>
-      <a href='#resize-instance'>
-        - (void) <strong>resize</strong>()
+      <a href='#close-instance'>
+        - (void) <strong>close</strong>()
       </a>
     </span>
     <span class='desc'>
-      Set a timeout to call resizeEvent after 100ms, clearing existing timeout if one set
-    </span>
-  </li>
-  <li>
-    <span class='signature'>
-      <a href='#size-instance'>
-        - (String) <strong>size</strong>()
-      </a>
-    </span>
-    <span class='desc'>
-      Get a string representation of grid name Grid name set in CSS content on body::after pseudo-element
+      Close the element - Removes this.$
     </span>
   </li>
 </ul>
@@ -165,51 +163,43 @@
       <div class='methods'>
   <div class='method_details'>
     <p class='signature' id='constructor-instance'>
-      - (void) <strong>constructor</strong>()
+      - (void) <strong>constructor</strong>(element)
     </p>
     <div class='docstring'>
-  <p>Construct a new ResizeHandler instance</p><p>Create resizeEvent method to trigger &#39;responsiveResize&#39; event with current size</p>
+  <p>Construct a new Close instance</p>
 </div>
 <div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>element</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>HTMLElement on which we will try to close</span>
+    </li>
+  </ul>
 </div>
   </div>
 </div>
       <h2>Instance Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
-    <p class='signature' id='resize-instance'>
-      - (void) <strong>resize</strong>()
+    <p class='signature' id='close-instance'>
+      - (void) <strong>close</strong>()
     </p>
     <div class='docstring'>
-  <p>Set a timeout to call resizeEvent after 100ms, clearing existing timeout if one set</p>
+  <p>Close the element - Removes this.$target element and triggers &#39;close&#39; event</p>
 </div>
 <div class='tags'>
-</div>
-  </div>
-  <div class='method_details'>
-    <p class='signature' id='size-instance'>
-      - (String) <strong>size</strong>()
-    </p>
-    <div class='docstring'>
-  <p>Get a string representation of grid name</p><p>Grid name set in CSS content on body::after pseudo-element</p>
-</div>
-<div class='tags'>
-  <h3>Returns:</h3>
-  <ul class='return'>
-    <li>
-      <span class='type'></span>
-      (<tt>String</tt>)
-      &mdash;
-      <span class='desc'>Grid name if available or empty string</span>
-    </li>
-  </ul>
 </div>
   </div>
 </div>
     </div>
     <div id='footer'>
   Generated on
-  Thu Mar 14 2013 13:49:05 GMT+0000 (GMT)
+  Wed Mar 13 2013 11:03:06 GMT+0000 (GMT)
   by
   <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
   v1.5.6

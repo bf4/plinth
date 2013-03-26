@@ -25,22 +25,41 @@ plugin = ($)->
 
   "use strict"
 
+  # RESIZEHANDLER CLASS DEFINITION
+  #
+  # @example How to use the class
+  #     resizeHandlerInstance = new ResizeHandler()
+  #
   class ResizeHandler
+
+    # Construct a new ResizeHandler instance
+    #
+    # Create resizeEvent method to trigger 'responsiveResize' event with current size
+    #
     constructor: ->
       $window = $(window)
       @resizeEvent = => 
         $window.trigger 'responsiveResize', @size()
       @resizeTimer = null
 
-
+    # Set a timeout to call resizeEvent after 100ms, clearing existing timeout if one set
+    #
     resize: ->
       if @resizeTimer then clearTimeout @resizeTimer
       @resizeTimer = setTimeout @resizeEvent, 100
 
+    # Get a string representation of grid name
+    #
+    # Grid name set in CSS content on body::after pseudo-element
+    #
+    # @return [String] Grid name if available or empty string
+    #
     size: ->
       if not window.getComputedStyle? then return ''
       window.getComputedStyle(document.body,':after').getPropertyValue('content').replace('-','') || ''
-
+  
+  # Create instance of ResizeHandler on document ready, call resize() on window 'resize' event
+  #
   $ ->
     resizeHandler = new ResizeHandler()
     $(window).on 'resize', ()=> resizeHandler.resize()

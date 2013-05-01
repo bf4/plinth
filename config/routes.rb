@@ -31,6 +31,7 @@ SbStyleguide::Application.routes.draw do
   get "base/labels", as: "base_labels"
   get "base/buttons", as: "base_buttons"
   get "base/forms", as: "base_forms"
+  get "base/images", as: "base_images"
   get "base/webfonts", as: "base_webfonts"
  
   #

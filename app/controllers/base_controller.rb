@@ -25,6 +25,11 @@ class BaseController < ApplicationController
     @page_nav = base_nav
   end
 
+  def images
+    @page_title = "Base <small>Images</small>"
+    @page_nav = base_nav
+  end
+
   def webfonts
     @page_title = "Base <small>Web Fonts</small>"
     @page_description = "These are the web fonts that we have at our disposal. When using these fonts you should be certain they are neccessary, when you use just 1 character the user must downloaded the full font."
@@ -39,6 +44,7 @@ class BaseController < ApplicationController
       "Labels" => base_labels_path,
       "Buttons" => base_buttons_path,
       "Forms" => base_forms_path,
+      "Images" => base_images_path,
       "Web Fonts" => base_webfonts_path
       }
   end

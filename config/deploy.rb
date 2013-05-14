@@ -4,9 +4,9 @@ Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
 require "bundler/capistrano"
 load 'deploy/assets'
 
-# set :rvm_ruby_string, 'ree@rails3'                     # Or:
-set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
-require "rvm/capistrano"                               # Load RVM's capistrano plugin.
+set :default_environment, {
+    'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
 # Securly manage database.yml file
 # For more informaiton please see:
@@ -24,7 +24,7 @@ set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :deploy_via, :remote_cache
 
-set :user, "deploy"
+set :user, "staging"
 set :deploy_to, "/var/www/apps/#{application}"
 
 # set :location, "deploy.thebeansgroup.com"

@@ -27,6 +27,7 @@ gem "haml-rails"
 gem "haml-coderay"
 gem "maruku"
 gem 'thin'
+gem 'rb-readline'
 
 #
 # Jquery rails - @TODO Is this needed?

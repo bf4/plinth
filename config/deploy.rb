@@ -83,19 +83,8 @@ end
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
 
-# We need to trust the rvmrc file once the new dir has been created
-# and populated
-after "deploy:update_code", "rvm:trust_rvmrc"
-
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
-
-namespace :rvm do
-  desc 'Trust rvmrc file'
-  task :trust_rvmrc do
-    run "rvm rvmrc trust #{current_release}"
-  end
-end
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do

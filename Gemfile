@@ -29,8 +29,6 @@ gem 'kramdown'
 gem 'kramdown-haml'
 gem 'thin'
 gem 'formtastic'
-gem "bundler"
-
 #
 # Jquery rails - @TODO Is this needed?
 #

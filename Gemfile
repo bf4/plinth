@@ -29,6 +29,7 @@ gem 'kramdown'
 gem 'kramdown-haml'
 gem 'thin'
 gem 'formtastic'
+gem "bundler"
 
 #
 # Jquery rails - @TODO Is this needed?
@@ -50,6 +51,5 @@ group :development, :test, :staging do
   gem "capistrano"
   gem "aws-sdk"
   gem 'rvm-capistrano', '~>1.2.7'
-  gem "bundler"
   gem "net-sftp", "~> 2.1.1"
 end

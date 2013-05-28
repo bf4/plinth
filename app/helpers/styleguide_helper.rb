@@ -1,6 +1,6 @@
 require 'coderay'
 
-module ApplicationHelper
+module StyleguideHelper
 
   def example
     capture_haml do
@@ -23,11 +23,11 @@ module ApplicationHelper
     content_tag :li,  link_to( text, path), class: classes
   end
 
-  # Output both IE and non-IE stylesheets within conditional comments
   def sassie_stylesheets(file)
     ie_stylesheet = stylesheet_link_tag file + '-old-ie'
     non_ie_stylesheet = stylesheet_link_tag file
 
     "<!--[if lte IE 8]>#{ie_stylesheet}<![endif]-->\n<!--[if gt IE 8]><!-->#{non_ie_stylesheet}<!--<![endif]-->".html_safe
   end
+
 end

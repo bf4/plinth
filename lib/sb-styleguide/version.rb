@@ -1,5 +1,5 @@
 module Sb
   module Styleguide
-    VERSION = "0.0.9"
+    VERSION = "1.0.1.pre"
   end
 end

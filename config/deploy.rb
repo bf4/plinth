@@ -4,10 +4,7 @@ Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
 require "bundler/capistrano"
 load 'deploy/assets'
 
-# set :rvm_ruby_string, 'ree@rails3'                     # Or:
-set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
-require "rvm/capistrano"                               # Load RVM's capistrano plugin.
-
+set :default_environment, { PATH: "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
 # Securly manage database.yml file
 # For more informaiton please see:
 # https://gist.github.com/2781737
@@ -24,7 +21,7 @@ set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :deploy_via, :remote_cache
 
-set :user, "deploy"
+set :user, "staging"
 set :deploy_to, "/var/www/apps/#{application}"
 
 # set :location, "deploy.thebeansgroup.com"
@@ -37,7 +34,6 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 ssh_options[:auth_methods] = ["publickey"]
 
-set :rvm_type, :system
 
 task :production do
   raise "There is currently no production destination for the #{application}, try staging"
@@ -82,20 +78,6 @@ end
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
-
-# We need to trust the rvmrc file once the new dir has been created
-# and populated
-after "deploy:update_code", "rvm:trust_rvmrc"
-
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
-
-namespace :rvm do
-  desc 'Trust rvmrc file'
-  task :trust_rvmrc do
-    run "rvm rvmrc trust #{current_release}"
-  end
-end
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do

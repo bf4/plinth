@@ -21,19 +21,42 @@ plugin = ($)->
 
   "use strict"  
 
-  # FORMs CLASS DEFINITION
-  # ========================= 
+  # FORM CLASS DEFINITION
+  # 
+  # @example How to use the class
+  #     formInstance = new TBGForm $('.my-element')
+  #     # Send form
+  #     formInstance.send()
+  #
+  # @example How to use the class with jQuery
+  #     $('.my-element').send()
+  #
+  # @example How to ensure plugin self initialises on element
+  #     <form data-forms="/endpoint"> ... </form>
+  #
   class TBGForm
+
+    # Construct a new TBGForm instance
+    #
+    # @param [Object] element form we will attach the TBGForm to
+    #
     constructor: ( element ) ->
       @form = $(element)
       @send()
 
     _constructor: TBGForm
 
+    # Send the form, calls sendRequest passing form data and url to post to
+    #
     send : ->
       if not (url = @form.data('forms') || @form.attr('action')) then return false
       @sendRequest @form.serialize(), url
 
+    # Execute ajax post
+    #
+    # @param [String] data serialized form data
+    # @param [String] url URL to post form to
+    #
     sendRequest : (data, url)->
       $.ajax
         type: 'POST'
@@ -45,7 +68,12 @@ plugin = ($)->
         error: (err) =>
           @showErrors $.parseJSON(err.responseText)
 
-
+    # Handle form post errors - called from sendRequest error callback.
+    # 
+    # Clear previous errors, add error classes to relevent fields and labels and add error message summary
+    #
+    # @param [Object] errors errors object
+    #
     showErrors :( errors )->
       @form.find('.form-msg.is-error').remove()
       @form.find('.is-error').removeClass('is-error')
@@ -56,7 +84,14 @@ plugin = ($)->
         msg.text( "#{field} " + error.join(' & ') ).addClass('is-error')
         $this.siblings('label').addClass('is-error')
 
-
+    # Handle form post success - called from sendRequest success callback.
+    # 
+    # Pass empty error object to showErrors; if Handlebars defined
+    #   call _showSuccessTemplated with data object otherwise call
+    #   _showSuccessPlain; trigger 'tbgform-success' event with form data; fade form if necessary
+    #
+    # @param [Object] data response from ajax post
+    #
     showSuccess: (data)->
       @showErrors {}
       if Handlebars?
@@ -66,12 +101,24 @@ plugin = ($)->
       $('body').trigger 'tbgform-success', [@form]
       if @form.data 'formsSuccessFormfade' then @form.fadeOut()
 
+    # Display compiled success template
+    #
+    # Compile template from data-formsSuccessContent; display with data object
+    # 
+    # @private
+    # @param [Object] data data object from showSuccess
+    #
     _showSuccessTemplated: (data)->
       template = Handlebars.compile @form.data('formsSuccessContent')
       successArea = $(@form.data 'formsSuccessReplace')
       successArea.fadeOut().html( template(data) ).fadeIn()
 
-
+    # Display success with replaced content
+    #
+    # Display data-formsSuccessContent HTML
+    #
+    # @private
+    # 
     _showSuccessPlain: ->
       @successArea = $(@form.data 'formsSuccessReplace')
       @successHTML = @form.data 'formsSuccessContent'

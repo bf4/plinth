@@ -1,0 +1,68 @@
+-# 
+-# Type
+-# 
+
+%h3#modular-scale Modular Scale
+:markdown
+  The type and spacing is set using modular scale. Whilst this style guide will give some information 
+  on how to change the defaults, it will *not* try to give an explaintion of modular scale. 
+  
+  The project uses [this mixin](https://github.com/scottkellum/modular-scale), it has some good documentaion in the README.md.
+%hr
+
+%h3#setting-modular-scale Setting Modular Scale
+:markdown
+  To change the modular scale of the site you must define the folowing variables:
+:coderay
+  #!SCSS
+
+  $baseFontSize: 14px;
+  $importantModNum: 300px;
+:markdown
+  The default ratio for the scale is the golden section (1:1.618). To change the ratio you should change
+  the variable `$ratio`. There are several predefined ration to be found [here](https://github.com/scottkellum/modular-scale#ratios):
+:coderay
+  #!SCSS
+
+  // Minor Seventh
+  $ratio: 1.778;
+%hr
+
+%h3#setting-fonts Setting Fonts
+:markdown
+  Changing font attributes is self explanatory…
+:coderay
+  #!SCSS
+
+  $base-line-height: 1.57;
+  $base-line-height-px: 22px;
+
+  $base-font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  $header-font-weight: bold;
+  $header-font-color: #222;
+  $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  $body-font-weight: normal;
+  $body-font-color: #444;
+
+
+
+%h3#Headings Headings
+= example "base", "type_headings"
+%hr
+
+%h3#Body-text Body Text
+= example "base", "type_body"
+%hr
+
+%h3#Text-helpers Text Helpers Classes
+= example "base", "type_helpers"
+%hr
+
+%h3#Text-shouts Shout Helper Classes
+= example "base", "type_shouts"
+%hr
+
+%h3#Text-link Links
+= example "base", "type_links"
+%hr

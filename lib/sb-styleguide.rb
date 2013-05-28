@@ -4,7 +4,7 @@ require "rails"
 
 module Sb
   module Styleguide
-    class Engine < ::Rails::Engine
+    class Engine < Rails::Engine
       require "modular-scale"
     end
   end

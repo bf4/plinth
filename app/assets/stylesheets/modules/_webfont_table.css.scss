@@ -1,0 +1,47 @@
+.webfonts-example {
+  width: 100%;
+  border-collapse:collapse;
+  border-spacing:0;
+
+  tr {
+    border-top:1px solid #e6eae8;
+  }
+
+  td {
+    padding-bottom:15px;padding-top:18px;vertical-align:top;
+  }
+  
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  .set {
+    margin-bottom:84px;
+  }
+  
+  .encode, .keyword {
+    width:41.667%;
+  }
+  
+  .css, .keyword li {
+    white-space: nowrap;
+  }
+  
+  .ss-icon {
+    padding-left:0;
+    width:16.667%;
+    font-size:32px;
+  }
+  
+  .encode {
+    font-size:14px;
+    text-align:center;
+    padding-right:20px;
+    line-height:1.8;
+  }
+
+  .unicode {
+    color:#949FA2;
+  }
+}

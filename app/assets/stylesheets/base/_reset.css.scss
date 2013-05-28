@@ -1,0 +1,16 @@
+//
+// Site extra resets
+// $author Ad Taylor
+
+// ======================================================
+// Default elements
+// ======================================================
+
+hr {
+  margin: $base-line-height-px*2 0 $base-line-height-px;
+  height: 1px;
+  border: none;
+  color: mono(3);
+  background-color: mono(3);
+}
+

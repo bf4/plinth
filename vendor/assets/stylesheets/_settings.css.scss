@@ -13,13 +13,16 @@ $container-max-width: 100% !default;
 $container-min-width: 320px !default;
 
 $columns: 12 !default;
-$column-gutter: 10px !default;
+$column-gutter: 20px !default;
 
 
-$mob: 'mobile-', 1, 20px, "max-width: 780px" ;
-$desk: '', $columns, $column-gutter;
+$mob: 'mobile-', 1, 20px;
+$desk: '', $columns, $column-gutter, "min", $container-width;
 
-$grids : $desk, $mob !default;
+$grids : $mob, $desk !default;
+
+$fixed-mqs: false !default;
+$old-ie: false !default;
 
 // ==========================================================================
 // Colour Functions

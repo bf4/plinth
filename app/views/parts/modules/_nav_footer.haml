@@ -1,0 +1,34 @@
+%footer.footer
+  .container
+    %a{ :href=> '#footer-content', :class => "footer-tab ss-icon footer-up", :data => { :switch => true, :"switch-toggle" => true}} navigateup
+    %a{ :href=> '#footer-content', :class => "footer-tab ss-icon footer-down", :data => { :switch => true, :"switch-toggle" => true}} navigatedown
+  #footer-content.container
+    .mother-three.column
+      .row
+        .mother-two.sister-one.column.footer-logo-container
+          %a{:href=> "http://www.studentbeans.com" }
+            .footer-logo{ :role=>"img", :"aria-label"=>"Studentbeans.com"}
+      .row
+        %p.support &copy; #{Time.now.year.to_s} The Beans Group. All Rights reserved.
+    .mother-two.column
+      %ul.support
+        %li
+          %a{ :href => "http://www.studentbeans.com/registration.html"} Join studentbeans.com
+        %li
+          %a{ :href => "http://www.studentbeans.com/national/offers/"} National Student Offers
+        %li
+          %a{ :href => "http://www.studentbeans.com/national/offers/top.html"} Top 20 Offers
+    .mother-two.column
+      %ul.support
+        %li
+          %a{ :href => "http://www.studentbeans.com/student101/"} Student 101
+        %li
+          %a{ :href => "http://www.studentbeans.com/student-money/"} Easy Money
+        %li
+          %a{ :href => "http://www.studentbeans.com/national/jobs-for-students"} Student Jobs
+    .mother-one.column
+      %ul.action-list.h5
+        %li
+          %a{ :href => "http://facebook.com/studentbeans", :class => "ss-icon ss-social"} facebook
+        %li
+          %a{ :href => "http://twitter.com/studentbeans", :class => "ss-icon ss-social"} twitter

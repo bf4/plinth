@@ -4,9 +4,7 @@ Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
 require "bundler/capistrano"
 load 'deploy/assets'
 
-set :default_environment, {
-    'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-}
+set :default_environment, { PATH: "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
 
 # Securly manage database.yml file
 # For more informaiton please see:
@@ -37,7 +35,6 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 ssh_options[:auth_methods] = ["publickey"]
 
-set :rvm_type, :system
 
 task :production do
   raise "There is currently no production destination for the #{application}, try staging"
@@ -82,9 +79,6 @@ end
 
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
-
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do

@@ -22,20 +22,44 @@ plugin = ($)->
   "use strict"  
 
   # CLOSE CLASS DEFINITION
-  # ========================= 
-  class Close 
+  # 
+  # @example How to use the class
+  #     closeInstance = new Close $('.my-element')
+  #     # Close element
+  #     closeInstance.close()
+  #
+  # @example How to use the class with jQuery
+  #     $('.my-element').close('close')
+  #
+  # @example How to ensure plugin self initialises on element
+  #     <div data-close> Close me </div>
+  #
+  class Close
+
+    # Construct a new Close instance
+    #
+    # @param [Object] element HTMLElement on which we will try to close
+    #
     constructor: ( element ) ->
       $el = $(element)
       @$target = @_getTarget $el
   
+    # Expose the Class 
     _constructor:  Close
-  
+    
+    # Close the element - Triggers 'close' event on this.$target then removes this.$target
+    #
     close : ->
       if not @$target then return false
       @$target.trigger 'close'
       @$target.remove()
 
-    # private
+    # Get the target element to be closed
+    #
+    # @private
+    # @param [Object] $el jQuery wrapped HTMLElement to get target to be closed from
+    # @return [Object] jQuery wrapped HTMLElement to be closed
+    #
     _getTarget: ($el) ->
       # Get target from data element
       target = (dataEl = $( $el.attr('data-close') )).length && dataEl

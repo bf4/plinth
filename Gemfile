@@ -25,8 +25,10 @@ end
 gem "haml"
 gem "haml-rails"
 gem "haml-coderay"
-gem "maruku"
+gem 'kramdown'
+gem 'kramdown-haml'
 gem 'thin'
+gem 'formtastic'
 gem 'rb-readline'
 
 #
@@ -48,7 +50,5 @@ group :development, :test, :staging do
   gem "rails", "~> 3.2.12"
   gem "capistrano"
   gem "aws-sdk"
-  gem 'rvm-capistrano', '~>1.2.7'
-  gem "bundler", "~> 1.2.4"
   gem "net-sftp", "~> 2.1.1"
 end

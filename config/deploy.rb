@@ -5,6 +5,7 @@ require "bundler/capistrano"
 load 'deploy/assets'
 
 set :default_environment, { PATH: "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
+
 # Securly manage database.yml file
 # For more informaiton please see:
 # https://gist.github.com/2781737

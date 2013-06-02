@@ -24,7 +24,6 @@ end
 
 gem "haml"
 gem "haml-rails"
-gem "haml-coderay"
 gem 'kramdown'
 gem 'kramdown-haml'
 gem 'thin'

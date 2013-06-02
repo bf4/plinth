@@ -13,6 +13,7 @@ PATH
       activesupport (~> 3.1)
       compass-rails
       haml (~> 3.1)
+      haml-coderay
       modular-scale (~> 1.0)
       railties (~> 3.1)
       sass-rails
@@ -220,7 +221,6 @@ DEPENDENCIES
   growl
   guard-jasmine
   haml
-  haml-coderay
   haml-rails
   jasminerice!
   jquery-rails

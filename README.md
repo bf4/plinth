@@ -1,5 +1,7 @@
 # Sb::Styleguide
 
+## VERSION 3, Donetsk
+
 TODO: Write a gem description
 
 ## Development Workflow

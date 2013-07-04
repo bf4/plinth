@@ -50,4 +50,6 @@ group :development, :test, :staging do
   gem "capistrano"
   gem "aws-sdk"
   gem "net-sftp", "~> 2.1.1"
+  gem "haml-coderay"
+  gem "foreman"
 end

@@ -24,7 +24,6 @@ end
 
 gem "haml"
 gem "haml-rails"
-gem "haml-coderay"
 gem 'kramdown'
 gem 'kramdown-haml'
 gem 'thin'
@@ -50,6 +49,7 @@ group :development, :test, :staging do
   gem "rails", "~> 3.2.12"
   gem "capistrano"
   gem "aws-sdk"
-  gem 'rvm-capistrano', '~>1.2.7'
   gem "net-sftp", "~> 2.1.1"
+  gem "haml-coderay"
+  gem "foreman"
 end

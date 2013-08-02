@@ -22,6 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "modular-scale", "~> 1.0"
   gem.add_dependency "compass-rails"
   gem.add_dependency "sass-rails"
+  gem.add_dependency "haml-coderay"
 
   gem.add_development_dependency "rails",   "~> 3.1"
   gem.add_development_dependency "bundler"

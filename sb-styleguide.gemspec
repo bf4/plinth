@@ -15,17 +15,17 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Sb::Styleguide::VERSION
 
-  gem.add_dependency "haml",          "~> 3.1"
-  gem.add_dependency "activesupport", "~> 3.1"
-  gem.add_dependency "actionpack",    "~> 3.1"
-  gem.add_dependency "railties",      "~> 3.1"
-  gem.add_dependency "modular-scale", "~> 1.0"
-  gem.add_dependency "compass-rails"
-  gem.add_dependency "sass-rails"
-  gem.add_dependency "haml-coderay"
+  gem.add_dependency "haml",          [">= 3.1", '< 4.1']
+  gem.add_dependency "activesupport", [">= 3.1", '< 4.1']
+  gem.add_dependency "actionpack",    [">= 3.1", '< 4.1']
+  gem.add_dependency "railties",      [">= 3.1", '< 4.1']
+  gem.add_dependency "modular-scale", [">= 1.0", '< 2.0']
+  gem.add_dependency "compass-rails", ['>= 1.0', '< 2.0']
+  gem.add_dependency "sass-rails",    ['>= 3.1', '< 4.1']
+  gem.add_dependency "haml-coderay",  ['>= 0.2', '< 0.3']
 
-  gem.add_development_dependency "rails",   "~> 3.1"
-  gem.add_development_dependency "bundler"
-  gem.add_development_dependency "sqlite3"
+  gem.add_development_dependency "rails",   [">= 3.1", '< 4.1']
+  gem.add_development_dependency "bundler", ['>= 1.3', '< 2.0']
+  gem.add_development_dependency "sqlite3", ['>= 1.3', '< 2.0']
 
 end

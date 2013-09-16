@@ -40,28 +40,28 @@ Or install it yourself as:
 ## Usage
 
 ### Javascript
-All javascripts provided by this  can be pulled into the asset pipeline
+All javascripts provided by plinth can be pulled into the asset pipeline
 with the normal require command:
 
     //= require test
 
 ### Stylesheets
-All stylesheets provided by this  can be pulled into the asset pipeline
+All stylesheets provided by plinth can be pulled into the asset pipeline
 with the normal require command:
 
     //= require test
 
 ### Views/Partials
-In order to include partials defined by the  you will have to add the
+In order to include partials defined by plinth  you will have to add the
 styleguid's view path to your apps view path. The quickest way is by creating
 a before filter in either the action where you want the views to be accessible
 or, if you will be using the views often, you can define the filter in the
 application controller.
 
-    before_filter :_view_path
+    before_filter :plinth_view_path
 
     private
-    def _view_path
+    def plinth_view_path
       gem = Gem.loaded_specs['plinth']
       if gem
         prepend_view_path "#{gem.full_gem_path}/vendor/assets/views"

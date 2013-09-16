@@ -1,4 +1,4 @@
-# Sb::Styleguide
+# Plinth
 
 TODO: Write a gem description
 
@@ -6,10 +6,10 @@ TODO: Write a gem description
 
 Clone the repository:
 
-    git clone https://github.com/thebeansgroup/sb-styleguide.git 
+    git clone https://github.com/thebeansgroup/plinth.git
 
 Checkout the develop branch
-    
+
     git checkout develop
 
 Create a new branch for the feature you want to work on:
@@ -27,7 +27,7 @@ To run the site, use the foreman:
 
 Add this line to your application's Gemfile:
 
-    gem 'sb-styleguide'
+    gem 'plinth'
 
 And then execute:
 
@@ -35,34 +35,34 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install sb-styleguide
+    $ gem install plinth
 
 ## Usage
 
 ### Javascript
-All javascripts provided by this styleguide can be pulled into the asset pipeline
+All javascripts provided by this  can be pulled into the asset pipeline
 with the normal require command:
 
     //= require test
 
 ### Stylesheets
-All stylesheets provided by this styleguide can be pulled into the asset pipeline
+All stylesheets provided by this  can be pulled into the asset pipeline
 with the normal require command:
 
     //= require test
 
 ### Views/Partials
-In order to include partials defined by the styleguide you will have to add the
+In order to include partials defined by the  you will have to add the
 styleguid's view path to your apps view path. The quickest way is by creating
 a before filter in either the action where you want the views to be accessible
 or, if you will be using the views often, you can define the filter in the
 application controller.
 
-    before_filter :styleguide_view_path
+    before_filter :_view_path
 
     private
-    def styleguide_view_path
-      gem = Gem.loaded_specs['sb-styleguide']
+    def _view_path
+      gem = Gem.loaded_specs['plinth']
       if gem
         prepend_view_path "#{gem.full_gem_path}/vendor/assets/views"
       end

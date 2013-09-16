@@ -13,8 +13,8 @@ set :default_environment, { PATH: "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
 require "aws_ec2"
 
 
-set :application, "sb-styleguide"
-set :repository,  "git@github.com:thebeansgroup/sb-styleguide.git"
+set :application, "plinth"
+set :repository,  "git@github.com:thebeansgroup/plinth.git"
 
 set :use_sudo, false
 

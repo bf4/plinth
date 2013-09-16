@@ -1,4 +1,4 @@
-#=require styleguide/plugins/tbg-switch
+#=require plinth/plugins/tbg-switch
 
 describe 'Switch:', ->
   activeClass = "is-active"

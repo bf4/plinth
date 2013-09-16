@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import "styleguide";
+@import "plinth";
 
 // ======================================================
 // Settings grids
@@ -35,19 +35,19 @@ $body-font-weight: normal !default;
 $body-font-color: $txt-color !default;
 
 // ======================================================
-// Stylguide
+// Plinth
 // ======================================================
 
-@import "styleguide/base/_all";
-@import "styleguide/modules/_all-grid";
-@import "styleguide/modules/_all-no-grid";
+@import "plinth/base/_all";
+@import "plinth/modules/_all-grid";
+@import "plinth/modules/_all-no-grid";
 
 
 // ======================================================
 // Default grids
 // ======================================================
 
-@import "styleguide/grid/_grid";
+@import "plinth/grid/_grid";
 
 
 // ======================================================

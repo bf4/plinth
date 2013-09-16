@@ -1,4 +1,4 @@
-#=require styleguide/plugins/tbg-close
+#=require plinth/plugins/tbg-close
 
 describe 'Close:', ->
   beforeEach ->

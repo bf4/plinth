@@ -1,7 +1,7 @@
 #!/usr/bin/env rake
 require "bundler/gem_tasks"
 
-desc "Push Style Guide"
+desc "Push Plinth"
 task :push_it do
   abort "This feature has been disbaled for now."
 end
@@ -10,12 +10,12 @@ end
 # Start server
 #
 
-desc "Start Styleguide Server \[port 3001\]"
+desc "Start Plinth Server \[port 3001\]"
 task :start do
   puts ''
   puts ''
   puts '=============================='
-  puts '   STARTING THE STYLEGUIDE'
+  puts '   STARTING PLINTH'
   puts '=============================='
   puts ''
  system 'bundle exec rails s -p 3001'
@@ -32,4 +32,4 @@ rescue LoadError
 end
 
 require File.expand_path('../config/application', __FILE__)
-SbStyleguide::Application.load_tasks
+Plinth::Application.load_tasks

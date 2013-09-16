@@ -1,4 +1,4 @@
-#=require styleguide/plugins/tbg-ga-events
+#=require plinth/plugins/tbg-ga-events
 
 root = this
 describe "Google Analytics Events", ->

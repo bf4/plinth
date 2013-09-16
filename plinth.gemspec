@@ -1,19 +1,21 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/sb-styleguide/version', __FILE__)
+require File.expand_path('../lib/plinth/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Adam Taylor", "Vincent Siebert"]
   gem.email         = ["ad@adtaylor.co.uk", "vincent@siebert.im"]
-  gem.description   = %q{styleguide}
-  gem.summary       = %q{styleguide} 
-  gem.homepage      = "https://github.com/thebeansgroup/sb-styleguide"
+  gem.description   = %q{Plinth - basic framework}
+  gem.summary       = %q{Plinth is used internally at the Beans Group in order
+  to facilitate speedy rollouts of new sites using similar interaction libraries
+  and patterns. It also allows for rapid prototyping of products.}
+  gem.homepage      = "https://github.com/thebeansgroup/plinth"
 
   gem.files         = `git ls-files`.split($\).grep(/^(?!config)/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "sb-styleguide"
+  gem.name          = "plinth"
   gem.require_paths = ["lib"]
-  gem.version       = Sb::Styleguide::VERSION
+  gem.version       = Plinth::VERSION
 
   gem.add_dependency "haml",          [">= 3.1", '< 4.1']
   gem.add_dependency "activesupport", [">= 3.1", '< 4.1']

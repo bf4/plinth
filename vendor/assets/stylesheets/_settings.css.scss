@@ -31,7 +31,7 @@ $old-ie: false !default;
 // Can be extended to add more shades:
 //      $blue-shades: join($blue-shades, rgb(13, 89, 224) );
 
-$mono-shades: #32353a, #999999, #e3e3e0, #f0f0ed !default;
+$mono-shades: #201b21, #4d4d4d, #999999, #dcdde0, #f6f7fb !default;
 @function mono($shade:1) {
   @return nth($mono-shades, $shade);
 }
@@ -57,12 +57,12 @@ $green-shades: #6b9b20, #557821 !default;
 // Colours
 // ==========================================================================
 
-$main-color: orange() !default;
-$main-color-hover: orange(2) !default;
+$main-color: mono() !default;
+$main-color-hover: mono() !default;
 $secondary-color: blue() !default;
 $alert-color: #c60f13 !default;
 $success-color: green() !default;
-$txt-color: mono() !default;
+$txt-color: mono(2) !default;
 $body-color: #fff !default;
 $bg-cover: mono(3) !default;
 $black: mono() !default;

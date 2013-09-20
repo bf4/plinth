@@ -66,11 +66,11 @@ a.is-active,
 a:hover {
   border-color: $main-color;
   outline: 0;
-  color: $main-color;
+  color: $main-color-hover;
 }
 
 a.prominent {
-  color: $main-color;
+  color: $txt-color;
   text-decoration: none;
   font-weight: bold;
 
@@ -78,6 +78,7 @@ a.prominent {
   &.is-active,
   &:hover {
     border-bottom: 1px dotted $main-color;
+    color: $main-color-hover;
   }
 }
 

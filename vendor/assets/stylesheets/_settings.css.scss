@@ -58,7 +58,7 @@ $green-shades: #6b9b20, #557821 !default;
 // ==========================================================================
 
 $main-color: mono() !default;
-$main-color-hover: mono() !default;
+$main-color-hover: mono(3) !default;
 $secondary-color: blue() !default;
 $alert-color: #c60f13 !default;
 $success-color: green() !default;

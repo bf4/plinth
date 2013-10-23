@@ -84,7 +84,7 @@ $email-color: #f70015 !default;
 $baseFontSize: 16px !default;
 $importantModNum: 145px !default;
 $base-size: $baseFontSize $importantModNum;
-$ratio: fifth();
+$ratio: fifth() !default;
 
 $base-font-family: "Helvetica Neue", helvetica, arial, sans-serif !default;
 $base-line-height: 1.5;

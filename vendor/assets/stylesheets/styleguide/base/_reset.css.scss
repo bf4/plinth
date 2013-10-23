@@ -112,7 +112,9 @@ svg:not(:root) {
 
 // Addresses margin not present in IE6/7/8/9, S5, O11.
 
-
+figure {
+    margin: 0;
+}
 
 figure img {
   max-width: 100% !important;

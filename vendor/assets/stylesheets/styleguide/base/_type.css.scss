@@ -237,6 +237,14 @@ sub {
   bottom: -0.25em;
 }
 
+figure {
+  margin-bottom: ms(2);
+  figcaption {
+    font-size: ms(0)*0.8; 
+    color: mono(2); 
+  }
+}
+
 
 // ==========================================================================
 // Web fonts

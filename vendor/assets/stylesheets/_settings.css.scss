@@ -81,13 +81,14 @@ $email-color: #f70015 !default;
 
 
 // Module scale
-$baseFontSize: 14px !default;
-$importantModNum: 300px !default;
+$baseFontSize: 16px !default;
+$importantModNum: 145px !default;
 $base-size: $baseFontSize $importantModNum;
+$ratio: fifth() !default;
 
 $base-font-family: "Helvetica Neue", helvetica, arial, sans-serif !default;
-$base-line-height: 1.57;
-$base-line-height-px: 22px;
+$base-line-height: 1.5;
+$base-line-height-px: 24px;
 
 
 $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;

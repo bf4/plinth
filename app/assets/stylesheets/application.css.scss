@@ -16,24 +16,6 @@ $mother: 'mother-', 8, 20px, "min", $container-width;
 $grids : $baby, $sister, $mother;
 
 
-
-// Module scale
-$baseFontSize: 14px !default;
-$importantModNum: 300px !default;
-$base-size: $baseFontSize $importantModNum;
-
-$base-font-family: "Helvetica Neue", helvetica, arial, sans-serif !default;
-$base-line-height: 1.57;
-$base-line-height-px: 22px;
-
-
-$header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
-$header-font-weight: bold !default;
-$header-font-color: #222 !default;
-$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !default;
-$body-font-weight: normal !default;
-$body-font-color: $txt-color !default;
-
 // ======================================================
 // Stylguide
 // ======================================================

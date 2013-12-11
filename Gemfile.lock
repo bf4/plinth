@@ -8,7 +8,7 @@ GIT
 PATH
   remote: .
   specs:
-    plinth (1.1.1)
+    plinth (0.0.1.pre)
       actionpack (>= 3.1, < 4.1)
       activesupport (>= 3.1, < 4.1)
       compass-rails (>= 1.0, < 2.0)

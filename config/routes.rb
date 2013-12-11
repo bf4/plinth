@@ -1,7 +1,6 @@
 Plinth::Application.routes.draw do
-
   
-  # get "javascript/close"
+# get "javascript/close"
 # 
 #   get "javascript/forms"
 # 
@@ -15,7 +14,7 @@ Plinth::Application.routes.draw do
   # Modules
   #
 
-  match "modules" => "modules#tabs", as: "modules"
+  get "modules" => "modules#tabs", as: "modules"
   get "modules/alerts", as: "modules_alerts"
   get "modules/footer", as: "modules_footer"
   get "modules/nav", as: "modules_nav"
@@ -26,7 +25,7 @@ Plinth::Application.routes.draw do
   # Base
   #
 
-  match "base" => "base#index", as: "base"
+  get "base" => "base#index", as: "base"
   get "base/lists", as: "base_lists"
   get "base/labels", as: "base_labels"
   get "base/buttons", as: "base_buttons"
@@ -38,10 +37,10 @@ Plinth::Application.routes.draw do
   # Grids
   #
 
-  match "grids" => "grids#index", as: "grid"
+  get "grids" => "grids#index", as: "grid"
   get "grids/settings", as: "grid_settings"
   get "grids/layouts", as: "grid_layouts"
-  match "/grids/layouts/:id" => "grids#show", as: "grid_layout"
+  get "/grids/layouts/:id" => "grids#show", as: "grid_layout"
   #
   # Temp root to start project
   #
@@ -52,7 +51,7 @@ Plinth::Application.routes.draw do
   # Javascripts
   #
 
-  match "/javascripts/index.html" => redirect('/javascripts/index.html') , as: "javascripts"
+  get "/javascripts/index.html" => redirect('/javascripts/index.html') , as: "javascripts"
 
 
   # 
@@ -77,5 +76,5 @@ Plinth::Application.routes.draw do
   # External roots
   #
 
-  match "/github"  => redirect("http://github.com/thebeansgroup/plinth"), :as => "github"
+  get "/github"  => redirect("http://github.com/thebeansgroup/plinth"), :as => "github"
 end

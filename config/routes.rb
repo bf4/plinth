@@ -1,4 +1,4 @@
-SbStyleguide::Application.routes.draw do
+Plinth::Application.routes.draw do
 
   
   # get "javascript/close"
@@ -77,5 +77,5 @@ SbStyleguide::Application.routes.draw do
   # External roots
   #
 
-  match "/github"  => redirect("http://github.com/thebeansgroup/sb-styleguide"), :as => "github"
+  match "/github"  => redirect("http://github.com/thebeansgroup/plinth"), :as => "github"
 end

@@ -1,5 +1,5 @@
-#=require styleguide/lib/handlebars
-#=require styleguide/plugins/tbg-forms
+#=require plinth/lib/handlebars
+#=require plinth/plugins/tbg-forms
 
 describe "A Form Handler", ->
   beforeEach ->

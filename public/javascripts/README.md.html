@@ -115,22 +115,21 @@
         </p>
       </nav>
       <div id='filecontents'>
-        <h1>Sb::Styleguide</h1><p>TODO: Write a gem description</p><h2>Development Workflow</h2><p>Clone the repository:</p><pre><code>git clone https://github.com/thebeansgroup/sb-styleguide.git </code></pre><p>Checkout the develop branch</p><pre><code>git checkout develop</code></pre><p>Create a new branch for the feature you want to work on:</p><pre><code>git checkout -b feature/[name-of-feature]</code></pre><p>To run the site, use the foreman:</p><pre><code>bundle install
-foreman start</code></pre><p><strong>NB: </strong> Ensure that you are <em>adding</em> and <em>committing</em> files into your branch as you go along. It is also good practive to <em>push</em> the branch to github at the end of your development session, this enusres global access to the markup you have changed.</p><h2>Installation</h2><p>Add this line to your application&#39;s Gemfile:</p><pre><code>gem &#39;sb-styleguide&#39;</code></pre><p>And then execute:</p><pre><code>$ bundle</code></pre><p>Or install it yourself as:</p><pre><code>$ gem install sb-styleguide</code></pre>
+        <h1>Plinth</h1><p>TODO: Write a gem description</p><h2>Development Workflow</h2><p>Clone the repository:</p><pre><code>git clone https://github.com/thebeansgroup/plinth.git </code></pre><p>Checkout the develop branch</p><pre><code>git checkout develop</code></pre><p>Create a new branch for the feature you want to work on:</p><pre><code>git checkout -b feature/[name-of-feature]</code></pre><p>To run the site, use the foreman:</p><pre><code>bundle install
+foreman start</code></pre><p><strong>NB: </strong> Ensure that you are <em>adding</em> and <em>committing</em> files into your branch as you go along. It is also good practive to <em>push</em> the branch to github at the end of your development session, this enusres global access to the markup you have changed.</p><h2>Installation</h2><p>Add this line to your application&#39;s Gemfile:</p><pre><code>gem &#39;plinth&#39;</code></pre><p>And then execute:</p><pre><code>$ bundle</code></pre><p>Or install it yourself as:</p><pre><code>$ gem install plinth</code></pre>
 <h2>Usage</h2>
-<h3>Javascript</h3><p>All javascripts provided by this styleguide can be pulled into the asset pipeline
+<h3>Javascript</h3><p>All javascripts provided by plinth can be pulled into the asset pipeline
 with the normal require command:</p><pre><code>//= require test</code></pre>
-<h3>Stylesheets</h3><p>All stylesheets provided by this styleguide can be pulled into the asset pipeline
+<h3>Stylesheets</h3><p>All stylesheets provided by plinth can be pulled into the asset pipeline
 with the normal require command:</p><pre><code>//= require test</code></pre>
-<h3>Views/Partials</h3><p>In order to include partials defined by the styleguide you will have to add the
-styleguid&#39;s view path to your apps view path. The quickest way is by creating
+<h3>Views/Partials</h3><p>In order to include partials defined by plinth you will have to add plinth&#39;s view path to your apps view path. The quickest way is by creating
 a before filter in either the action where you want the views to be accessible
 or, if you will be using the views often, you can define the filter in the
-application controller.</p><pre><code>before_filter :styleguide_view_path
+application controller.</p><pre><code>before_filter :plinth_view_path
 
 private
-def styleguide_view_path
-  gem = Gem.loaded_specs[&#39;sb-styleguide&#39;]
+def plinth_view_path
+  gem = Gem.loaded_specs[&#39;plinth&#39;]
   if gem
     prepend_view_path &quot;#{gem.full_gem_path}/vendor/assets/views&quot;
   end

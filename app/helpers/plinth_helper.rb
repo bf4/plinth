@@ -1,6 +1,6 @@
 require 'coderay'
 
-module StyleguideHelper
+module PlinthHelper
 
   def example
     capture_haml do

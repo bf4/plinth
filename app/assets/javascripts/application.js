@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require styleguide/plugins/tbg-switch
-//= require styleguide/plugins/tbg-close
+//= require plinth/plugins/tbg-switch
+//= require plinth/plugins/tbg-close
 //= require_tree .

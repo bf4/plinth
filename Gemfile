@@ -10,13 +10,10 @@ gemspec :development_group => :dev
 # Gems used only for assets and not required in production environments by default.
 #
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'compass-rails'
-  gem 'uglifier', '>= 1.0.3'
-end
-
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem "compass-rails", "~> 1.1.2"
+gem 'uglifier', '>= 1.3.0'
 
 #
 # Use haml for templates & generators
@@ -46,7 +43,7 @@ group :development, :test, :staging do
   gem 'jasminerice', :git => "https://github.com/bradphelan/jasminerice"
   gem "guard-jasmine"
   # gem 'jsPercolator', :git => "git@github.com:adtaylor/jsPercolator.git"
-  gem "rails", "~> 3.2.12"
+  gem 'rails', '4.0.1'
   gem "capistrano"
   gem "aws-sdk"
   gem "net-sftp", "~> 2.1.1"

@@ -1,9 +1,9 @@
 require "plinth/version"
-require 'sprockets/railtie'
 require 'sass-rails'
+require 'rails'
 
 module Plinth
-  class Railtie < ::Rails::Railtie
+  class Engine < ::Rails::Engine
     require "modular-scale"
   end
 end

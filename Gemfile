@@ -24,7 +24,7 @@ gem "haml-rails"
 gem 'kramdown'
 gem 'kramdown-haml'
 gem 'thin'
-gem 'formtastic'
+gem 'formtastic', '~> 2.3.0.rc2'
 gem 'rb-readline'
 
 #

@@ -53,6 +53,11 @@ plugin = ($) ->
       evData = ['trackStructEvent'].concat data
       _snaq?.push evData
 
+  # Remove data and assoc attributes from DOM element
+  #
+  # @param $el [DOMElement] jQuery-wrapped DOM el
+  # @param ev [String] Data to be removed
+  # 
   removeData = ($el, ev) ->
     $el.removeAttr('data-' + ev)
     $el.removeData(ev)

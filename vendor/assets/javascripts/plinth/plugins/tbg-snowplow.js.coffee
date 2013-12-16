@@ -24,7 +24,7 @@ plugin = ($) ->
   # Class definition
   #
   # @example How to use with HAML
-  # %{href: 'path/to/link', data: { spevent: 'category|action|label|prop|value' }}
+  # %a{href: 'path/to/link', data: { spevent: 'category|action|label|prop|value' }}
   # @see https://github.com/snowplow/snowplow/wiki/2-Specific-event-tracking-with-the-Javascript-tracker#371-trackstructevent
   #
   # @example Ensure plugin self-initialises

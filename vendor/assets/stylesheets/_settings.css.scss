@@ -24,56 +24,13 @@ $grids : $mob, $desk !default;
 $fixed-mqs: false !default;
 $old-ie: false !default;
 
-// ==========================================================================
-// Colour Functions
-// ==========================================================================
-
-// Can be extended to add more shades:
-//      $blue-shades: join($blue-shades, rgb(13, 89, 224) );
-
-$mono-shades: #201b21, #4d4d4d, #999999, #dcdde0, #f6f7fb !default;
-@function mono($shade:1) {
-  @return nth($mono-shades, $shade);
-}
-
-
-$blue-shades: #137795, #2ba6cb, #b1e5f5 !default;
-@function blue($shade:1) {
-  @return nth($blue-shades, $shade);
-}
-
-$orange-shades: #ff6633, #a32900 !default;
-@function orange($shade:1) {
-  @return nth($orange-shades, $shade);
-}
-
-$green-shades: #6b9b20, #557821 !default;
-@function green($shade:1) {
-  @return nth($green-shades, $shade);
-}
-
 
 // ==========================================================================
 // Colours
 // ==========================================================================
 
-$main-color: mono() !default;
-$main-color-hover: mono(3) !default;
-$secondary-color: blue() !default;
-$alert-color: #c60f13 !default;
-$success-color: green() !default;
-$txt-color: mono(2) !default;
-$body-color: #fff !default;
-$bg-cover: mono(3) !default;
-$black: mono() !default;
-$white: #fff !default;
-$shiny-edge: rgba(#fff, .8) !default;
-$dark-edge: rgba(#000, .2) !default;
+@import "settings-colours";
 
-// icons
-$facebook-color: #3c5994 !default;
-$twitter-color: #2ca7c8 !default;
-$email-color: #f70015 !default;
 
 // ==========================================================================
 // Fonts

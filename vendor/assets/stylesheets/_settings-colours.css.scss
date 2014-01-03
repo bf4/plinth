@@ -1,0 +1,92 @@
+//
+// Site wide color settings
+// $author Ad Taylor
+//
+
+// ==========================================================================
+// Colour Functions
+// ==========================================================================
+
+// Can be extended to add more shades:
+//      $blue-shades: join($blue-shades, rgb(13, 89, 224) );
+
+$mono-shades: #201B21, #4D4D4D, #999999, #DCDDE0, #F6F7FB !default;
+@function mono($shade:2) {
+  @return nth($mono-shades, $shade);
+}
+
+$blue-shades: #003B6F, #42B4E6, #78C7EB !default;
+@function blue($shade:2) {
+  @return nth($blue-shades, $shade);
+}
+
+$orange-shades: #E54800, #FF6900, #FFb754 !default;
+@function orange($shade:2) {
+  @return nth($orange-shades, $shade);
+}
+
+$green-shades: #007E3A, #87D300, #BAE55F !default;
+@function green($shade:2) {
+  @return nth($green-shades, $shade);
+}
+
+$yellow-shades: #EBAB00, #FFD100, #FAE051 !default;
+@function yellow($shade:2) {
+  @return nth($yellow-shades, $shade);
+}
+
+$purple-shades: #7B2266, #9950B2, #D99CE1 !default;
+@function purple($shade:2) {
+  @return nth($purple-shades, $shade);
+}
+
+$pink-shades: #93173B, #F34E9A, #F8B8CB !default;
+@function pink($shade:2) {
+  @return nth($pink-shades, $shade);
+}
+
+
+// ==========================================================================
+// Dynamically create colour helpers - use in application setup
+// ==========================================================================
+
+@mixin colour-helper($name, $shades) {
+  .text-color-#{$name} {
+    color: nth($shades, 2) !important;
+  }
+
+  a.text-color-#{$name} {
+    &:hover {
+      color: nth($shades, 1) !important;
+    }
+  }
+
+  .bg-#{$name} {
+    background-color: nth($shades, 2) !important;
+  }
+
+}
+
+
+// ==========================================================================
+// Colours
+// ==========================================================================
+
+$main-color: mono() !default;
+$main-color-hover: mono(3) !default;
+$secondary-color: blue() !default;
+$alert-color: pink() !default;
+$success-color: green() !default;
+$txt-color: mono(2) !default;
+$body-color: #fff !default;
+$bg-cover: mono(3) !default;
+$black: mono() !default;
+$white: #fff !default;
+$shiny-edge: rgba(#fff, .8) !default;
+$dark-edge: rgba(#000, .2) !default;
+
+// icons
+$facebook-color: #3c5994 !default;
+$twitter-color: #2ca7c8 !default;
+$email-color: #f70015 !default;
+

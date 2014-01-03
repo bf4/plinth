@@ -26,3 +26,17 @@
 .panel-center {
   text-align: center;
 }
+
+
+// ==========================================================================
+// Panel Theme
+// ==========================================================================
+
+@mixin panel-theme($color-name, $shades) {
+  $color       : nth($shades, 2);
+  $color-dark  : nth($shades, 1);
+  $color-light : nth($shades, 3);
+  .panel-#{$color-name} {
+    background-color: $color;
+  }
+}

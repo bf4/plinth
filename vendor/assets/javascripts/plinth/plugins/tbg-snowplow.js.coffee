@@ -78,7 +78,7 @@ plugin = ($) ->
   # Data API
   # 
   $ ->
-    $('body').on 'click.gaEvent.data-api', '[data-spevent]' , ( e ) ->
+    $('body').on 'click.spEvent.data-api', '[data-spevent]' , ( e ) ->
       $this = $(e.target)
       $this.spEvent()
 

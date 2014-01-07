@@ -39,7 +39,7 @@ plugin = ($) ->
     # 
     constructor: (el, @content) ->
       $el = $(el)
-      @sendEvent (if !(content.split('|') instanceof Array) then content.split('|') else [content]
+      @sendEvent if !(content.split('|') instanceof Array) then content.split('|') else [content]
 
     _constructor: SPEvent
 
@@ -61,7 +61,7 @@ plugin = ($) ->
   removeData = ($el, ev) ->
     $el.removeAttr('data-' + ev)
     $el.removeData(ev)
-    
+
   # SPEvent plugin
   # 
   $.fn.spEvent = (option, type = "spevent") ->
@@ -76,7 +76,7 @@ plugin = ($) ->
   $.fn.spEvent.Constructor = SPEvent
 
   # Data API
-  # 
+  #
   $ ->
     $('body').on 'click.spEvent.data-api', '[data-spevent]' , ( e ) ->
       $this = $(e.target)
@@ -87,3 +87,12 @@ plugin = ($) ->
 
     $('[data-spevent-load]').each ->
       $(this).spEvent null, 'spevent-load'
+
+
+do ( plugin ) ->
+  if typeof define is 'function' and define.amd
+    # AMD. Register as an anonymous module.
+    define(['jquery'], plugin)
+  else
+    # Browser globals
+    plugin(jQuery)

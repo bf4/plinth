@@ -39,7 +39,8 @@ plugin = ($) ->
     # 
     constructor: (el, @content) ->
       $el = $(el)
-      @sendEvent if !(content.split('|') instanceof Array) then content.split('|') else [content]
+      event = if (content.split('|') instanceof Array) then content.split('|') else [content]
+      @sendEvent event
 
     _constructor: SPEvent
 

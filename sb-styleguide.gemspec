@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "sb-styleguide"
   gem.require_paths = ["lib"]
   gem.version       = Sb::Styleguide::VERSION
+  gem.licenses      = ["MIT"]
 
   gem.add_dependency "haml",          [">= 3.1", '< 4.1']
   gem.add_dependency "activesupport", [">= 3.1", '< 4.1']
